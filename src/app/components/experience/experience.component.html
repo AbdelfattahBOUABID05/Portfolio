@@ -1,0 +1,64 @@
+<section id="experience" appScrollReveal class="py-32 bg-white dark:bg-slate-950 relative overflow-hidden transition-colors duration-500">
+  <!-- Decorative background elements -->
+  <div class="absolute top-0 right-0 w-96 h-96 bg-blue-600/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2"></div>
+  <div class="absolute bottom-0 left-0 w-96 h-96 bg-emerald-600/5 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/2"></div>
+
+  <div class="container mx-auto px-6 relative z-10">
+    <div class="max-w-4xl mb-24">
+      <h2 class="text-sm font-black tracking-[0.3em] uppercase text-blue-600 dark:text-blue-500 mb-3">Parcours Professionnel</h2>
+      <h3 class="text-4xl md:text-5xl lg:text-7xl font-black text-slate-900 dark:text-white leading-tight tracking-tighter">
+        Expériences <span class="text-slate-400 dark:text-slate-600 italic transition-colors">Techniques.</span>
+      </h3>
+    </div>
+
+    <div class="relative w-full mx-auto">
+      <!-- Vertical Timeline Line -->
+      <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-blue-600 via-slate-200 dark:via-slate-800 to-transparent -translate-x-1/2 transition-colors"></div>
+
+      <div class="space-y-12 md:space-y-10">
+        @for (item of experiences(); track item.title; let i = $index) {
+          <div class="relative flex flex-col md:flex-row w-full">
+            
+            <!-- Icon Marker -->
+            <div class="absolute left-4 md:left-1/2 w-12 h-12 rounded-2xl bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 flex items-center justify-center -translate-x-1/2 z-20 shadow-sm dark:shadow-none">
+              <div class="text-slate-400">
+                <ng-container *ngComponentOutlet="item.icon; inputs: { size: 24 }"></ng-container>
+              </div>
+            </div>
+
+            <!-- Content Card -->
+            <div [class]="'w-full md:w-1/2 pl-16 md:pl-0 ' + (i % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:ml-auto md:pl-12')">
+              <div class="relative p-6 rounded-[2rem] border border-transparent">
+                
+                <!-- Date Badge -->
+                <div class="inline-flex px-3 py-1 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-[10px] font-black uppercase tracking-widest text-blue-600 dark:text-blue-500 mb-3 shadow-sm dark:shadow-none">
+                  {{ item.period }}
+                </div>
+
+                <!-- Header -->
+                <div class="mb-4">
+                  <h4 class="text-xl md:text-2xl font-black text-slate-900 dark:text-white leading-tight">{{ item.title }}</h4>
+                  <div [class]="'flex flex-wrap items-center gap-2 mt-1 text-sm font-bold text-slate-500 ' + (i % 2 === 0 ? 'md:justify-end' : '')">
+                    <span class="text-emerald-600 dark:text-emerald-500">{{ item.company }}</span>
+                    <span class="w-1 h-1 rounded-full bg-slate-200 dark:bg-slate-800"></span>
+                    <span>{{ item.location }}</span>
+                  </div>
+                </div>
+
+                <!-- Activities List -->
+                <ul [class]="'space-y-3 ' + (i % 2 === 0 ? 'md:items-end' : '')">
+                  @for (activity of item.activities; track activity) {
+                    <li [class]="'flex gap-3 text-slate-600 dark:text-slate-400 text-sm leading-relaxed ' + (i % 2 === 0 ? 'md:flex-row-reverse md:text-right' : '')">
+                      <span class="mt-2 w-1.5 h-1.5 rounded-full bg-blue-500/50 flex-shrink-0"></span>
+                      <span [innerHTML]="activity"></span>
+                    </li>
+                  }
+                </ul>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

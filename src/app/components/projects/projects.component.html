@@ -1,0 +1,81 @@
+<section id="projects" appScrollReveal class="py-32 bg-white dark:bg-slate-950 relative overflow-hidden transition-colors duration-500">
+  <!-- Subtle background glow -->
+  <div class="absolute top-1/2 right-0 w-[500px] h-[500px] bg-emerald-500/5 rounded-full blur-[120px]"></div>
+
+  <div class="container mx-auto px-6 relative z-10">
+    <div class="max-w-4xl mb-20">
+      <h2 class="text-sm font-black tracking-[0.3em] uppercase text-emerald-600 dark:text-emerald-500 mb-3">Portfolio</h2>
+      <h3 class="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white leading-tight tracking-tight">
+        Projets <span class="text-slate-400 dark:text-slate-600 font-medium">& Réalisations.</span>
+      </h3>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      @for (project of projects(); track project.title) {
+        <div class="relative">
+          <div class="relative h-full flex flex-col p-8 rounded-[2rem] bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm dark:shadow-none">
+            
+            <!-- Category & Icon -->
+            <div class="flex items-center justify-between mb-8">
+              <div class="p-3 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm dark:shadow-none">
+                <span class="text-blue-600 dark:text-blue-500 flex items-center justify-center">
+                  <ng-container *ngComponentOutlet="project.icon; inputs: { size: 24 }"></ng-container>
+                </span>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50 text-[10px] font-black uppercase tracking-widest text-slate-500">
+                {{ project.category }}
+              </span>
+            </div>
+
+            <!-- Content -->
+            <div class="flex-grow space-y-4">
+              <h4 class="text-2xl font-black text-slate-900 dark:text-white leading-tight">
+                {{ project.title }}
+              </h4>
+              <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                {{ project.description }}
+              </p>
+
+              <!-- Features -->
+              <ul class="space-y-2 py-4">
+                @for (feature of project.features; track feature) {
+                  <li class="flex items-start gap-3 text-xs text-slate-500">
+                    <span class="mt-1 w-1 h-1 rounded-full bg-blue-500/50 flex-shrink-0"></span>
+                    <span>{{ feature }}</span>
+                  </li>
+                }
+              </ul>
+            </div>
+
+            <!-- Technologies -->
+            <div class="flex flex-wrap gap-2 mt-6">
+              @for (tech of project.technologies; track tech) {
+                <span class="px-3 py-1 rounded-lg bg-blue-500/5 border border-blue-500/20 text-[10px] font-bold text-blue-600 dark:text-blue-400 transition-colors">
+                  {{ tech }}
+                </span>
+              }
+            </div>
+
+            <!-- Footer Actions -->
+            <div class="flex items-center gap-4 mt-8 pt-6 border-t border-slate-200 dark:border-slate-800/50">
+              <a [href]="project.github" class="p-2 rounded-lg bg-white dark:bg-slate-800 text-slate-900 dark:text-white hover:bg-emerald-600 dark:hover:bg-emerald-500 hover:text-white transition-all border border-slate-200 dark:border-slate-700" title="Code Source">
+                <span class="flex items-center justify-center">
+                  <svg lucideCodeXml [size]="18"></svg>
+                </span>
+              </a>
+              <a [href]="project.live" class="flex items-center gap-2 px-4 py-2 bg-slate-900 dark:bg-white text-white dark:text-slate-950 font-black text-[10px] uppercase tracking-widest rounded-lg hover:bg-emerald-600 dark:hover:bg-emerald-500 hover:text-white transition-all shadow-lg dark:shadow-none">
+                Live Demo
+                <span class="flex items-center justify-center">
+                  <svg lucideExternalLink [size]="12"></svg>
+                </span>
+              </a>
+            </div>
+
+            <!-- Background Decoration -->
+            <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-blue-500/5 rounded-full blur-3xl pointer-events-none group-hover:bg-blue-500/10 transition-all duration-700"></div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

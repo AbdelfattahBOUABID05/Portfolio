@@ -1,0 +1,73 @@
+<section id="hero" appScrollReveal class="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-950 pt-20 overflow-hidden relative transition-colors duration-500">
+  <!-- Dynamic background effects -->
+  <div class="absolute top-1/4 -left-1/4 w-[600px] h-[600px] bg-blue-600/5 dark:bg-blue-600/10 rounded-full blur-[120px] animate-pulse"></div>
+  <div class="absolute bottom-1/4 -right-1/4 w-[600px] h-[600px] bg-emerald-600/5 dark:bg-emerald-600/10 rounded-full blur-[120px] animate-pulse"></div>
+
+  <div class="container mx-auto px-6 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      
+      <!-- Left Column: Text Content -->
+      <div class="space-y-8 text-center lg:text-left">
+        
+        <!-- Greeting Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 text-blue-600 dark:text-blue-400 text-xs font-black uppercase tracking-[0.2em] backdrop-blur-sm">
+          <span class="w-2 h-2 rounded-full bg-blue-500 animate-ping"></span>
+          Disponible pour de nouveaux projets
+        </div>
+
+        <!-- Main Heading -->
+        <div class="space-y-4">
+          <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-slate-900 dark:text-white tracking-tighter leading-[0.9]">
+            Abdelfattah BOUABID<br>
+            <span class="text-slate-400 dark:text-slate-600 italic transition-colors">Software Engineer.</span>
+          </h1>
+          <p class="text-lg md:text-xl font-bold text-blue-600 dark:text-blue-500 tracking-tight uppercase">
+            EXPERTISE FULL-STACK | DEVOPS & INFRASTRUCTURE | ARCHITECTE SOLUTIONS SÉCURISÉES
+          </p>
+        </div>
+
+        <!-- Description -->
+        <p class="text-slate-600 dark:text-slate-400 text-lg md:text-xl max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+          Ingénieur Full-Stack & DevOps avec une expertise end-to-end : des applications Web et Mobile performantes, jusqu'aux infrastructures automatisées. Concepteur de solutions complètes comme LogSOC. J'optimise la performance, la résilience et la sécurité des stacks pour accélérer la transformation digitale des entreprises.
+        </p>
+
+        <!-- Actions -->
+        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6 pt-8">
+          <a href="#projects" class="group relative px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-950 font-black text-sm uppercase tracking-widest rounded-2xl overflow-hidden transition-all hover:bg-emerald-600 dark:hover:bg-emerald-500 hover:text-white w-full sm:w-auto text-center">
+            <span class="relative z-10 flex items-center justify-center gap-2">
+              Voir mes projets
+              <span class="group-hover:translate-x-1 transition-transform flex items-center justify-center">
+                <svg lucideArrowRight [size]="18"></svg>
+              </span>
+            </span>
+          </a>
+          
+          <a href="assets/data/BouabidAbdelfattah_CV.pdf" download="Bouabid_Abdelfattah_CV.pdf" class="group flex items-center justify-center gap-3 px-8 py-4 bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-black text-sm uppercase tracking-widest rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-emerald-500/50 transition-all w-full sm:w-auto shadow-sm dark:shadow-none">
+            <span class="flex items-center justify-center">
+              <svg lucideDownload [size]="18"></svg>
+            </span>
+            Télécharger CV
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column: Photo - Ultra Minimalist -->
+      <div class="flex justify-center lg:justify-end">
+        <div class="w-full max-w-md">
+          <img 
+            src="assets/me.png" 
+            alt="Abdelfattah BOUABID" 
+            class="w-full h-auto object-contain"
+          >
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-30 dark:opacity-30">
+    <div class="w-px h-12 bg-gradient-to-b from-blue-500 to-transparent"></div>
+    <span class="text-[10px] font-black uppercase tracking-widest text-slate-900 dark:text-white">Scroll</span>
+  </div>
+</section>
