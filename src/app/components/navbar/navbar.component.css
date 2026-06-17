@@ -13,3 +13,13 @@ a.active::after {
   background: linear-gradient(to right, #3b82f6, #10b981);
   border-radius: 9999px;
 }
+
+.navbar-logo {
+  height: 70px;
+  width: auto;
+  transition: all 0.3s;
+}
+
+.navbar-logo:hover {
+  filter: drop-shadow(0 0 10px #00FFFF);
+}
