@@ -68,19 +68,17 @@
     </div>
   </div>
 
-  <!-- Mobile Menu Overlay -->
-  <div [class]="'fixed inset-0 top-20 bg-white dark:bg-slate-950 z-40 transition-transform duration-500 lg:hidden ' + (isMenuOpen() ? 'translate-x-0' : 'translate-x-full')">
-    <div class="flex flex-col items-center justify-center h-full gap-8">
-      @for (link of navLinks; track link.label) {
-        <a (click)="scrollToSection(link.href)" 
-           [class.active]="activeSection() === link.href.replace('#', '')"
-           class="cursor-pointer text-2xl font-bold text-slate-900 dark:text-slate-400 hover:text-blue-600 dark:hover:text-white transition-colors">
-          {{ link.label }}
-        </a>
-      }
-      <a href="assets/data/BouabidAbdelfattah_CV.pdf" download="Bouabid_Abdelfattah_CV.pdf" class="mt-4 px-10 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-emerald-500 text-white font-bold text-lg">
-        Télécharger CV
+  <!-- Mobile Menu Overlay - Fixed Full Screen -->
+  <div [class]="'fixed top-0 left-0 w-full h-screen bg-white dark:bg-slate-950 z-[60] transition-transform duration-500 lg:hidden flex flex-col items-center justify-center gap-8 ' + (isMenuOpen() ? 'translate-x-0' : 'translate-x-full')">
+    @for (link of navLinks; track link.label) {
+      <a (click)="scrollToSection(link.href)" 
+         [class.active]="activeSection() === link.href.replace('#', '')"
+         class="cursor-pointer text-2xl font-bold text-slate-900 dark:text-slate-400 hover:text-blue-600 dark:hover:text-white transition-colors">
+        {{ link.label }}
       </a>
-    </div>
+    }
+    <a href="assets/data/BouabidAbdelfattah_CV.pdf" download="Bouabid_Abdelfattah_CV.pdf" class="px-10 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-emerald-500 text-white font-bold text-lg">
+      Télécharger CV
+    </a>
   </div>
 </nav>
