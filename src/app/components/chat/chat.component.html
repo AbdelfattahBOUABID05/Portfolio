@@ -1,0 +1,51 @@
+@if (isBrowser) {
+  <!-- Floating Toggle Button -->
+  <button class="chat-toggle-button" (click)="toggleChat()" aria-label="Toggle chat">
+    <span class="toggle-icon">💬</span>
+  </button>
+
+  <!-- Chat Container -->
+  @if (isOpen()) {
+    <div class="chat-container">
+      <div class="chat-header">
+        <h3>AI Assistant</h3>
+        <button class="close-button" (click)="toggleChat()" aria-label="Close chat">✕</button>
+        <div class="status">
+          <span class="dot" [class.ready]="aiChatService.isInitialized()" [class.loading]="aiChatService.isLoading()"></span>
+          {{ aiChatService.isLoading() ? 'Thinking...' : aiChatService.isInitialized() ? 'Ready' : 'Loading...' }}
+        </div>
+      </div>
+
+      <div class="chat-messages">
+        @for (message of aiChatService.messages(); track message) {
+          <div class="message" [class.user]="message.role === 'user'" [class.assistant]="message.role === 'assistant'">
+            <div class="avatar">
+              {{ message.role === 'user' ? '👤' : '🤖' }}
+            </div>
+            <div class="message-content">
+              {{ message.content }}
+            </div>
+          </div>
+        }
+        @if (aiChatService.messages().length === 0) {
+          <div class="welcome">
+            <p>Hello! I'm Abdelfattah's AI assistant. Ask me anything about his skills, projects, or experience!</p>
+          </div>
+        }
+      </div>
+
+      <div class="chat-input">
+        <input
+          type="text"
+          [(ngModel)]="userInput"
+          [disabled]="false"
+          (keydown)="onKeyDown($event)"
+          placeholder="Ask me something..."
+        >
+        <button (click)="onSend()" [disabled]="!userInput.trim()">
+          Send
+        </button>
+      </div>
+    </div>
+  }
+}

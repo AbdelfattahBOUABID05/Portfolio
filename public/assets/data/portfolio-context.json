@@ -1,0 +1,355 @@
+{
+  "name": "Abdelfattah Bouabid",
+  "title": {
+    "en": "Full-Stack Engineer, DevOps & Network Infrastructure",
+    "fr": "Ingénieur Full-Stack, DevOps & Infrastructure Réseau"
+  },
+  "summary": {
+    "en": "Full-Stack & DevOps Engineer with end-to-end expertise: from performant Web and Mobile applications to automated infrastructures. Designer of complete solutions like LogSOC. I optimize performance, resilience and security of stacks to accelerate companies' digital transformation.",
+    "fr": "Ingénieur Full-Stack & DevOps avec une expertise end-to-end : des applications Web et Mobile performantes, jusqu'aux infrastructures automatisées. Concepteur de solutions complètes comme LogSOC. J'optimise la performance, la résilience et la sécurité des stacks pour accélérer la transformation digitale des entreprises."
+  },
+  "certifications": [
+    "Enterprise Networking, Security, and Automation",
+    "Cisco CyberOps Associate",
+    "Ethical Hacker",
+    "Cisco IT Essentials 7",
+    "Network Technician Career Path",
+    "Notions de base sur les réseaux",
+    "Python Essentials 1",
+    "Switching, Routing, and Wireless Essentials"
+  ],
+  "skills": {
+    "frontendMobile": {
+      "title": {
+        "en": "Frontend & Mobile",
+        "fr": "Frontend & Mobile"
+      },
+      "items": ["Angular", "Flutter", "Dart", "HTML5", "CSS3", "Tailwind CSS"]
+    },
+    "backendApis": {
+      "title": {
+        "en": "Backend & APIs",
+        "fr": "Backend & APIs"
+      },
+      "items": ["Java", "Spring Boot", "PHP", "Laravel", "Flask", "REST APIs"]
+    },
+    "devopsCloud": {
+      "title": {
+        "en": "DevOps & Cloud",
+        "fr": "DevOps & Cloud"
+      },
+      "items": ["Docker", "GitLab CI/CD", "Jenkins", "VMware ESXi", "Nginx", "Linux", "Bash/Shell"]
+    },
+    "networkSecurity": {
+      "title": {
+        "en": "Network & Security",
+        "fr": "Réseau & Sécurité"
+      },
+      "items": ["Cisco IOS", "CCNA Routing & Switching", "Cisco CyberOps", "Routing & Switching", "VLANs & ACLs", "NAT/DHCP"]
+    },
+    "digitalDesignDocs": {
+      "title": {
+        "en": "Digital Design & Docs",
+        "fr": "Digital Design & Docs"
+      },
+      "items": ["Logo Design", "Canva", "Technical Documentation", "Professional Reports (LaTeX)"]
+    }
+  },
+  "projects": [
+    {
+      "title": {
+        "en": "LogSOC: Intelligent Platform for System Log Analysis and Supervision",
+        "fr": "LogSOC : Plateforme intelligente d’analyse et de supervision des logs systèmes"
+      },
+      "category": {
+        "en": "Full-Stack / AI",
+        "fr": "Full-Stack / AI"
+      },
+      "description": {
+        "en": "Platform dedicated to centralization, automated analysis and anomaly detection on system logs, with AI integration to accelerate diagnosis and strengthen supervision.",
+        "fr": "Plateforme dédiée à la centralisation, l’analyse automatisée et la détection d’anomalies sur les logs systèmes, avec intégration d’intelligence artificielle pour accélérer le diagnostic et renforcer la supervision."
+      },
+      "features": {
+        "en": [
+          "Unified and scalable architecture for homogeneous data centralization and real-time visualization.",
+          "Complete life cycle automation for optimal reliability and accelerated production deployment.",
+          "Robust deployment security with a strategic approach to guarantee availability and resilience."
+        ],
+        "fr": [
+          "Architecture unifiée et scalable pour une centralisation homogène des données et une visualisation temps réel.",
+          "Automatisation complète des cycles de vie pour une fiabilité optimale et une mise en production accélérée.",
+          "Sécurisation robuste du déploiement avec une approche stratégique pour garantir la disponibilité et la résilience."
+        ]
+      },
+      "technologies": ["Angular", "Spring Boot", "Laravel", "GitLab CI/CD", "Docker", "Nginx", "LLM"]
+    },
+    {
+      "title": {
+        "en": "Automated CI/CD Infrastructure Pipeline",
+        "fr": "Automated CI/CD Infrastructure Pipeline"
+      },
+      "category": {
+        "en": "DevOps",
+        "fr": "DevOps"
+      },
+      "description": {
+        "en": "Complete DevOps infrastructure to industrialize the application life cycle, from source code to production.",
+        "fr": "Infrastructure DevOps complète pour industrialiser le cycle de vie des applications, du code source jusqu'à la production."
+      },
+      "features": {
+        "en": [
+          "Complete industrialization of deployment to accelerate delivery cycles.",
+          "Reduction of human errors through automation of build, test and validation steps.",
+          "Guarantee of code quality through validation gates integrated into pipelines."
+        ],
+        "fr": [
+          "Industrialisation complète du déploiement pour accélérer les cycles de livraison.",
+          "Réduction des erreurs humaines grâce à l'automatisation des étapes de build, test et validation.",
+          "Garantie de la qualité du code via des portes de validation intégrées aux pipelines."
+        ]
+      },
+      "technologies": ["Jenkins", "DevOps", "CI/CD", "Automation", "Git"]
+    },
+    {
+      "title": {
+        "en": "Tactix – Football Strategy Mobile App",
+        "fr": "Tactix – Application Mobile de Stratégie Football"
+      },
+      "category": {
+        "en": "Mobile",
+        "fr": "Mobile"
+      },
+      "description": {
+        "en": "Cross-platform mobile application dedicated to strategy development, performance tracking and football team management.",
+        "fr": "Application mobile multiplateforme dédiée à l'élaboration de tactiques, au suivi des performances et à la gestion d'équipes de football."
+      },
+      "features": {
+        "en": [
+          "Cross-Platform Development for a smooth user experience on all devices.",
+          "Optimized state management for dynamic and reactive rendering of match data and tactical boards."
+        ],
+        "fr": [
+          "Développement Cross-Platform pour une expérience utilisateur fluide sur tous les appareils.",
+          "Gestion optimisée des états pour un rendu dynamique et réactif des données de match et des tableaux tactiques."
+        ]
+      },
+      "technologies": ["Flutter", "Dart", "OOP", "State Management"]
+    },
+    {
+      "title": {
+        "en": "Cisco Enterprise Network Infrastructure",
+        "fr": "Cisco Enterprise Network Infrastructure"
+      },
+      "category": {
+        "en": "Network / NetOps",
+        "fr": "Réseau / NetOps"
+      },
+      "description": {
+        "en": "Secure and resilient enterprise network architecture, guaranteeing reliability and connectivity of critical services.",
+        "fr": "Architecture réseau d'entreprise sécurisée et résiliente, garantissant la fiabilité et la connectivité des services critiques."
+      },
+      "features": {
+        "en": [
+          "Strategic traffic segmentation to strengthen security and optimize performance.",
+          "Robust perimeter security and access control to protect IT assets.",
+          "High availability to guarantee continuity of essential business services."
+        ],
+        "fr": [
+          "Segmentation stratégique du trafic pour renforcer la sécurité et optimiser les performances.",
+          "Sécurisation robuste du périmètre et contrôle des accès pour protéger les actifs informatiques.",
+          "Haute disponibilité pour garantir la continuité des services essentiels de l'entreprise."
+        ]
+      },
+      "technologies": ["Cisco IOS", "Packet Tracer", "Routing", "Switching", "NAT", "VLANs", "ACLs"]
+    },
+    {
+      "title": {
+        "en": "Enterprise Virtualization Infrastructure",
+        "fr": "Enterprise Virtualization Infrastructure"
+      },
+      "category": {
+        "en": "Cloud & Virtualization",
+        "fr": "Cloud & Virtualisation"
+      },
+      "description": {
+        "en": "Enterprise-grade virtualization infrastructure to consolidate resources and optimize workloads.",
+        "fr": "Infrastructure virtualisée de niveau entreprise pour consolider les ressources et optimiser les charges de travail."
+      },
+      "features": {
+        "en": [
+          "Workload optimization for efficient use of hardware resources.",
+          "Strengthened service continuity through virtualization and snapshot management.",
+          "Centralized administration to simplify management of systems and directory services."
+        ],
+        "fr": [
+          "Optimisation des charges de travail pour une utilisation efficace des ressources matérielles.",
+          "Continuité de service renforcée grâce à la virtualisation et à la gestion des snapshots.",
+          "Administration centralisée pour simplifier la gestion des systèmes et des services d'annuaire."
+        ]
+      },
+      "technologies": ["VMware ESXi", "Windows Server", "Active Directory", "DNS", "Datastores"]
+    }
+  ],
+  "experience": [
+    {
+      "title": {
+        "en": "System & DevOps Engineering Intern",
+        "fr": "Stagiaire en Ingénierie Systèmes & DevOps"
+      },
+      "company": "Attijariwafa Bank",
+      "location": {
+        "en": "Headquarters, Casablanca",
+        "fr": "Siège Social, Casablanca"
+      },
+      "period": {
+        "en": "APRIL 2026 - JUNE 2026",
+        "fr": "AVRIL 2026 - JUIN 2026"
+      },
+      "activities": {
+        "en": [
+          "Optimization of system infrastructure and reliability of bank server environments, ensuring high service availability.",
+          "Industrialization of web application life cycle: containerization via Docker for scalability, and continuous deployment with GitLab CI/CD to accelerate updates.",
+          "Design of the LogSOC system: intelligent monitoring platform and web system supervision, improving service availability and performance through predictive log analysis."
+        ],
+        "fr": [
+          "Optimisation de l'infrastructure système et fiabilisation des environnements de serveurs bancaires, assurant une haute disponibilité des services.",
+          "Industrialisation du cycle de vie des applications web : conteneurisation via Docker pour la scalabilité, et déploiement continu avec GitLab CI/CD pour accélérer les mises à jour.",
+          "Conception du système LogSOC : plateforme de monitoring intelligent et de supervision des systèmes web, améliorant la disponibilité et la performance des services via l'analyse prédictive des logs."
+        ]
+      }
+    },
+    {
+      "title": {
+        "en": "Network & Telecommunications Intern",
+        "fr": "Stagiaire en Réseaux & Télécommunications"
+      },
+      "company": "TSM (Global Service Technology)",
+      "location": {
+        "en": "Casablanca",
+        "fr": "Casablanca"
+      },
+      "period": {
+        "en": "MARCH 2025 - APRIL 2025",
+        "fr": "MARS 2025 - AVRIL 2025"
+      },
+      "activities": {
+        "en": [
+          "Physical installation, cabling and advanced configuration of Enterprise-level network equipment (Huawei and Juniper Routers and Switches).",
+          "Implementation of routing and switching protocols, access security (VLANs, ACLs) and troubleshooting on critical telecom links.",
+          "Level 2 technical support to ensure high availability of the company's client network infrastructure."
+        ],
+        "fr": [
+          "Installation physique, câblage et configuration avancée d'équipements réseaux de niveau Enterprise (Routeurs et Commutateurs Huawei et Juniper).",
+          "Implémentation des protocoles de routage et de commutation, sécurisation des accès (VLANs, ACLs) et diagnostic de pannes sur des liaisons télécoms critiques.",
+          "Support technique de niveau 2 pour assurer la haute disponibilité de l'infrastructure réseau des clients de l'entreprise."
+        ]
+      }
+    },
+    {
+      "title": {
+        "en": "Computer & Systems Intern",
+        "fr": "Stagiaire en Informatique & Systèmes"
+      },
+      "company": "Sefrou Province",
+      "location": {
+        "en": "Sefrou",
+        "fr": "Sefrou"
+      },
+      "period": {
+        "en": "JULY 2024 - AUGUST 2024",
+        "fr": "JUILLET 2024 - AOÛT 2024"
+      },
+      "activities": {
+        "en": [
+          "Deployment, configuration of local network equipment (LAN) and optimization of IP addressing plan for different administrative services.",
+          "Operational management of computer park: installation of operating systems (Windows/Linux), preventive/curative hardware maintenance and system image deployment.",
+          "Technical assistance and on-site level 1 and 2 support for resolving software and network incidents."
+        ],
+        "fr": [
+          "Déploiement, configuration d'équipements réseaux locaux (LAN) et optimisation du plan d'adressage IP pour les différents services administratifs.",
+          "Gestion opérationnelle du parc informatique : installation des systèmes d'exploitation (Windows/Linux), maintenance préventive/curative du matériel et déploiement d'images système.",
+          "Assistance technique et support de proximité de niveau 1 et 2 pour la résolution des incidents logiciels et réseau."
+        ]
+      }
+    },
+    {
+      "title": {
+        "en": "Computer Space Manager",
+        "fr": "Gestionnaire d'Espace Informatique"
+      },
+      "company": "Computer Library",
+      "location": {
+        "en": "Errachidia",
+        "fr": "Errachidia"
+      },
+      "period": {
+        "en": "AUGUST 2023 - SEPTEMBER 2023",
+        "fr": "AOÛT 2023 - SEPTEMBRE 2023"
+      },
+      "activities": {
+        "en": [
+          "Daily administration of the computer space's local network (access rights management, basic routing and public Wi-Fi security).",
+          "Software and hardware maintenance of the park (malware disinfection, critical updates, system performance optimization).",
+          "User support, on-site training on digital tools and resolution of connectivity issues."
+        ],
+        "fr": [
+          "Administration au quotidien du réseau local de l'espace informatique (gestion des droits d'accès, routage de base et sécurité du Wi-Fi public).",
+          "Maintenance logicielle et matérielle du parc (désinfection de malwares, mises à jour critiques, optimisation des performances systèmes).",
+          "Support utilisateur, formation de proximité aux outils numériques et résolution des problèmes de connectivité."
+        ]
+      }
+    }
+  ],
+  "services": [
+    {
+      "title": {
+        "en": "Full-Stack Web Development",
+        "fr": "Développement Web Full-Stack"
+      },
+      "description": {
+        "en": "Design and development of modern end-to-end web applications. Reactive interfaces with Angular (Signals) and robust and secure backend architectures with Java Spring Boot, Laravel and Flask.",
+        "fr": "Conception et développement d'applications web modernes de bout en bout. Interfaces réactives avec Angular (Signals) et architectures backend robustes et sécurisées avec Java Spring Boot, Laravel et Flask."
+      }
+    },
+    {
+      "title": {
+        "en": "Cross-Platform Mobile Development",
+        "fr": "Développement Mobile Multiplateforme"
+      },
+      "description": {
+        "en": "Creation of performant and intuitive mobile applications for iOS and Android from a single codebase with Flutter & Dart, following best UI/UX and state management practices.",
+        "fr": "Création d'applications mobiles performantes et intuitives pour iOS et Android à partir d'un code unique avec Flutter & Dart, respectant les meilleures pratiques d'UI/UX et de gestion d'état."
+      }
+    },
+    {
+      "title": {
+        "en": "DevOps & Automation Engineering",
+        "fr": "Ingénierie DevOps & Automatisation"
+      },
+      "description": {
+        "en": "Implementation of cloud/virtualized architectures (VMware ESXi), containerization (Docker), and complete automation of continuous integration and deployment pipelines (GitLab CI/CD, Jenkins, Nginx).",
+        "fr": "Mise en place d'architectures cloud/virtualisées (VMware ESXi), conteneurisation (Docker), et automatisation complète des pipelines d'intégration et déploiement continu (GitLab CI/CD, Jenkins, Nginx)."
+      }
+    },
+    {
+      "title": {
+        "en": "Networks & Cybersecurity (SecOps)",
+        "fr": "Réseaux & Cybersécurité (SecOps)"
+      },
+      "description": {
+        "en": "Security audit, advanced routing and switching (Cisco IOS), enterprise network configuration (VLANs, NAT, ACLs) and implementation of automated log supervision and analysis systems (LogSOC).",
+        "fr": "Audit de sécurité, routage et commutation avancés (Cisco IOS), configuration réseau d'entreprise (VLANs, NAT, ACLs) et mise en place de systèmes de supervision et analyse de logs automatisée (LogSOC)."
+      }
+    }
+  ],
+  "contact": {
+    "email": "abdelfattahbouabid123@gmail.com",
+    "github": "https://github.com/AbdelfattahBOUABID05",
+    "linkedin": "https://www.linkedin.com/in/abdelfattah-bouabid-150a56335"
+  },
+  "languages": ["English", "French"],
+  "availability": {
+    "en": "Available for new projects",
+    "fr": "Disponible pour de nouveaux projets"
+  }
+}

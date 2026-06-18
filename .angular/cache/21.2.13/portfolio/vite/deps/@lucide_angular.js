@@ -8,8 +8,6 @@ import {
   Type,
   ViewChild,
   ViewEncapsulation,
-  __spreadProps,
-  __spreadValues,
   computed,
   effect,
   inject,
@@ -33,7 +31,11 @@ import {
   ɵɵtext,
   ɵɵtextInterpolate,
   ɵɵviewQuerySignal
-} from "./chunk-AZMCJAT4.js";
+} from "./chunk-INWHGSGI.js";
+import {
+  __spreadProps,
+  __spreadValues
+} from "./chunk-6GTXIWPM.js";
 
 // node_modules/@lucide/angular/fesm2022/lucide-angular.mjs
 var _c0 = ["contentRef"];
