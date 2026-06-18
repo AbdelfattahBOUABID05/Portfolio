@@ -2,45 +2,51 @@ import { Component, signal, Type } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LucideLayout, LucideServer, LucideShieldCheck, LucideSmartphone } from '@lucide/angular';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal';
+import { TranslatePipe } from '@ngx-translate/core';
 
 interface Service {
-  title: string;
-  description: string;
+  titleKey: string;
+  descriptionKey: string;
   icon: Type<any>;
   color: 'blue' | 'indigo' | 'emerald' | 'rose' | 'slate';
+  index: number;
 }
 
 @Component({
   selector: 'app-services',
   standalone: true,
-  imports: [CommonModule, LucideLayout, LucideServer, LucideShieldCheck, LucideSmartphone, ScrollRevealDirective],
+  imports: [CommonModule, LucideLayout, LucideServer, LucideShieldCheck, LucideSmartphone, ScrollRevealDirective, TranslatePipe],
   templateUrl: './services.component.html'
 })
 export class ServicesComponent {
   public services = signal<Service[]>([
     {
-      title: 'Développement Web Full-Stack',
-      description: 'Conception et développement d\'applications web modernes de bout en bout. Interfaces réactives avec Angular (Signals) et architectures backend robustes et sécurisées avec Java Spring Boot, Laravel et Flask.',
+      titleKey: 'servicesList.0.title',
+      descriptionKey: 'servicesList.0.description',
       icon: LucideLayout,
-      color: 'blue'
+      color: 'blue',
+      index: 0
     },
     {
-      title: 'Développement Mobile Multiplateforme',
-      description: 'Création d\'applications mobiles performantes et intuitives pour iOS et Android à partir d\'un code unique avec Flutter & Dart, respectant les meilleures pratiques d\'UI/UX et de gestion d\'état.',
+      titleKey: 'servicesList.1.title',
+      descriptionKey: 'servicesList.1.description',
       icon: LucideSmartphone,
-      color: 'indigo'
+      color: 'indigo',
+      index: 1
     },
     {
-      title: 'Ingénierie DevOps & Automatisation',
-      description: 'Mise en place d\'architectures cloud/virtualisées (VMware ESXi), conteneurisation (Docker), et automatisation complète des pipelines d\'intégration et déploiement continus (GitLab CI/CD, Jenkins, Nginx).',
+      titleKey: 'servicesList.2.title',
+      descriptionKey: 'servicesList.2.description',
       icon: LucideServer,
-      color: 'emerald'
+      color: 'emerald',
+      index: 2
     },
     {
-      title: 'Réseaux & Cybersécurité (SecOps)',
-      description: 'Audit de sécurité, routage et commutation avancés (Cisco IOS), configuration réseau d\'entreprise (VLANs, NAT, ACLs) et mise en place de systèmes de supervision et analyse de logs automatisée (LogSOC).',
+      titleKey: 'servicesList.3.title',
+      descriptionKey: 'servicesList.3.description',
       icon: LucideShieldCheck,
-      color: 'rose'
+      color: 'rose',
+      index: 3
     }
   ]);
 

@@ -32,11 +32,11 @@ import {
   ɵɵtext,
   ɵɵtextInterpolate,
   ɵɵviewQuerySignal
-} from "./chunk-6AA2DW6V.js";
+} from "./chunk-OVEQVL5X.js";
 import {
   __spreadProps,
   __spreadValues
-} from "./chunk-6DU2HRTW.js";
+} from "./chunk-VIB2VHHA.js";
 
 // node_modules/@lucide/angular/fesm2022/lucide-angular.mjs
 var _c0 = ["contentRef"];

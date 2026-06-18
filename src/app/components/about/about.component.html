@@ -36,24 +36,23 @@
       <div class="w-full lg:w-7/12 space-y-8">
         <div class="space-y-4">
           <h2 class="text-3xl md:text-4xl font-black text-slate-900 dark:text-white leading-tight">
-            Ingénieur <span class="text-blue-500">Full-Stack</span>, 
-            <span class="text-emerald-500">DevOps & Infrastructure Réseau</span>
+            {{ 'about.title' | translate }}
           </h2>
           <p class="text-slate-600 dark:text-slate-400 text-base md:text-lg leading-relaxed mb-4">
-            Consultant indépendant spécialisé dans l'orchestration de solutions technologiques complètes, de la conception architecturale jusqu'au déploiement en production. J'accompagne les entreprises dans la transformation de leurs systèmes d'information, en alliant innovation, performance et résilience.
+            {{ 'about.description1' | translate }}
           </p>
           <p class="text-slate-600 dark:text-slate-400 text-base md:text-lg leading-relaxed">
-            Mon expertise couvre la chaîne complète de valeur : architectures logicielles modernes, automatisation des pipelines CI/CD, infrastructures cloud et réseaux sécurisés. Je conçois des solutions scalables et adaptables, capables d'évoluer avec les besoins de l'entreprise.
+            {{ 'about.description2' | translate }}
           </p>
         </div>
 
         <!-- Stats Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 relative">
-          @for (stat of stats(); track stat.label) {
+          @for (stat of stats(); track stat.labelKey) {
             <div 
               class="p-6 rounded-[2rem] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none"
-              [class.cursor-pointer]="stat.label === 'Certifications'"
-              (click)="stat.label === 'Certifications' ? toggleCertList($event) : null"
+              [class.cursor-pointer]="stat.labelKey === 'aboutStats.certifications'"
+              (click)="stat.labelKey === 'aboutStats.certifications' ? toggleCertList($event) : null"
             >
               <div class="flex items-center gap-4 mb-3">
                 <div class="p-3 rounded-2xl bg-slate-100 dark:bg-slate-800">
@@ -65,9 +64,9 @@
               </div>
               <div class="flex items-center justify-between">
                 <p class="text-xs font-black uppercase tracking-widest text-slate-500">
-                  {{ stat.label }}
+                  {{ stat.labelKey | translate }}
                 </p>
-                @if (stat.label === 'Certifications') {
+                @if (stat.labelKey === 'aboutStats.certifications') {
                   <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="text-slate-400 dark:text-slate-600" [class.rotate-180]="isCertListOpen()">
                     <path d="m6 9 6 6 6-6"/>
                   </svg>
@@ -75,7 +74,7 @@
               </div>
 
               <!-- Certifications Dropdown -->
-              @if (stat.label === 'Certifications' && isCertListOpen()) {
+              @if (stat.labelKey === 'aboutStats.certifications' && isCertListOpen()) {
                 <div 
                   class="absolute top-full left-0 right-0 mt-4 z-50 p-4 rounded-3xl bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border border-slate-200 dark:border-slate-800 shadow-2xl animate-in fade-in slide-in-from-top-4 duration-300 max-h-[450px] overflow-y-auto custom-scrollbar"
                   (click)="$event.stopPropagation()"
@@ -92,14 +91,14 @@
                             class="flex-1 flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 hover:bg-blue-600 dark:hover:bg-blue-500 hover:text-white text-[10px] font-black uppercase tracking-wider transition-all border border-blue-500/20"
                           >
                             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9 12 15 18 9"/></svg>
-                            Badge
+                            {{ 'about.badge' | translate }}
                           </button>
                           <button 
                             (click)="openFile(cert.pdf)"
                             class="flex-1 flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-600 dark:hover:bg-emerald-500 hover:text-white text-[10px] font-black uppercase tracking-wider transition-all border border-emerald-500/20"
                           >
                             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
-                            Certificat
+                            {{ 'about.certificate' | translate }}
                           </button>
                         </div>
                       </div>

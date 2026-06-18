@@ -2,65 +2,62 @@ import { Component, signal, Type } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LucideLayout, LucideDatabase, LucideInfinity, LucideShield, LucideFileText } from '@lucide/angular';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal';
+import { TranslatePipe } from '@ngx-translate/core';
 
 interface Skill {
-  name: string;
+  nameKey: string;
 }
 
 interface SkillCategory {
-  title: string;
+  titleKey: string;
   icon: Type<any>;
-  skills: Skill[];
+  skillCount: number;
   color: 'blue' | 'indigo' | 'emerald' | 'rose' | 'slate';
+  categoryKey: 'frontendMobile' | 'backendApis' | 'devopsCloud' | 'networkSecurity' | 'digitalDesignDocs';
 }
 
 @Component({
   selector: 'app-skills',
   standalone: true,
-  imports: [CommonModule, LucideLayout, LucideDatabase, LucideInfinity, LucideShield, LucideFileText, ScrollRevealDirective],
+  imports: [CommonModule, LucideLayout, LucideDatabase, LucideInfinity, LucideShield, LucideFileText, ScrollRevealDirective, TranslatePipe],
   templateUrl: './skills.component.html'
 })
 export class SkillsComponent {
   public categories = signal<SkillCategory[]>([
     {
-      title: 'Frontend & Mobile',
+      titleKey: 'skillCategories.frontendMobile',
       icon: LucideLayout,
       color: 'blue',
-      skills: [
-        { name: 'Angular' }, { name: 'Flutter' }, { name: 'Dart' }, { name: 'HTML5' }, { name: 'CSS3' }, { name: 'Tailwind CSS' }
-      ]
+      skillCount: 6,
+      categoryKey: 'frontendMobile'
     },
     {
-      title: 'Backend & APIs',
+      titleKey: 'skillCategories.backendApis',
       icon: LucideDatabase,
       color: 'indigo',
-      skills: [
-        { name: 'Java' }, { name: 'Spring Boot' }, { name: 'PHP' }, { name: 'Laravel' }, { name: 'Flask' }, { name: 'REST APIs' }
-      ]
+      skillCount: 6,
+      categoryKey: 'backendApis'
     },
     {
-      title: 'DevOps & Cloud',
+      titleKey: 'skillCategories.devopsCloud',
       icon: LucideInfinity,
       color: 'emerald',
-      skills: [
-        { name: 'Docker' }, { name: 'GitLab CI/CD' }, { name: 'Jenkins' }, { name: 'VMware ESXi' }, { name: 'Nginx' }, { name: 'Linux' }, { name: 'Bash/Shell' }
-      ]
+      skillCount: 7,
+      categoryKey: 'devopsCloud'
     },
     {
-      title: 'Réseau & Sécurité',
+      titleKey: 'skillCategories.networkSecurity',
       icon: LucideShield,
       color: 'rose',
-      skills: [
-        { name: 'Cisco IOS' }, { name: 'CCNA Routing & Switching' }, { name: 'Cisco CyberOps' }, { name: 'Routing & Switching' }, { name: 'VLANs & ACLs' }, { name: 'NAT/DHCP' }
-      ]
+      skillCount: 6,
+      categoryKey: 'networkSecurity'
     },
     {
-      title: 'Digital Design & Docs',
+      titleKey: 'skillCategories.digitalDesignDocs',
       icon: LucideFileText,
       color: 'slate',
-      skills: [
-        { name: 'Logo Design' }, { name: 'Canva' }, { name: 'Technical Documentation' }, { name: 'Professional Reports (LaTeX)' }
-      ]
+      skillCount: 4,
+      categoryKey: 'digitalDesignDocs'
     }
   ]);
 
@@ -91,5 +88,9 @@ export class SkillsComponent {
       slate: 'bg-slate-500/10 text-slate-500 dark:text-slate-400'
     };
     return base + (colors[color] || '');
+  }
+
+  getIndices(count: number): number[] {
+    return Array.from({ length: count }, (_, i) => i);
   }
 }

@@ -3,6 +3,7 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { LucideAward, LucideBriefcase, LucideCpu } from '@lucide/angular';
 import { ThemeService } from '../../services/theme';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal';
+import { TranslatePipe } from '@ngx-translate/core';
 
 interface PhysicsLogo {
   img: any; // Use any for SSR safety, initialized as HTMLImageElement only in browser
@@ -24,7 +25,7 @@ interface Certification {
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [CommonModule, LucideAward, LucideBriefcase, LucideCpu, ScrollRevealDirective],
+  imports: [CommonModule, LucideAward, LucideBriefcase, LucideCpu, ScrollRevealDirective, TranslatePipe],
   templateUrl: './about.component.html'
 })
 export class AboutComponent implements AfterViewInit, OnDestroy {
@@ -83,10 +84,10 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
     }
   ];
 
-  public stats = signal<{ label: string; value: string; icon: Type<any> }[]>([
-    { label: 'Certifications', value: '8+', icon: LucideAward },
-    { label: 'Projets Réalisés', value: '5+', icon: LucideBriefcase },
-    { label: 'Technologies', value: '15+', icon: LucideCpu }
+  public stats = signal<{ labelKey: string; value: string; icon: Type<any> }[]>([
+    { labelKey: 'aboutStats.certifications', value: '8+', icon: LucideAward },
+    { labelKey: 'aboutStats.projectsCompleted', value: '5+', icon: LucideBriefcase },
+    { labelKey: 'aboutStats.technologies', value: '15+', icon: LucideCpu }
   ]);
 
   private animationId?: number;

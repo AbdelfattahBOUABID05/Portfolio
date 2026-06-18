@@ -8,12 +8,12 @@
 
       <div class="relative z-10 space-y-12">
         <div class="space-y-4">
-          <h2 class="text-sm font-black tracking-[0.3em] uppercase text-blue-600 dark:text-blue-500">Contact</h2>
+          <h2 class="text-sm font-black tracking-[0.3em] uppercase text-blue-600 dark:text-blue-500">{{ 'contact.subtitle' | translate }}</h2>
           <h3 class="text-4xl md:text-7xl font-black text-slate-900 dark:text-white tracking-tighter leading-tight">
-            Vous avez un <span class="text-slate-400 dark:text-slate-600 italic transition-colors">projet ?</span>
+            {{ 'contact.title' | translate }}
           </h3>
           <p class="text-slate-600 dark:text-slate-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-            Discutons de votre application web, plateforme sécurisée ou projet d’automatisation.
+            {{ 'contact.description' | translate }}
           </p>
         </div>
 
@@ -25,13 +25,13 @@
           >
             <svg *ngIf="copied()" lucideCheck [size]="18" class="text-emerald-500"></svg>
             <svg *ngIf="!copied()" lucideCopy [size]="18" class="text-slate-400 group-hover:text-blue-600 dark:group-hover:text-white"></svg>
-            <span class="text-sm font-black text-slate-900 dark:text-white uppercase tracking-widest">Copier</span>
+            <span class="text-sm font-black text-slate-900 dark:text-white uppercase tracking-widest">{{ 'contact.copy' | translate }}</span>
           </button>
         </div>
 
         <!-- Social Channels -->
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-12">
-          @for (channel of channels(); track channel.name) {
+          @for (channel of channels(); track channel.nameKey) {
             <a 
               [href]="channel.link"
               target="_blank"
@@ -39,13 +39,13 @@
             >
               <ng-container *ngComponentOutlet="channel.icon; inputs: { size: 28 }"></ng-container>
               <span class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 group-hover:text-inherit transition-colors">
-                {{ channel.name }}
+                {{ channel.nameKey | translate }}
               </span>
             </a>
           }
         </div>
 
-        <p class="text-slate-400 dark:text-slate-600 text-xs font-bold uppercase tracking-widest pt-12">Réponse sous 24h garantie.</p>
+        <p class="text-slate-400 dark:text-slate-600 text-xs font-bold uppercase tracking-widest pt-12">{{ 'contact.responseGuarantee' | translate }}</p>
       </div>
     </div>
   </div>

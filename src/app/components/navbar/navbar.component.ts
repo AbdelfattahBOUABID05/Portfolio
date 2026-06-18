@@ -2,11 +2,13 @@ import { Component, signal, inject, HostListener, afterNextRender } from '@angul
 import { CommonModule, ViewportScroller } from '@angular/common';
 import { LucideMenu, LucideX, LucideDownload, LucideSun, LucideMoon } from '@lucide/angular';
 import { ThemeService } from '../../services/theme';
+import { LanguageService } from '../../services/language.service';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule, LucideMenu, LucideX, LucideDownload, LucideSun, LucideMoon],
+  imports: [CommonModule, LucideMenu, LucideX, LucideDownload, LucideSun, LucideMoon, TranslatePipe],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
@@ -18,19 +20,20 @@ export class NavbarComponent {
   readonly Moon = LucideMoon;
 
   public themeService = inject(ThemeService);
+  public languageService = inject(LanguageService);
   private viewportScroller = inject(ViewportScroller);
   
   public isMenuOpen = signal(false);
   public activeSection = signal('hero');
 
   public navLinks = [
-    { label: 'Accueil', href: '#hero' },
-    { label: 'À propos', href: '#about' },
-    { label: 'Services', href: '#services' },
-    { label: 'Compétences', href: '#skills' },
-    { label: 'Expérience', href: '#experience' },
-    { label: 'Projets', href: '#projects' },
-    { label: 'Contact', href: '#contact' }
+    { labelKey: 'navbar.home', href: '#hero' },
+    { labelKey: 'navbar.about', href: '#about' },
+    { labelKey: 'navbar.services', href: '#services' },
+    { labelKey: 'navbar.skills', href: '#skills' },
+    { labelKey: 'navbar.experience', href: '#experience' },
+    { labelKey: 'navbar.projects', href: '#projects' },
+    { labelKey: 'navbar.contact', href: '#contact' }
   ];
 
   private sectionIds = ['hero', 'about', 'services', 'skills', 'experience', 'projects', 'contact'];
