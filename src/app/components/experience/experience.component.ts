@@ -1,8 +1,9 @@
-import { Component, signal, Type } from '@angular/core';
+import { Component, signal, Type, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LucideShieldCheck, LucideNetwork, LucideMonitor } from '@lucide/angular';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal';
 import { TranslatePipe } from '@ngx-translate/core';
+import { LanguageService } from '../../services/language.service';
 
 interface ExperienceItem {
   titleKey: string;
@@ -24,6 +25,8 @@ export class ExperienceComponent {
   readonly ShieldCheck = LucideShieldCheck;
   readonly Network = LucideNetwork;
   readonly Monitor = LucideMonitor;
+
+  public languageService = inject(LanguageService);
 
   public experiences = signal<ExperienceItem[]>([
     {

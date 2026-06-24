@@ -10,7 +10,7 @@ export class LanguageService {
   private platformId = inject(PLATFORM_ID);
 
   private readonly STORAGE_KEY = 'preferredLanguage';
-  private readonly SUPPORTED_LANGUAGES = ['en', 'fr'];
+  private readonly SUPPORTED_LANGUAGES = ['en', 'fr', 'ar'];
   private readonly DEFAULT_LANGUAGE = 'en';
   private currentLanguage = this.DEFAULT_LANGUAGE;
 
@@ -31,6 +31,7 @@ export class LanguageService {
     this.translateService.use(validLang);
     this.currentLanguage = validLang;
     this.storeLanguage(validLang);
+    this.updateDirection();
   }
 
   getCurrentLanguage(): string {
@@ -39,8 +40,22 @@ export class LanguageService {
 
   switchLanguage(): void {
     const currentLang = this.getCurrentLanguage();
-    const newLang = currentLang === 'en' ? 'fr' : 'en';
+    let newLang: string;
+    if (currentLang === 'en') {
+      newLang = 'fr';
+    } else if (currentLang === 'fr') {
+      newLang = 'ar';
+    } else {
+      newLang = 'en';
+    }
     this.setLanguage(newLang);
+  }
+
+  private updateDirection(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      const html = document.documentElement;
+      html.dir = this.currentLanguage === 'ar' ? 'rtl' : 'ltr';
+    }
   }
 
   private getBrowserLanguage(): string {

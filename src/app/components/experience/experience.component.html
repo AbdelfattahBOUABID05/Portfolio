@@ -13,21 +13,21 @@
 
     <div class="relative w-full mx-auto">
       <!-- Vertical Timeline Line -->
-      <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-blue-600 via-slate-200 dark:via-slate-800 to-transparent -translate-x-1/2 transition-colors"></div>
+      <div class="absolute start-4 md:start-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-blue-600 via-slate-200 dark:via-slate-800 to-transparent -translate-x-1/2 rtl:translate-x-1/2 transition-colors"></div>
 
       <div class="space-y-12 md:space-y-10">
         @for (item of experiences(); track item.index; let i = $index) {
           <div class="relative flex flex-col md:flex-row w-full">
             
             <!-- Icon Marker -->
-            <div class="absolute left-4 md:left-1/2 w-12 h-12 rounded-2xl bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 flex items-center justify-center -translate-x-1/2 z-20 shadow-sm dark:shadow-none">
+            <div class="absolute start-4 md:start-1/2 w-12 h-12 rounded-2xl bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 flex items-center justify-center -translate-x-1/2 rtl:translate-x-1/2 z-20 shadow-sm dark:shadow-none">
               <div class="text-slate-400">
                 <ng-container *ngComponentOutlet="item.icon; inputs: { size: 24 }"></ng-container>
               </div>
             </div>
 
             <!-- Content Card -->
-            <div [class]="'w-full md:w-1/2 pl-16 md:pl-0 ' + (i % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:ml-auto md:pl-12')">
+            <div [class]="'w-full md:w-1/2 ps-16 md:ps-0 ' + ((languageService.getCurrentLanguage() === 'ar' ? i % 2 !== 0 : i % 2 === 0) ? 'md:pe-12 md:text-end' : 'md:ms-auto md:ps-12')">
               <div class="relative p-6 rounded-[2rem] border border-transparent">
                 
                 <!-- Date Badge -->
@@ -38,7 +38,7 @@
                 <!-- Header -->
                 <div class="mb-4">
                   <h4 class="text-xl md:text-2xl font-black text-slate-900 dark:text-white leading-tight">{{ item.titleKey | translate }}</h4>
-                  <div [class]="'flex flex-wrap items-center gap-2 mt-1 text-sm font-bold text-slate-500 ' + (i % 2 === 0 ? 'md:justify-end' : '')">
+                  <div [class]="'flex flex-wrap items-center gap-2 mt-1 text-sm font-bold text-slate-500 ' + ((languageService.getCurrentLanguage() === 'ar' ? i % 2 !== 0 : i % 2 === 0) ? 'md:justify-end' : '')">
                     <span class="text-emerald-600 dark:text-emerald-500">{{ item.companyKey | translate }}</span>
                     <span class="w-1 h-1 rounded-full bg-slate-200 dark:bg-slate-800"></span>
                     <span>{{ item.locationKey | translate }}</span>
@@ -46,10 +46,10 @@
                 </div>
 
                 <!-- Activities List -->
-                <ul [class]="'space-y-3 ' + (i % 2 === 0 ? 'md:items-end' : '')">
+                <ul [class]="'space-y-3 ' + ((languageService.getCurrentLanguage() === 'ar' ? i % 2 !== 0 : i % 2 === 0) ? 'md:items-end' : '')">
                   @for (j of [0, 1, 2]; track j) {
                     @if ((item.activitiesKey + '.' + j | translate) !== item.activitiesKey + '.' + j) {
-                      <li [class]="'flex gap-3 text-slate-600 dark:text-slate-400 text-sm leading-relaxed ' + (i % 2 === 0 ? 'md:flex-row-reverse md:text-right' : '')">
+                      <li [class]="'flex gap-3 text-slate-600 dark:text-slate-400 text-sm leading-relaxed ' + ((languageService.getCurrentLanguage() === 'ar' ? i % 2 !== 0 : i % 2 === 0) ? 'md:flex-row-reverse md:text-end' : '')">
                         <span class="mt-2 w-1.5 h-1.5 rounded-full bg-blue-500/50 flex-shrink-0"></span>
                         <span [innerHTML]="item.activitiesKey + '.' + j | translate"></span>
                       </li>
