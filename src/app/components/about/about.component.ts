@@ -25,7 +25,7 @@ interface Certification {
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [CommonModule, LucideAward, LucideBriefcase, LucideCpu, ScrollRevealDirective, TranslatePipe],
+  imports: [CommonModule, LucideCpu, ScrollRevealDirective, TranslatePipe],
   templateUrl: './about.component.html'
 })
 export class AboutComponent implements AfterViewInit, OnDestroy {
