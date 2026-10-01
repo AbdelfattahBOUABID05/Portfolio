@@ -31,11 +31,11 @@ import {
   ɵɵtext,
   ɵɵtextInterpolate,
   ɵɵviewQuerySignal
-} from "./chunk-INWHGSGI.js";
+} from "./chunk-44M6TOJT.js";
 import {
   __spreadProps,
   __spreadValues
-} from "./chunk-6GTXIWPM.js";
+} from "./chunk-3EKC2WDX.js";
 
 // node_modules/@lucide/angular/fesm2022/lucide-angular.mjs
 var _c0 = ["contentRef"];

@@ -21,9 +21,14 @@
 
           <div class="flex flex-wrap gap-2">
             @for (i of getIndices(category.skillCount); track i) {
-              <span [class]="getBadgeClasses(category.color)">
-                {{ ('skillsList.' + category.categoryKey + '.' + i) | translate }}
-              </span>
+              @if (('skillsList.' + category.categoryKey + '.' + i) | translate; as skillName) {
+                <button 
+                  (click)="filterProjectsBySkill(skillName)"
+                  [class]="getBadgeClasses(category.color) + ' cursor-pointer hover:scale-105 transition-transform'"
+                >
+                  {{ skillName }}
+                </button>
+              }
             }
           </div>
         </div>

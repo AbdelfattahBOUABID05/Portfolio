@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LucideArrowRight, LucideDownload } from '@lucide/angular';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal';
 import { TranslatePipe } from '@ngx-translate/core';
+import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-hero',
@@ -13,4 +14,5 @@ import { TranslatePipe } from '@ngx-translate/core';
 export class HeroComponent {
   readonly ArrowRight = LucideArrowRight;
   readonly Download = LucideDownload;
+  public languageService = inject(LanguageService);
 }

@@ -55,6 +55,14 @@ export class LanguageService {
     if (isPlatformBrowser(this.platformId)) {
       const html = document.documentElement;
       html.dir = this.currentLanguage === 'ar' ? 'rtl' : 'ltr';
+      html.lang = this.currentLanguage;
+      
+      // Ajouter/supprimer une classe pour faciliter les styles CSS conditionnels
+      if (this.currentLanguage === 'ar') {
+        html.classList.add('arabic-language');
+      } else {
+        html.classList.remove('arabic-language');
+      }
     }
   }
 
@@ -78,5 +86,20 @@ export class LanguageService {
     if (isPlatformBrowser(this.platformId)) {
       localStorage.setItem(this.STORAGE_KEY, lang);
     }
+  }
+
+  downloadCV(): void {
+    if (!isPlatformBrowser(this.platformId)) return;
+
+    const lang = this.currentLanguage;
+    const fileName = `cv-${lang}.pdf`;
+    const filePath = `assets/data/${fileName}`;
+
+    const link = document.createElement('a');
+    link.href = filePath;
+    link.download = fileName;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   }
 }

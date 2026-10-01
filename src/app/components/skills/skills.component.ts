@@ -93,4 +93,12 @@ export class SkillsComponent {
   getIndices(count: number): number[] {
     return Array.from({ length: count }, (_, i) => i);
   }
+
+  filterProjectsBySkill(skill: string) {
+    const projectsComponent = document.querySelector('app-projects') as any;
+    if (projectsComponent) {
+      projectsComponent.selectedTech.set(skill);
+      document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 }

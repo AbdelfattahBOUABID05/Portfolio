@@ -24,6 +24,13 @@ export class ScrollRevealDirective implements AfterViewInit, OnDestroy {
     // Initial state: hidden
     this.renderer.addClass(this.el.nativeElement, 'reveal-hidden');
 
+    // Fallback si IntersectionObserver n'est pas supporté
+    if (!('IntersectionObserver' in window)) {
+      // Afficher tous les éléments directement
+      this.renderer.addClass(this.el.nativeElement, 'reveal-visible');
+      return;
+    }
+
     const options = {
       root: null,
       threshold: 0.1, // Trigger when 10% of the section is visible

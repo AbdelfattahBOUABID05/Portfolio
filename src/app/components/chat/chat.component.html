@@ -1,51 +1,80 @@
 @if (isBrowser) {
   <!-- Floating Toggle Button -->
   <button class="chat-toggle-button" (click)="toggleChat()" aria-label="Toggle chat">
-    <span class="toggle-icon">💬</span>
+    <svg lucideMessageSquare [size]="24"></svg>
   </button>
 
   <!-- Chat Container -->
   @if (isOpen()) {
     <div class="chat-container">
       <div class="chat-header">
-        <h3>AI Assistant</h3>
-        <button class="close-button" (click)="toggleChat()" aria-label="Close chat">✕</button>
-        <div class="status">
-          <span class="dot" [class.ready]="aiChatService.isInitialized()" [class.loading]="aiChatService.isLoading()"></span>
-          {{ aiChatService.isLoading() ? 'Thinking...' : aiChatService.isInitialized() ? 'Ready' : 'Loading...' }}
+        <div class="header-left">
+          <svg lucideBot [size]="24" class="header-icon"></svg>
+          <h3>AI Assistant</h3>
         </div>
-      </div>
-
-      <div class="chat-messages">
-        @for (message of aiChatService.messages(); track message) {
-          <div class="message" [class.user]="message.role === 'user'" [class.assistant]="message.role === 'assistant'">
-            <div class="avatar">
-              {{ message.role === 'user' ? '👤' : '🤖' }}
-            </div>
-            <div class="message-content">
-              {{ message.content }}
-            </div>
-          </div>
-        }
-        @if (aiChatService.messages().length === 0) {
-          <div class="welcome">
-            <p>Hello! I'm Abdelfattah's AI assistant. Ask me anything about his skills, projects, or experience!</p>
-          </div>
-        }
-      </div>
-
-      <div class="chat-input">
-        <input
-          type="text"
-          [(ngModel)]="userInput"
-          [disabled]="false"
-          (keydown)="onKeyDown($event)"
-          placeholder="Ask me something..."
-        >
-        <button (click)="onSend()" [disabled]="!userInput.trim()">
-          Send
+        <button class="close-button" (click)="toggleChat()" aria-label="Close chat">
+          <svg lucideX [size]="20"></svg>
         </button>
       </div>
+
+      <div #chatMessagesContainer class="chat-messages">
+        <!-- Language Selector -->
+        @if (!selectedLang) {
+          <div class="language-selector">
+            <p class="language-prompt">Please select your language<br>Veuillez choisir votre langue<br>اختر اللغة المناسبة</p>
+            <div class="language-buttons">
+              <button class="language-button" (click)="setLanguage('en')">English</button>
+              <button class="language-button" (click)="setLanguage('fr')">Français</button>
+              <button class="language-button" (click)="setLanguage('ar')">العربية</button>
+            </div>
+          </div>
+        } @else {
+          <!-- Chat Messages -->
+          @for (message of aiChatService.messages(); track $index) {
+            <div class="message" [class.user]="message.role === 'user'" [class.assistant]="message.role === 'assistant'">
+              <div class="message-content" [innerHTML]="formatMessage(message.content)">
+              </div>
+            </div>
+          }
+          
+          @if (aiChatService.isLoading()) {
+            <div class="message assistant">
+              <div class="typing-indicator">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+          }
+        }
+      </div>
+
+      <!-- Suggested Questions (only if language is selected and not loading) -->
+      @if (selectedLang && !aiChatService.isLoading()) {
+        <div class="suggested-questions">
+          @for (q of suggestedQuestions; track $index) {
+            <button class="suggestion-button" (click)="selectQuestion(q)">
+              {{ q }}
+            </button>
+          }
+        </div>
+      }
+
+      <!-- Chat Input (only if language is selected) -->
+      @if (selectedLang) {
+        <div class="chat-input">
+          <input
+            type="text"
+            [(ngModel)]="userInput"
+            [disabled]="aiChatService.isLoading()"
+            (keydown)="onKeyDown($event)"
+            [placeholder]="selectedLang === 'en' ? 'Ask me something...' : selectedLang === 'fr' ? 'Posez-moi une question...' : 'اسألني شيئًا...'"
+          >
+          <button (click)="onSend()" [disabled]="!userInput.trim() || aiChatService.isLoading()">
+            <svg lucideSend [size]="18"></svg>
+          </button>
+        </div>
+      }
     </div>
   }
 }

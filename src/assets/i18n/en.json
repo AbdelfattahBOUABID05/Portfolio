@@ -1,0 +1,209 @@
+{
+  "navbar": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "skills": "Skills",
+    "experience": "Experience",
+    "projects": "Projects",
+    "contact": "Contact",
+    "downloadCV": "Download CV"
+  },
+  "theme": {
+    "light": "Switch to light mode",
+    "dark": "Switch to dark mode"
+  },
+  "hero": {
+    "available": "Available for new projects",
+    "title": "Software Engineer",
+    "tagline": "EXPERTISE FULL-STACK | DEVOPS & INFRASTRUCTURE | SECURE SOLUTIONS ARCHITECT",
+    "description": "Full-Stack & DevOps Engineer with end-to-end expertise: from performant Web and Mobile applications to automated infrastructures. Designer of complete solutions like LogSOC. I optimize performance, resilience and security of stacks to accelerate companies' digital transformation.",
+    "viewProjects": "View my projects",
+    "downloadCV": "Download CV",
+    "scroll": "Scroll"
+  },
+  "about": {
+    "title": "Full-Stack Engineer, DevOps & Network Infrastructure",
+    "description1": "Independent consultant specialized in orchestrating complete technological solutions, from architectural design to production deployment. I accompany companies in transforming their information systems, combining innovation, performance and resilience.",
+    "description2": "My expertise covers the entire value chain: modern software architectures, CI/CD pipeline automation, cloud and secure network infrastructures. I design scalable and adaptable solutions, capable of evolving with the company's needs.",
+    "badge": "Badge",
+    "certificate": "Certificate"
+  },
+  "aboutStats": {
+    "certifications": "Certifications",
+    "projectsCompleted": "Projects Completed",
+    "technologies": "Technologies"
+  },
+  "projects": {
+    "subtitle": "Portfolio",
+    "title": "Projects & Achievements.",
+    "codeSource": "Source Code",
+    "liveDemo": "Live Demo"
+  },
+  "projectsList": [
+    {
+      "title": "LogSOC: Intelligent Platform for System Log Analysis and Supervision",
+      "category": "Full-Stack / AI",
+      "description": "Platform dedicated to centralization, automated analysis and anomaly detection on system logs, with AI integration to accelerate diagnosis and strengthen supervision.",
+      "features": [
+        "Unified and scalable architecture for homogeneous data centralization and real-time visualization.",
+        "Complete life cycle automation for optimal reliability and accelerated production deployment.",
+        "Robust deployment security with a strategic approach to guarantee availability and resilience."
+      ]
+    },
+    {
+      "title": "Automated CI/CD Infrastructure Pipeline",
+      "category": "DevOps",
+      "description": "Complete DevOps infrastructure to industrialize the application life cycle, from source code to production.",
+      "features": [
+        "Complete industrialization of deployment to accelerate delivery cycles.",
+        "Reduction of human errors through automation of build, test and validation steps.",
+        "Guarantee of code quality through validation gates integrated into pipelines."
+      ]
+    },
+    {
+      "title": "Tactix – Football Strategy Mobile App",
+      "category": "Mobile",
+      "description": "Cross-platform mobile application dedicated to strategy development, performance tracking and football team management.",
+      "features": [
+        "Cross-Platform Development for a smooth user experience on all devices.",
+        "Optimized state management for dynamic and reactive rendering of match data and tactical boards."
+      ]
+    },
+    {
+      "title": "Cisco Enterprise Network Infrastructure",
+      "category": "Network / NetOps",
+      "description": "Secure and resilient enterprise network architecture, guaranteeing reliability and connectivity of critical services.",
+      "features": [
+        "Strategic traffic segmentation to strengthen security and optimize performance.",
+        "Robust perimeter security and access control to protect IT assets.",
+        "High availability to guarantee continuity of essential business services."
+      ]
+    },
+    {
+      "title": "Enterprise Virtualization Infrastructure",
+      "category": "Cloud & Virtualization",
+      "description": "Enterprise-grade virtualization infrastructure to consolidate resources and optimize workloads.",
+      "features": [
+        "Workload optimization for efficient use of hardware resources.",
+        "Strengthened service continuity through virtualization and snapshot management.",
+        "Centralized administration to simplify management of systems and directory services."
+      ]
+    }
+  ],
+  "experience": {
+    "subtitle": "Professional Journey",
+    "title": "Technical Experience."
+  },
+  "experienceList": [
+    {
+      "title": "System & DevOps Engineering Intern",
+      "company": "Attijariwafa Bank",
+      "location": "Headquarters, Casablanca",
+      "period": "APRIL 2026 - JUNE 2026",
+      "activities": [
+        "Optimization of system infrastructure and reliability of bank server environments, ensuring high service availability.",
+        "Industrialization of web application life cycle: containerization via Docker for scalability, and continuous deployment with GitLab CI/CD to accelerate updates.",
+        "Design of the <span class=\"text-emerald-400 font-bold text-shadow-sm\">LogSOC</span> system: intelligent monitoring platform and web system supervision, improving service availability and performance through predictive log analysis."
+      ]
+    },
+    {
+      "title": "Network & Telecommunications Intern",
+      "company": "TSM (Global Service Technology)",
+      "location": "Casablanca",
+      "period": "MARCH 2025 - APRIL 2025",
+      "activities": [
+        "Physical installation, cabling and advanced configuration of Enterprise-level network equipment (<span class=\"text-blue-400 font-bold text-shadow-sm\">Huawei</span> and <span class=\"text-blue-400 font-bold text-shadow-sm\">Juniper</span> Routers and Switches).",
+        "Implementation of routing and switching protocols, access security (<span class=\"text-blue-400 font-bold text-shadow-sm\">VLANs</span>, ACLs) and troubleshooting on critical telecom links.",
+        "Level 2 technical support to ensure high availability of the company's client network infrastructure."
+      ]
+    },
+    {
+      "title": "Computer & Systems Intern",
+      "company": "Sefrou Province",
+      "location": "Sefrou",
+      "period": "JULY 2024 - AUGUST 2024",
+      "activities": [
+        "Deployment, configuration of local network equipment (LAN) and optimization of IP addressing plan for different administrative services.",
+        "Operational management of computer park: installation of operating systems (<span class=\"text-blue-400 font-bold text-shadow-sm\">Windows</span>/<span class=\"text-blue-400 font-bold text-shadow-sm\">Linux</span>), preventive/curative hardware maintenance and system image deployment.",
+        "Technical assistance and on-site level 1 and 2 support for resolving software and network incidents."
+      ]
+    },
+    {
+      "title": "Computer Space Manager",
+      "company": "Computer Library",
+      "location": "Errachidia",
+      "period": "AUGUST 2023 - SEPTEMBER 2023",
+      "activities": [
+        "Daily administration of the computer space's local network (access rights management, basic routing and public Wi-Fi security).",
+        "Software and hardware maintenance of the park (malware disinfection, critical updates, system performance optimization).",
+        "User support, on-site training on digital tools and resolution of connectivity issues."
+      ]
+    }
+  ],
+  "skills": {
+    "subtitle": "Expertise",
+    "title": "Skills & Technologies."
+  },
+  "skillCategories": {
+    "frontendMobile": "Frontend & Mobile",
+    "backendApis": "Backend & APIs",
+    "devopsCloud": "DevOps & Cloud",
+    "networkSecurity": "Network & Security",
+    "digitalDesignDocs": "Digital Design & Docs"
+  },
+  "skillsList": {
+    "frontendMobile": ["Angular", "Flutter", "Dart", "HTML5", "CSS3", "Tailwind CSS"],
+    "backendApis": ["Java", "Spring Boot", "PHP", "Laravel", "Flask", "REST APIs"],
+    "devopsCloud": ["Docker", "GitLab CI/CD", "Jenkins", "VMware ESXi", "Nginx", "Linux", "Bash/Shell"],
+    "networkSecurity": ["Cisco IOS", "CCNA Routing & Switching", "Cisco CyberOps", "Routing & Switching", "VLANs & ACLs", "NAT/DHCP"],
+    "digitalDesignDocs": ["Logo Design", "Canva", "Technical Documentation", "Professional Reports (LaTeX)"]
+  },
+  "services": {
+    "subtitle": "Services",
+    "title": "Custom Solutions.",
+    "learnMore": "Learn more"
+  },
+  "servicesList": [
+    {
+      "title": "Full-Stack Web Development",
+      "description": "Design and development of modern end-to-end web applications. Reactive interfaces with Angular (Signals) and robust and secure backend architectures with Java Spring Boot, Laravel and Flask."
+    },
+    {
+      "title": "Cross-Platform Mobile Development",
+      "description": "Creation of performant and intuitive mobile applications for iOS and Android from a single codebase with Flutter & Dart, following best UI/UX and state management practices."
+    },
+    {
+      "title": "DevOps & Automation Engineering",
+      "description": "Implementation of cloud/virtualized architectures (VMware ESXi), containerization (Docker), and complete automation of continuous integration and deployment pipelines (GitLab CI/CD, Jenkins, Nginx)."
+    },
+    {
+      "title": "Networks & Cybersecurity (SecOps)",
+      "description": "Security audit, advanced routing and switching (Cisco IOS), enterprise network configuration (VLANs, NAT, ACLs) and implementation of automated log supervision and analysis systems (LogSOC)."
+    }
+  ],
+  "contact": {
+    "subtitle": "Contact",
+    "title": "Got a project?",
+    "description": "Let's discuss your web application, secure platform or automation project.",
+    "copy": "Copy",
+    "responseGuarantee": "Response within 24h guaranteed.",
+    "channels": {
+      "whatsapp": "WhatsApp",
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "email": "Email"
+    }
+  },
+  "footer": {
+    "tagline": "Building secure and scalable digital solutions for the next generation of businesses.",
+    "about": "About",
+    "services": "Services",
+    "projects": "Projects",
+    "contact": "Contact",
+    "copyright": "All rights reserved"
+  },
+  "common": {
+    "downloadCV": "Download CV"
+  }
+}

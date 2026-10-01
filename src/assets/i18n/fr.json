@@ -1,0 +1,209 @@
+{
+  "navbar": {
+    "home": "Accueil",
+    "about": "À propos",
+    "services": "Services",
+    "skills": "Compétences",
+    "experience": "Expérience",
+    "projects": "Projets",
+    "contact": "Contact",
+    "downloadCV": "Télécharger CV"
+  },
+  "theme": {
+    "light": "Passer au mode clair",
+    "dark": "Passer au mode sombre"
+  },
+  "hero": {
+    "available": "Disponible pour de nouveaux projets",
+    "title": "Software Engineer",
+    "tagline": "EXPERTISE FULL-STACK | DEVOPS & INFRASTRUCTURE | ARCHITECTE SOLUTIONS SÉCURISÉES",
+    "description": "Ingénieur Full-Stack & DevOps avec une expertise end-to-end : des applications Web et Mobile performantes, jusqu'aux infrastructures automatisées. Concepteur de solutions complètes comme LogSOC. J'optimise la performance, la résilience et la sécurité des stacks pour accélérer la transformation digitale des entreprises.",
+    "viewProjects": "Voir mes projets",
+    "downloadCV": "Télécharger CV",
+    "scroll": "Scroll"
+  },
+  "about": {
+    "title": "Ingénieur Full-Stack, DevOps & Infrastructure Réseau",
+    "description1": "Consultant indépendant spécialisé dans l'orchestration de solutions technologiques complètes, de la conception architecturale jusqu'au déploiement en production. J'accompagne les entreprises dans la transformation de leurs systèmes d'information, en alliant innovation, performance et résilience.",
+    "description2": "Mon expertise couvre la chaîne complète de valeur : architectures logicielles modernes, automatisation des pipelines CI/CD, infrastructures cloud et réseaux sécurisés. Je conçois des solutions scalables et adaptables, capables d'évoluer avec les besoins de l'entreprise.",
+    "badge": "Badge",
+    "certificate": "Certificat"
+  },
+  "aboutStats": {
+    "certifications": "Certifications",
+    "projectsCompleted": "Projets Réalisés",
+    "technologies": "Technologies"
+  },
+  "projects": {
+    "subtitle": "Portfolio",
+    "title": "Projets & Réalisations.",
+    "codeSource": "Code Source",
+    "liveDemo": "Live Demo"
+  },
+  "projectsList": [
+    {
+      "title": "LogSOC : Plateforme intelligente d’analyse et de supervision des logs systèmes",
+      "category": "Full-Stack / AI",
+      "description": "Plateforme dédiée à la centralisation, l’analyse automatisée et la détection d’anomalies sur les logs systèmes, avec intégration d’intelligence artificielle pour accélérer le diagnostic et renforcer la supervision.",
+      "features": [
+        "Architecture unifiée et scalable pour une centralisation homogène des données et une visualisation temps réel.",
+        "Automatisation complète des cycles de vie pour une fiabilité optimale et une mise en production accélérée.",
+        "Sécurisation robuste du déploiement avec une approche stratégique pour garantir la disponibilité et la résilience."
+      ]
+    },
+    {
+      "title": "Automated CI/CD Infrastructure Pipeline",
+      "category": "DevOps",
+      "description": "Infrastructure DevOps complète pour industrialiser le cycle de vie des applications, du code source jusqu'à la production.",
+      "features": [
+        "Industrialisation complète du déploiement pour accélérer les cycles de livraison.",
+        "Réduction des erreurs humaines grâce à l'automatisation des étapes de build, test et validation.",
+        "Garantie de la qualité du code via des portes de validation intégrées aux pipelines."
+      ]
+    },
+    {
+      "title": "Tactix – Application Mobile de Stratégie Football",
+      "category": "Mobile",
+      "description": "Application mobile multiplateforme dédiée à l'élaboration de tactiques, au suivi des performances et à la gestion d'équipes de football.",
+      "features": [
+        "Développement Cross-Platform pour une expérience utilisateur fluide sur tous les appareils.",
+        "Gestion optimisée des états pour un rendu dynamique et réactif des données de match et des tableaux tactiques."
+      ]
+    },
+    {
+      "title": "Cisco Enterprise Network Infrastructure",
+      "category": "Réseau / NetOps",
+      "description": "Architecture réseau d'entreprise sécurisée et résiliente, garantissant la fiabilité et la connectivité des services critiques.",
+      "features": [
+        "Segmentation stratégique du trafic pour renforcer la sécurité et optimiser les performances.",
+        "Sécurisation robuste du périmètre et contrôle des accès pour protéger les actifs informatiques.",
+        "Haute disponibilité pour garantir la continuité des services essentiels de l'entreprise."
+      ]
+    },
+    {
+      "title": "Enterprise Virtualization Infrastructure",
+      "category": "Cloud & Virtualisation",
+      "description": "Infrastructure virtualisée de niveau entreprise pour consolider les ressources et optimiser les charges de travail.",
+      "features": [
+        "Optimisation des charges de travail pour une utilisation efficace des ressources matérielles.",
+        "Continuité de service renforcée grâce à la virtualisation et à la gestion des snapshots.",
+        "Administration centralisée pour simplifier la gestion des systèmes et des services d'annuaire."
+      ]
+    }
+  ],
+  "experience": {
+    "subtitle": "Parcours Professionnel",
+    "title": "Expériences Techniques."
+  },
+  "experienceList": [
+    {
+      "title": "Stagiaire en Ingénierie Systèmes & DevOps",
+      "company": "Attijariwafa Bank",
+      "location": "Siège Social, Casablanca",
+      "period": "AVRIL 2026 - JUIN 2026",
+      "activities": [
+        "Optimisation de l'infrastructure système et fiabilisation des environnements de serveurs bancaires, assurant une haute disponibilité des services.",
+        "Industrialisation du cycle de vie des applications web : conteneurisation via Docker pour la scalabilité, et déploiement continu avec GitLab CI/CD pour accélérer les mises à jour.",
+        "Conception du système <span class=\"text-emerald-400 font-bold text-shadow-sm\">LogSOC</span> : plateforme de monitoring intelligent et de supervision des systèmes web, améliorant la disponibilité et la performance des services via l'analyse prédictive des logs."
+      ]
+    },
+    {
+      "title": "Stagiaire en Réseaux & Télécommunications",
+      "company": "TSM (Technologie de Service Mondial)",
+      "location": "Casablanca",
+      "period": "MARS 2025 - AVRIL 2025",
+      "activities": [
+        "Installation physique, câblage et configuration avancée d'équipements réseaux de niveau Enterprise (Routeurs et Commutateurs <span class=\"text-blue-400 font-bold text-shadow-sm\">Huawei</span> et <span class=\"text-blue-400 font-bold text-shadow-sm\">Juniper</span>).",
+        "Implémentation des protocoles de routage et de commutation, sécurisation des accès (<span class=\"text-blue-400 font-bold text-shadow-sm\">VLANs</span>, ACLs) et diagnostic de pannes sur des liaisons télécoms critiques.",
+        "Support technique de niveau 2 pour assurer la haute disponibilité de l'infrastructure réseau des clients de l'entreprise."
+      ]
+    },
+    {
+      "title": "Stagiaire en Informatique & Systèmes",
+      "company": "Province de Sefrou",
+      "location": "Sefrou",
+      "period": "JUILLET 2024 - AOÛT 2024",
+      "activities": [
+        "Déploiement, configuration d'équipements réseaux locaux (LAN) et optimisation du plan d'adressage IP pour les différents services administratifs.",
+        "Gestion opérationnelle du parc informatique : installation des systèmes d'exploitation (<span class=\"text-blue-400 font-bold text-shadow-sm\">Windows</span>/<span class=\"text-blue-400 font-bold text-shadow-sm\">Linux</span>), maintenance préventive/curative du matériel et déploiement d'images système.",
+        "Assistance technique et support de proximité de niveau 1 et 2 pour la résolution des incidents logiciels et réseau."
+      ]
+    },
+    {
+      "title": "Gestionnaire d'Espace Informatique",
+      "company": "Bibliothèque Informatique",
+      "location": "Errachidia",
+      "period": "AOÛT 2023 - SEPTEMBRE 2023",
+      "activities": [
+        "Administration au quotidien du réseau local de l'espace informatique (gestion des droits d'accès, routage de base et sécurité du Wi-Fi public).",
+        "Maintenance logicielle et matérielle du parc (désinfection de malwares, mises à jour critiques, optimisation des performances systèmes).",
+        "Support utilisateur, formation de proximité aux outils numériques et résolution des problèmes de connectivité."
+      ]
+    }
+  ],
+  "skills": {
+    "subtitle": "Expertise",
+    "title": "Compétences & Technologies."
+  },
+  "skillCategories": {
+    "frontendMobile": "Frontend & Mobile",
+    "backendApis": "Backend & APIs",
+    "devopsCloud": "DevOps & Cloud",
+    "networkSecurity": "Réseau & Sécurité",
+    "digitalDesignDocs": "Digital Design & Docs"
+  },
+  "skillsList": {
+    "frontendMobile": ["Angular", "Flutter", "Dart", "HTML5", "CSS3", "Tailwind CSS"],
+    "backendApis": ["Java", "Spring Boot", "PHP", "Laravel", "Flask", "REST APIs"],
+    "devopsCloud": ["Docker", "GitLab CI/CD", "Jenkins", "VMware ESXi", "Nginx", "Linux", "Bash/Shell"],
+    "networkSecurity": ["Cisco IOS", "CCNA Routing & Switching", "Cisco CyberOps", "Routing & Switching", "VLANs & ACLs", "NAT/DHCP"],
+    "digitalDesignDocs": ["Logo Design", "Canva", "Documentation Technique", "Rapports Professionnels (LaTeX)"]
+  },
+  "services": {
+    "subtitle": "Services",
+    "title": "Solutions sur mesure.",
+    "learnMore": "En savoir plus"
+  },
+  "servicesList": [
+    {
+      "title": "Développement Web Full-Stack",
+      "description": "Conception et développement d'applications web modernes de bout en bout. Interfaces réactives avec Angular (Signals) et architectures backend robustes et sécurisées avec Java Spring Boot, Laravel et Flask."
+    },
+    {
+      "title": "Développement Mobile Multiplateforme",
+      "description": "Création d'applications mobiles performantes et intuitives pour iOS et Android à partir d'un code unique avec Flutter & Dart, respectant les meilleures pratiques d'UI/UX et de gestion d'état."
+    },
+    {
+      "title": "Ingénierie DevOps & Automatisation",
+      "description": "Mise en place d'architectures cloud/virtualisées (VMware ESXi), conteneurisation (Docker), et automatisation complète des pipelines d'intégration et déploiement continus (GitLab CI/CD, Jenkins, Nginx)."
+    },
+    {
+      "title": "Réseaux & Cybersécurité (SecOps)",
+      "description": "Audit de sécurité, routage et commutation avancés (Cisco IOS), configuration réseau d'entreprise (VLANs, NAT, ACLs) et mise en place de systèmes de supervision et analyse de logs automatisée (LogSOC)."
+    }
+  ],
+  "contact": {
+    "subtitle": "Contact",
+    "title": "Vous avez un projet?",
+    "description": "Discutons de votre application web, plateforme sécurisée ou projet d'automatisation.",
+    "copy": "Copier",
+    "responseGuarantee": "Réponse sous 24h garantie.",
+    "channels": {
+      "whatsapp": "WhatsApp",
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "email": "Email"
+    }
+  },
+  "footer": {
+    "tagline": "Building secure and scalable digital solutions for the next generation of businesses.",
+    "about": "À propos",
+    "services": "Services",
+    "projects": "Projets",
+    "contact": "Contact",
+    "copyright": "Tous droits réservés"
+  },
+  "common": {
+    "downloadCV": "Télécharger CV"
+  }
+}

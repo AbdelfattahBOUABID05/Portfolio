@@ -22,7 +22,7 @@ export class ContactComponent {
   private email = 'abdelfattahbouabid123@gmail.com';
 
   public channels = signal<{ nameKey: string; icon: Type<any>; link: string; color: string }[]>([
-    { nameKey: 'contact.channels.whatsapp', icon: LucideMessageSquare, link: 'https://wa.me/qr/4LFFQ752RTDTO1', color: 'hover:text-[#25D366]' },
+    { nameKey: 'contact.channels.whatsapp', icon: LucideMessageSquare, link: 'https://wa.me/abdo_._bd', color: 'hover:text-[#25D366]' },
     { nameKey: 'contact.channels.linkedin', icon: LucideBriefcase, link: 'https://www.linkedin.com/in/abdelfattah-bouabid-150a56335', color: 'hover:text-[#0077B5]' },
     { nameKey: 'contact.channels.github', icon: LucideCodeXml, link: 'https://github.com/AbdelfattahBOUABID05', color: 'hover:text-white' },
     { nameKey: 'contact.channels.email', icon: LucideMail, link: `mailto:${this.email}`, color: 'hover:text-blue-500' }
