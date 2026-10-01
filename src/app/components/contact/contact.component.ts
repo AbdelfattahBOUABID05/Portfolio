@@ -7,7 +7,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, LucideCodeXml, LucideCopy, LucideCheck, ScrollRevealDirective, TranslatePipe],
+  imports: [CommonModule, LucideCopy, LucideCheck, ScrollRevealDirective, TranslatePipe],
   templateUrl: './contact.component.html'
 })
 export class ContactComponent {

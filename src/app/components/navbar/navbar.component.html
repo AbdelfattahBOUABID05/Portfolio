@@ -120,8 +120,13 @@
         {{ link.labelKey | translate }}
       </a>
     }
-    <a href="assets/data/BouabidAbdelfattah_CV.pdf" download="Bouabid_Abdelfattah_CV.pdf" class="px-10 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-emerald-500 text-white font-bold text-lg">
-      {{ 'navbar.downloadCV' | translate }}
-    </a>
+    <button (click)="languageService.downloadCV()" class="relative group overflow-hidden px-6 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-emerald-500 text-white font-bold text-sm transition-all duration-300 hover:shadow-[0_0_20px_rgba(59,130,246,0.4)]">
+      <span class="relative z-10 flex items-center gap-2">
+        <span class="flex items-center justify-center">
+          <svg lucideDownload [size]="16"></svg>
+        </span>
+        {{ 'navbar.downloadCV' | translate }}
+      </span>
+    </button>
   </div>
 </nav>

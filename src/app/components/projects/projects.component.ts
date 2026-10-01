@@ -19,7 +19,7 @@ interface Project {
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CommonModule, LucideCodeXml, LucideExternalLink, LucideNetwork, LucideServer, LucideSmartphone, ScrollRevealDirective, TranslatePipe],
+  imports: [CommonModule, LucideCodeXml, LucideExternalLink, ScrollRevealDirective, TranslatePipe],
   templateUrl: './projects.component.html'
 })
 export class ProjectsComponent {

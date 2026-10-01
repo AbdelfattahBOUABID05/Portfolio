@@ -15,7 +15,7 @@ interface Service {
 @Component({
   selector: 'app-services',
   standalone: true,
-  imports: [CommonModule, LucideLayout, LucideServer, LucideShieldCheck, LucideSmartphone, ScrollRevealDirective, TranslatePipe],
+  imports: [CommonModule, ScrollRevealDirective, TranslatePipe],
   templateUrl: './services.component.html'
 })
 export class ServicesComponent {

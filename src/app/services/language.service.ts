@@ -93,7 +93,7 @@ export class LanguageService {
 
     const lang = this.currentLanguage;
     const fileName = `cv-${lang}.pdf`;
-    const filePath = `assets/data/${fileName}`;
+    const filePath = `/assets/cv/${fileName}`; // LIGNE CORRIGÉE
 
     const link = document.createElement('a');
     link.href = filePath;
