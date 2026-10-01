@@ -93,7 +93,7 @@ export class LanguageService {
 
     const lang = this.currentLanguage;
     const fileName = `cv-${lang}.pdf`;
-    const filePath = `/assets/cv/${fileName}`; // LIGNE CORRIGÉE
+    const filePath = `/Portfolio/assets/cv/${fileName}`; // CHEMIN CORRECT POUR GITHUB PAGES
 
     const link = document.createElement('a');
     link.href = filePath;
