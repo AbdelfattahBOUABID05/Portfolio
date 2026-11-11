@@ -1,8 +1,9 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, inject, signal, Type } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LucideCodeXml, LucideExternalLink, LucideZap, LucideCpu, LucideNetwork, LucideServer, LucideSmartphone } from '@lucide/angular';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal';
 import { TranslatePipe } from '@ngx-translate/core';
+import { ProjectFilterService } from '../../services/project-filter.service';
 
 interface Project {
   titleKey: string;
@@ -10,7 +11,7 @@ interface Project {
   descriptionKey: string;
   featuresKey: string;
   technologies: string[];
-  icon: any;
+  icon: Type<unknown>;
   github: string;
   live: string;
   index: number;
@@ -23,6 +24,10 @@ interface Project {
   templateUrl: './projects.component.html'
 })
 export class ProjectsComponent {
+  private readonly projectFilter = inject(ProjectFilterService);
+
+  readonly selectedTech = this.projectFilter.selectedTech;
+
   readonly LucideGithub = LucideCodeXml;
   readonly LucideExternalLink = LucideExternalLink;
 
@@ -83,4 +88,21 @@ export class ProjectsComponent {
       index: 4
     }
   ]);
+
+  readonly filteredProjects = computed<Project[]>(() => {
+    const tech = this.selectedTech();
+    if (!tech) {
+      return this.projects();
+    }
+    const needle = tech.trim().toLowerCase();
+    return this.projects().filter((project) =>
+      project.technologies.some((item) => item.toLowerCase() === needle)
+    );
+  });
+
+  readonly hasActiveFilter = computed<boolean>(() => this.selectedTech() !== null);
+
+  clearFilter(): void {
+    this.projectFilter.clear();
+  }
 }

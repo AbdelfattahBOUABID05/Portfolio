@@ -1,8 +1,9 @@
-import { Component, signal, Type } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, inject, signal, Type } from '@angular/core';
+import { CommonModule, ViewportScroller } from '@angular/common';
 import { LucideLayout, LucideDatabase, LucideInfinity, LucideShield, LucideFileText } from '@lucide/angular';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal';
 import { TranslatePipe } from '@ngx-translate/core';
+import { ProjectFilterService } from '../../services/project-filter.service';
 
 interface Skill {
   nameKey: string;
@@ -23,6 +24,9 @@ interface SkillCategory {
   templateUrl: './skills.component.html'
 })
 export class SkillsComponent {
+  private readonly projectFilter = inject(ProjectFilterService);
+  private readonly viewportScroller = inject(ViewportScroller);
+
   public categories = signal<SkillCategory[]>([
     {
       titleKey: 'skillCategories.frontendMobile',
@@ -94,11 +98,8 @@ export class SkillsComponent {
     return Array.from({ length: count }, (_, i) => i);
   }
 
-  filterProjectsBySkill(skill: string) {
-    const projectsComponent = document.querySelector('app-projects') as any;
-    if (projectsComponent) {
-      projectsComponent.selectedTech.set(skill);
-      document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
-    }
+  filterProjectsBySkill(skill: string): void {
+    this.projectFilter.select(skill);
+    this.viewportScroller.scrollToAnchor('projects');
   }
 }

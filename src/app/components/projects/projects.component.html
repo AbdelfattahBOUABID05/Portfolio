@@ -10,8 +10,38 @@
       </h3>
     </div>
 
+    @if (hasActiveFilter()) {
+      <div class="flex flex-wrap items-center justify-between gap-4 mb-12 px-6 py-4 rounded-2xl bg-emerald-500/5 border border-emerald-500/20">
+        <span class="text-sm font-bold tracking-tight text-emerald-700 dark:text-emerald-400">
+          {{ 'projects.filter.active' | translate: { tech: selectedTech() } }}
+        </span>
+        <button
+          type="button"
+          (click)="clearFilter()"
+          class="px-4 py-2 rounded-xl text-[11px] font-black uppercase tracking-widest bg-slate-900 dark:bg-white text-white dark:text-slate-950 hover:bg-emerald-600 dark:hover:bg-emerald-500 transition-all"
+        >
+          {{ 'projects.filter.clear' | translate }}
+        </button>
+      </div>
+    }
+
+    @if (filteredProjects().length === 0) {
+      <div class="flex flex-col items-center justify-center text-center py-24 px-6 rounded-[2rem] border border-dashed border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50">
+        <p class="text-lg font-black text-slate-900 dark:text-white mb-2">
+          {{ 'projects.filter.empty' | translate: { tech: selectedTech() } }}
+        </p>
+        <p class="text-sm text-slate-500 dark:text-slate-400 mb-6">{{ 'projects.filter.emptyHint' | translate }}</p>
+        <button
+          type="button"
+          (click)="clearFilter()"
+          class="px-6 py-3 rounded-xl text-[11px] font-black uppercase tracking-widest bg-slate-900 dark:bg-white text-white dark:text-slate-950 hover:bg-emerald-600 dark:hover:bg-emerald-500 transition-all"
+        >
+          {{ 'projects.filter.clear' | translate }}
+        </button>
+      </div>
+    } @else {
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      @for (project of projects(); track project.index) {
+      @for (project of filteredProjects(); track project.index) {
         <div class="relative">
           <div class="relative h-full flex flex-col p-8 rounded-[2rem] bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm dark:shadow-none">
             
@@ -79,5 +109,6 @@
         </div>
       }
     </div>
+    }
   </div>
 </section>

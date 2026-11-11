@@ -38,7 +38,13 @@
     "subtitle": "Portfolio",
     "title": "Projets & Réalisations.",
     "codeSource": "Code Source",
-    "liveDemo": "Live Demo"
+    "liveDemo": "Live Demo",
+    "filter": {
+      "active": "Filtre actif : {{tech}}",
+      "clear": "Réinitialiser",
+      "empty": "Aucun projet ne correspond à « {{tech}} ».",
+      "emptyHint": "Réinitialisez le filtre pour afficher tous les projets."
+    }
   },
   "projectsList": [
     {

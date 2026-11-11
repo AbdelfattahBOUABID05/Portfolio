@@ -38,7 +38,13 @@
     "subtitle": "Portfolio",
     "title": "Projects & Achievements.",
     "codeSource": "Source Code",
-    "liveDemo": "Live Demo"
+    "liveDemo": "Live Demo",
+    "filter": {
+      "active": "Active filter: {{tech}}",
+      "clear": "Reset",
+      "empty": "No project matches “{{tech}}”.",
+      "emptyHint": "Reset the filter to show all projects."
+    }
   },
   "projectsList": [
     {
