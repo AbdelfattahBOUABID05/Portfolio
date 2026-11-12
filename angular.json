@@ -26,6 +26,7 @@
               }
             ],
             "styles": ["src/styles.css"],
+            "externalDependencies": ["assets/fonts/*"],
             "server": "src/main.server.ts",
             "outputMode": "static",
             "security": {
