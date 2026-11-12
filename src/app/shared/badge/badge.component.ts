@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 
-export type BadgeVariant = 'neutral' | 'primary' | 'success';
+export type BadgeVariant = 'neutral' | 'primary' | 'success' | 'accent';
 
 @Component({
   selector: 'app-badge',
@@ -11,14 +11,17 @@ export type BadgeVariant = 'neutral' | 'primary' | 'success';
 })
 export class AppBadgeComponent {
   readonly variant = input<BadgeVariant>('neutral');
-  /** Classes additionnelles pour les teintes hors neutral/primary/success (ex. indigo, rose). */
+  /** Classes additionnelles pour les teintes hors variantes (ex. indigo, rose). */
   readonly extraClass = input<string>('');
 
   private static readonly VARIANTS: Record<BadgeVariant, string> = {
     neutral:
       'bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50 text-slate-600 dark:text-slate-300',
     primary: 'bg-blue-500/5 border border-blue-500/20 text-blue-600 dark:text-blue-400',
-    success: 'bg-emerald-500/5 border border-emerald-500/20 text-emerald-700 dark:text-emerald-400'
+    success: 'bg-emerald-500/5 border border-emerald-500/20 text-emerald-700 dark:text-emerald-400',
+    /** Surface neutre et texte accentué (bleu) : puces de période, dates. */
+    accent:
+      'bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-blue-700 dark:text-blue-400'
   };
 
   protected readonly hostClasses = computed(() =>

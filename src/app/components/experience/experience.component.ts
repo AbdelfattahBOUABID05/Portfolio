@@ -4,6 +4,7 @@ import { LucideShieldCheck, LucideNetwork, LucideMonitor } from '@lucide/angular
 import { ScrollRevealDirective } from '../../directives/scroll-reveal';
 import { TranslatePipe } from '@ngx-translate/core';
 import { LanguageService } from '../../services/language.service';
+import { AppBadgeComponent } from '../../shared/badge/badge.component';
 
 interface ExperienceItem {
   titleKey: string;
@@ -18,7 +19,7 @@ interface ExperienceItem {
 @Component({
   selector: 'app-experience',
   standalone: true,
-  imports: [CommonModule, ScrollRevealDirective, TranslatePipe],
+  imports: [CommonModule, ScrollRevealDirective, TranslatePipe, AppBadgeComponent],
   templateUrl: './experience.component.html'
 })
 export class ExperienceComponent {
