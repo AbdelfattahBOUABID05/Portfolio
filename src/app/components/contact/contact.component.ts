@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { LucideMail, LucideMessageSquare, LucideBriefcase, LucideCodeXml, LucideCopy, LucideCheck } from '@lucide/angular';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal';
 import { TranslatePipe } from '@ngx-translate/core';
+import { AppButtonComponent } from '../../shared/button/button.component';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, LucideCopy, LucideCheck, ScrollRevealDirective, TranslatePipe],
+  imports: [CommonModule, LucideCopy, LucideCheck, ScrollRevealDirective, TranslatePipe, AppButtonComponent],
   templateUrl: './contact.component.html'
 })
 export class ContactComponent {
