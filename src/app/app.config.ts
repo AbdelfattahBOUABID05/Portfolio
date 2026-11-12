@@ -4,8 +4,9 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
 
 import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay, withIncrementalHydration } from '@angular/platform-browser';
-import { provideTranslateService, TranslateService } from '@ngx-translate/core';
-import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
+import { provideTranslateLoader, provideTranslateService } from '@ngx-translate/core';
+import { TRANSLATE_HTTP_LOADER_CONFIG } from '@ngx-translate/http-loader';
+import { DefaultLanguageLoader } from './i18n/default-language.loader';
 import { LanguageService } from './services/language.service';
 
 export function initializeApp(languageService: LanguageService) {
@@ -21,10 +22,17 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(withEventReplay(), withIncrementalHydration()),
     provideHttpClient(withFetch()),
     provideTranslateService({
-      loader: provideTranslateHttpLoader({
-        prefix: 'assets/i18n/',
-        suffix: '.json'
-      })
+      loader: [
+        // Configuration du loader HTTP, utilisé pour les langues non par défaut
+        // (FR/AR) par `DefaultLanguageLoader`.
+        {
+          provide: TRANSLATE_HTTP_LOADER_CONFIG,
+          useValue: {
+            resources: [{ prefix: 'assets/i18n/', suffix: '.json' }]
+          }
+        },
+        provideTranslateLoader(DefaultLanguageLoader)
+      ]
     }),
     {
       provide: APP_INITIALIZER,
