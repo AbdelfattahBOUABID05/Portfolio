@@ -4,6 +4,36 @@
     <meta charset="utf-8" />
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+
+    <!--
+      Anti-FOUC thème : applique la classe `dark` AVANT le premier rendu.
+      La logique est identique à ThemeService (clé `theme` : 'dark' | 'light',
+      sinon prefers-color-scheme) pour éviter tout désaccord et tout flash inverse.
+      Sans JS (ou si localStorage est bloqué), le rendu reste en light.
+    -->
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem('theme');
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var shouldBeDark = saved ? saved === 'dark' : prefersDark;
+          document.documentElement.classList.toggle('dark', shouldBeDark);
+        } catch (e) {
+          /* localStorage indisponible : on garde le rendu par défaut (light) */
+        }
+      })();
+    </script>
+
+    <!-- Fond de page avant le chargement des feuilles de style (anti-flash blanc) -->
+    <style>
+      html {
+        background-color: #ffffff;
+      }
+      html.dark {
+        background-color: #020617;
+      }
+    </style>
 
     <!-- Fonts : préchargement de la police principale uniquement (woff2 auto-hébergé) -->
     <link rel="preload" href="assets/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
