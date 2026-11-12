@@ -4,11 +4,12 @@ import { LucideArrowRight, LucideDownload } from '@lucide/angular';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal';
 import { TranslatePipe } from '@ngx-translate/core';
 import { LanguageService } from '../../services/language.service';
+import { AppButtonComponent } from '../../shared/button/button.component';
 
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [CommonModule, LucideArrowRight, LucideDownload, ScrollRevealDirective, TranslatePipe],
+  imports: [CommonModule, LucideArrowRight, LucideDownload, ScrollRevealDirective, TranslatePipe, AppButtonComponent],
   templateUrl: './hero.component.html'
 })
 export class HeroComponent {
