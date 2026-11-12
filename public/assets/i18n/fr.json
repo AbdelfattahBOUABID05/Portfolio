@@ -219,6 +219,11 @@
     "contact": "Contact",
     "copyright": "Tous droits réservés"
   },
+  "social": {
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "email": "Envoyer un email"
+  },
   "common": {
     "downloadCV": "Télécharger CV"
   }

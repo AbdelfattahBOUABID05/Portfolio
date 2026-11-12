@@ -219,6 +219,11 @@
     "contact": "تواصل",
     "copyright": "جميع الحقوق محفوظة"
   },
+  "social": {
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "email": "إرسال بريد إلكتروني"
+  },
   "common": {
     "downloadCV": "تحميل السيرة الذاتية"
   }
