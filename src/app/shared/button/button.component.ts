@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
+import { NgTemplateOutlet } from '@angular/common';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'ghost';
 export type ButtonSize = 'sm' | 'md' | 'lg' | 'icon';
@@ -8,7 +9,10 @@ export type ButtonSize = 'sm' | 'md' | 'lg' | 'icon';
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'contents' },
+  imports: [NgTemplateOutlet],
   template: `
+    <ng-template #content><ng-content /></ng-template>
+
     @if (href()) {
       <a
         [href]="href()"
@@ -17,7 +21,7 @@ export type ButtonSize = 'sm' | 'md' | 'lg' | 'icon';
         [attr.aria-label]="ariaLabel() || null"
         [class]="hostClasses()"
       >
-        <ng-content />
+        <ng-container [ngTemplateOutlet]="content" />
       </a>
     } @else {
       <button
@@ -26,7 +30,7 @@ export type ButtonSize = 'sm' | 'md' | 'lg' | 'icon';
         [disabled]="disabled()"
         [class]="hostClasses()"
       >
-        <ng-content />
+        <ng-container [ngTemplateOutlet]="content" />
       </button>
     }
   `
