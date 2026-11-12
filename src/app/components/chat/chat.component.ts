@@ -1,4 +1,4 @@
-import { Component, inject, PLATFORM_ID, Inject, OnInit, signal, ViewChild, ElementRef, AfterViewChecked } from '@angular/core';
+import { Component, inject, PLATFORM_ID, OnInit, signal, ViewChild, ElementRef, Injector, effect, afterNextRender } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AiChatService } from '../../services/ai-chat.service';
@@ -11,24 +11,36 @@ import { LucideMessageSquare, LucideX, LucideSend, LucideBot } from '@lucide/ang
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.css']
 })
-export class ChatComponent implements OnInit, AfterViewChecked {
+export class ChatComponent implements OnInit {
   public aiChatService = inject(AiChatService);
   public isBrowser = false;
   public isOpen = signal(false);
   public selectedLang: 'en' | 'fr' | 'ar' | null = null;
   public suggestedQuestions: string[] = [];
   public userInput = '';
-  
+
   @ViewChild('chatMessagesContainer') private chatMessagesContainer!: ElementRef;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  private platformId = inject(PLATFORM_ID);
+  private injector = inject(Injector);
+
+  constructor() {
+    // Scroll en bas uniquement lorsqu'un nouveau message arrive ou à l'ouverture du chat,
+    // et après le rendu (afterNextRender) : plus de reflow forcé à chaque cycle de CD.
+    effect(() => {
+      const isOpen = this.isOpen();
+      this.aiChatService.messages();
+
+      if (!isPlatformBrowser(this.platformId) || !isOpen) {
+        return;
+      }
+
+      afterNextRender(() => this.scrollToBottom(), { injector: this.injector });
+    });
+  }
 
   ngOnInit() {
     this.isBrowser = isPlatformBrowser(this.platformId);
-  }
-
-  ngAfterViewChecked() {
-    this.scrollToBottom();
   }
 
   toggleChat() {

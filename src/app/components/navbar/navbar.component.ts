@@ -7,7 +7,8 @@ import {
   ElementRef,
   PLATFORM_ID,
   HostListener,
-  afterNextRender
+  afterNextRender,
+  DestroyRef
 } from '@angular/core';
 import { CommonModule, ViewportScroller, isPlatformBrowser } from '@angular/common';
 import { LucideMenu, LucideX, LucideDownload, LucideSun, LucideMoon, LucideGlobe, LucideChevronDown } from '@lucide/angular';
@@ -35,6 +36,7 @@ export class NavbarComponent {
   public languageService = inject(LanguageService);
   private viewportScroller = inject(ViewportScroller);
   private platformId = inject(PLATFORM_ID);
+  private destroyRef = inject(DestroyRef);
 
   readonly burgerButton = viewChild<ElementRef<HTMLButtonElement>>('burgerButton');
   readonly mobileMenu = viewChild<ElementRef<HTMLElement>>('mobileMenu');
@@ -60,12 +62,18 @@ export class NavbarComponent {
   ];
 
   private sectionIds = ['hero', 'about', 'services', 'skills', 'experience', 'projects', 'contact'];
-  private ticking = false;
   private wasMenuOpen = false;
+  private sectionObserver?: IntersectionObserver;
+  private domObserver?: MutationObserver;
+  private readonly observedSections = new Set<Element>();
 
   constructor() {
-    afterNextRender(() => {
-      this.checkScroll();
+    afterNextRender(() => this.initSectionObserver());
+
+    this.destroyRef.onDestroy(() => {
+      this.sectionObserver?.disconnect();
+      this.domObserver?.disconnect();
+      this.observedSections.clear();
     });
 
     // Gère le verrouillage du scroll et le retour du focus à l'ouverture/fermeture du menu.
@@ -85,17 +93,6 @@ export class NavbarComponent {
 
       this.wasMenuOpen = open;
     });
-  }
-
-  @HostListener('window:scroll')
-  onScroll(): void {
-    if (!this.ticking) {
-      requestAnimationFrame(() => {
-        this.checkScroll();
-        this.ticking = false;
-      });
-      this.ticking = true;
-    }
   }
 
   @HostListener('document:keydown', ['$event'])
@@ -131,25 +128,54 @@ export class NavbarComponent {
     }
   }
 
-  checkScroll(): void {
-    if (!isPlatformBrowser(this.platformId)) {
+  /**
+   * Scroll-spy sans reflow : un seul IntersectionObserver surveille les sections.
+   * rootMargin « -50% 0px -50% 0px » réduit la zone de détection à une ligne au milieu
+   * du viewport : la section qui occupe cette ligne est la section active.
+   */
+  private initSectionObserver(): void {
+    if (!isPlatformBrowser(this.platformId) || !('IntersectionObserver' in window)) {
       return;
     }
 
-    const navbarHeight = 80;
-    let currentSection = 'hero';
-
-    for (const id of this.sectionIds) {
-      const element = document.getElementById(id);
-      if (element) {
-        const rect = element.getBoundingClientRect();
-        if (rect.top - navbarHeight <= 150) {
-          currentSection = id;
+    this.sectionObserver = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            this.activeSection.set(entry.target.id);
+          }
         }
+      },
+      { root: null, rootMargin: '-50% 0px -50% 0px', threshold: 0 }
+    );
+
+    this.observeSections();
+
+    // Les sections placées dans un bloc @defer n'apparaissent qu'au moment de leur
+    // chargement : on (re)observe toute section insérée ou remplaçant un placeholder.
+    this.domObserver = new MutationObserver(() => this.observeSections());
+    this.domObserver.observe(document.body, { childList: true, subtree: true });
+  }
+
+  private observeSections(): void {
+    if (!this.sectionObserver) {
+      return;
+    }
+
+    for (const element of this.observedSections) {
+      if (!element.isConnected) {
+        this.sectionObserver.unobserve(element);
+        this.observedSections.delete(element);
       }
     }
 
-    this.activeSection.set(currentSection);
+    for (const id of this.sectionIds) {
+      const element = document.getElementById(id);
+      if (element && !this.observedSections.has(element)) {
+        this.observedSections.add(element);
+        this.sectionObserver.observe(element);
+      }
+    }
   }
 
   scrollToSection(event: Event, sectionId: string): void {
