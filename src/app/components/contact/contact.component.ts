@@ -111,9 +111,17 @@ export class ContactComponent {
   }
 
   public copyEmail(): void {
-    navigator.clipboard.writeText(this.email);
-    this.copied.set(true);
-    setTimeout(() => this.copied.set(false), 2000);
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+    try {
+      void navigator.clipboard.writeText(this.email);
+      this.copied.set(true);
+      setTimeout(() => this.copied.set(false), 2000);
+    } catch {
+      // Presse-papiers indisponible (permission refusée, contexte non sécurisé) :
+      // on conserve le comportement silencieux.
+    }
   }
 
   private focusFirstInvalid(): void {
