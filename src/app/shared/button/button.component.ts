@@ -40,6 +40,7 @@ export class AppButtonComponent {
   readonly ariaLabel = input<string>('');
   readonly type = input<'button' | 'submit'>('button');
   readonly disabled = input(false);
+  readonly fullWidth = input(false);
 
   private static readonly VARIANTS: Record<ButtonVariant, string> = {
     primary:
@@ -58,9 +59,10 @@ export class AppButtonComponent {
 
   protected readonly hostClasses = computed(() =>
     [
-      'inline-flex items-center justify-center gap-3 font-black uppercase tracking-widest transition-colors',
+      'group inline-flex items-center justify-center gap-3 font-black uppercase tracking-widest transition-colors',
       'rounded-[var(--radius-button)]',
       'disabled:opacity-50 disabled:pointer-events-none',
+      this.fullWidth() ? 'w-full sm:w-auto text-center' : '',
       AppButtonComponent.SIZES[this.size()],
       AppButtonComponent.VARIANTS[this.variant()]
     ].join(' ')
