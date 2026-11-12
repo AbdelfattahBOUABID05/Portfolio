@@ -11,7 +11,7 @@
         <a [href]="link.href"
            (click)="scrollToSection($event, link.href)"
            [class.active]="activeSection() === link.href.replace('#', '')"
-           class="cursor-pointer text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-white transition-colors">
+           class="cursor-pointer text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-white transition-colors">
           {{ link.labelKey | translate }}
         </a>
       }
