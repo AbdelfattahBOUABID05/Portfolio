@@ -37,7 +37,7 @@
         </button>
 
         @if (isLanguageDropdownOpen()) {
-          <div id="lang-menu-desktop" data-lang-panel role="menu" class="absolute right-0 top-full mt-2 w-24 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl shadow-lg overflow-hidden z-50">
+          <div id="lang-menu-desktop" data-lang-panel role="menu" class="absolute end-0 top-full mt-2 w-24 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl shadow-lg overflow-hidden z-50">
             @for (lang of languages; track lang.code) {
               <button 
                 type="button"
@@ -95,7 +95,7 @@
         </button>
 
         @if (isLanguageDropdownOpen()) {
-          <div id="lang-menu-mobile" data-lang-panel role="menu" class="absolute right-0 top-full mt-2 w-24 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl shadow-lg overflow-hidden z-50">
+          <div id="lang-menu-mobile" data-lang-panel role="menu" class="absolute end-0 top-full mt-2 w-24 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl shadow-lg overflow-hidden z-50">
             @for (lang of languages; track lang.code) {
               <button 
                 type="button"
