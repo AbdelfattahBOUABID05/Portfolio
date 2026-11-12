@@ -38,8 +38,8 @@
                 <!-- Header -->
                 <div class="mb-4">
                   <h4 class="text-xl md:text-2xl font-black text-slate-900 dark:text-white leading-tight">{{ item.titleKey | translate }}</h4>
-                  <div [class]="'flex flex-wrap items-center gap-2 mt-1 text-sm font-bold text-slate-500 ' + ((languageService.getCurrentLanguage() === 'ar' ? i % 2 !== 0 : i % 2 === 0) ? 'md:justify-end' : '')">
-                    <span class="text-emerald-600 dark:text-emerald-500">{{ item.companyKey | translate }}</span>
+                  <div [class]="'flex flex-wrap items-center gap-2 mt-1 text-sm font-bold text-slate-500 dark:text-slate-400 ' + ((languageService.getCurrentLanguage() === 'ar' ? i % 2 !== 0 : i % 2 === 0) ? 'md:justify-end' : '')">
+                    <span class="text-emerald-700 dark:text-emerald-500">{{ item.companyKey | translate }}</span>
                     <span class="w-1 h-1 rounded-full bg-slate-200 dark:bg-slate-800"></span>
                     <span>{{ item.locationKey | translate }}</span>
                   </div>
