@@ -91,12 +91,12 @@
                 </a>
               }
               @if (project.liveUrl) {
-                <a [href]="project.liveUrl" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-4 py-2 bg-slate-900 dark:bg-white text-white dark:text-slate-950 font-black text-xs uppercase tracking-widest rounded-lg hover:bg-emerald-600 dark:hover:bg-emerald-500 hover:text-white transition-colors shadow-lg dark:shadow-none">
+                <app-button variant="primary" size="sm" [href]="project.liveUrl" target="_blank" rel="noopener noreferrer">
                   {{ 'projects.liveDemo' | translate }}
                   <span class="flex items-center justify-center">
                     <svg lucideExternalLink [size]="12"></svg>
                   </span>
-                </a>
+                </app-button>
               }
             </div>
             }
