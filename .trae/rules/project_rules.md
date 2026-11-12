@@ -67,3 +67,5 @@
   4. Une ligne expliquant ce que chaque commande fait, et ce que je dois voir si tout se passe bien
 - Précise si la tâche est "déployable" (le test visuel est-il suffisant ?) ou "à continuer sur la branche avant déploiement".
 - Si un fichier non suivi existe (ex: `.trae/*.md`), signale-le et dis-moi s'il faut l'ignorer via `.gitignore`.
+
+- Pour tout composant partagé qui projette du contenu (<ng-content>), ajoute un test de rendu couvrant CHAQUE branche (@if/@else), et vérifie le HTML prérendu (dist) après build pour les liens/boutons à icône.
