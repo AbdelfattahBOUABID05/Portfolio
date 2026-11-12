@@ -1,6 +1,6 @@
 <section id="about" appScrollReveal class="py-32 bg-white dark:bg-slate-950 relative overflow-hidden transition-colors duration-500">
   <!-- Subtle background glow -->
-  <div class="absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[120px]"></div>
+  <div class="absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[80px] pointer-events-none" aria-hidden="true"></div>
 
   <div class="container mx-auto px-6 relative z-10">
     <div class="flex flex-col lg:flex-row items-center gap-20">
@@ -24,7 +24,7 @@
             ></canvas>
             
             <!-- Center Decoration -->
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-blue-500/5 rounded-full blur-3xl animate-pulse pointer-events-none"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
             <span class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-blue-500/10 pointer-events-none flex items-center justify-center">
               <svg lucideCpu [size]="48"></svg>
             </span>
@@ -88,14 +88,14 @@
                         <div class="flex gap-2">
                           <button 
                             (click)="openFile(cert.badge)"
-                            class="flex-1 flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 hover:bg-blue-600 dark:hover:bg-blue-500 hover:text-white text-xs font-black uppercase tracking-wider transition-all border border-blue-500/20"
+                            class="flex-1 flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 hover:bg-blue-600 dark:hover:bg-blue-500 hover:text-white text-xs font-black uppercase tracking-wider transition-colors border border-blue-500/20"
                           >
                             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9 12 15 18 9"/></svg>
                             {{ 'about.badge' | translate }}
                           </button>
                           <button 
                             (click)="openFile(cert.pdf)"
-                            class="flex-1 flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-600 dark:hover:bg-emerald-500 hover:text-white text-xs font-black uppercase tracking-wider transition-all border border-emerald-500/20"
+                            class="flex-1 flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-600 dark:hover:bg-emerald-500 hover:text-white text-xs font-black uppercase tracking-wider transition-colors border border-emerald-500/20"
                           >
                             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
                             {{ 'about.certificate' | translate }}

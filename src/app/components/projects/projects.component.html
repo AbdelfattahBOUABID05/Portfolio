@@ -1,6 +1,6 @@
 <section id="projects" appScrollReveal class="py-32 bg-white dark:bg-slate-950 relative overflow-hidden transition-colors duration-500">
   <!-- Subtle background glow -->
-  <div class="absolute top-1/2 right-0 w-[500px] h-[500px] bg-emerald-500/5 rounded-full blur-[120px]"></div>
+  <div class="absolute top-1/2 right-0 w-[500px] h-[500px] bg-emerald-500/5 rounded-full blur-[80px] pointer-events-none" aria-hidden="true"></div>
 
   <div class="container mx-auto px-6 relative z-10">
     <div class="max-w-4xl mb-20">
@@ -18,7 +18,7 @@
         <button
           type="button"
           (click)="clearFilter()"
-          class="px-4 py-2 rounded-xl text-xs font-black uppercase tracking-widest bg-slate-900 dark:bg-white text-white dark:text-slate-950 hover:bg-emerald-600 dark:hover:bg-emerald-500 transition-all"
+          class="px-4 py-2 rounded-xl text-xs font-black uppercase tracking-widest bg-slate-900 dark:bg-white text-white dark:text-slate-950 hover:bg-emerald-600 dark:hover:bg-emerald-500 transition-colors"
         >
           {{ 'projects.filter.clear' | translate }}
         </button>
@@ -34,7 +34,7 @@
         <button
           type="button"
           (click)="clearFilter()"
-          class="px-6 py-3 rounded-xl text-xs font-black uppercase tracking-widest bg-slate-900 dark:bg-white text-white dark:text-slate-950 hover:bg-emerald-600 dark:hover:bg-emerald-500 transition-all"
+          class="px-6 py-3 rounded-xl text-xs font-black uppercase tracking-widest bg-slate-900 dark:bg-white text-white dark:text-slate-950 hover:bg-emerald-600 dark:hover:bg-emerald-500 transition-colors"
         >
           {{ 'projects.filter.clear' | translate }}
         </button>
@@ -92,14 +92,14 @@
             @if (project.githubUrl || project.liveUrl) {
             <div class="flex items-center gap-4 mt-8 pt-6 border-t border-slate-200 dark:border-slate-800/50">
               @if (project.githubUrl) {
-                <a [href]="project.githubUrl" target="_blank" rel="noopener noreferrer" [attr.aria-label]="'projects.codeSource' | translate" [title]="'projects.codeSource' | translate" class="p-2 rounded-lg bg-white dark:bg-slate-800 text-slate-900 dark:text-white hover:bg-emerald-600 dark:hover:bg-emerald-500 hover:text-white transition-all border border-slate-200 dark:border-slate-700">
+                <a [href]="project.githubUrl" target="_blank" rel="noopener noreferrer" [attr.aria-label]="'projects.codeSource' | translate" [title]="'projects.codeSource' | translate" class="p-2 rounded-lg bg-white dark:bg-slate-800 text-slate-900 dark:text-white hover:bg-emerald-600 dark:hover:bg-emerald-500 hover:text-white transition-colors border border-slate-200 dark:border-slate-700">
                   <span class="flex items-center justify-center">
                     <svg lucideCodeXml [size]="18"></svg>
                   </span>
                 </a>
               }
               @if (project.liveUrl) {
-                <a [href]="project.liveUrl" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-4 py-2 bg-slate-900 dark:bg-white text-white dark:text-slate-950 font-black text-xs uppercase tracking-widest rounded-lg hover:bg-emerald-600 dark:hover:bg-emerald-500 hover:text-white transition-all shadow-lg dark:shadow-none">
+                <a [href]="project.liveUrl" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-4 py-2 bg-slate-900 dark:bg-white text-white dark:text-slate-950 font-black text-xs uppercase tracking-widest rounded-lg hover:bg-emerald-600 dark:hover:bg-emerald-500 hover:text-white transition-colors shadow-lg dark:shadow-none">
                   {{ 'projects.liveDemo' | translate }}
                   <span class="flex items-center justify-center">
                     <svg lucideExternalLink [size]="12"></svg>
@@ -110,7 +110,7 @@
             }
 
             <!-- Background Decoration -->
-            <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-blue-500/5 rounded-full blur-3xl pointer-events-none group-hover:bg-blue-500/10 transition-all duration-700"></div>
+            <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-blue-500/5 rounded-full blur-3xl pointer-events-none group-hover:bg-blue-500/10 transition-colors duration-700" aria-hidden="true"></div>
           </div>
         </div>
       }

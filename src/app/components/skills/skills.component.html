@@ -12,9 +12,7 @@
         <div [class]="getCategoryClasses(category.color)">
           <div class="flex items-center gap-4 mb-8">
             <div [class]="getIconClasses(category.color)">
-              <span class="flex items-center justify-center">
-                <ng-container *ngComponentOutlet="category.icon; inputs: { size: 24 }"></ng-container>
-              </span>
+              <ng-container *ngComponentOutlet="category.icon; inputs: { size: 24 }"></ng-container>
             </div>
             <h4 class="text-lg font-bold tracking-tight text-slate-900 dark:text-white">{{ category.titleKey | translate }}</h4>
           </div>

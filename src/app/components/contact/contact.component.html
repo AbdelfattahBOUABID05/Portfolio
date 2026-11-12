@@ -3,8 +3,8 @@
     <div class="max-w-6xl mx-auto rounded-[3.5rem] bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-12 md:p-24 text-center relative overflow-hidden shadow-sm dark:shadow-none">
       
       <!-- Ambient Background -->
-      <div class="absolute -top-24 -left-24 w-[400px] h-[400px] bg-blue-600/5 dark:bg-blue-600/10 rounded-full blur-[100px]"></div>
-      <div class="absolute -bottom-24 -right-24 w-[400px] h-[400px] bg-emerald-600/5 dark:bg-emerald-600/10 rounded-full blur-[100px]"></div>
+      <div class="absolute -top-24 -left-24 w-[400px] h-[400px] bg-blue-600/5 dark:bg-blue-600/10 rounded-full blur-[80px] pointer-events-none" aria-hidden="true"></div>
+      <div class="absolute -bottom-24 -right-24 w-[400px] h-[400px] bg-emerald-600/5 dark:bg-emerald-600/10 rounded-full blur-[80px] pointer-events-none" aria-hidden="true"></div>
 
       <div class="relative z-10 space-y-12">
         <div class="space-y-4">
@@ -21,7 +21,7 @@
         <div class="flex flex-col items-center gap-4">
           <button 
             (click)="copyEmail()"
-            class="group flex items-center gap-3 px-4 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-blue-500/50 transition-all shadow-sm dark:shadow-none"
+            class="group flex items-center gap-3 px-4 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-blue-500/50 transition-colors shadow-sm dark:shadow-none"
           >
             <svg *ngIf="copied()" lucideCheck [size]="18" class="text-emerald-500"></svg>
             <svg *ngIf="!copied()" lucideCopy [size]="18" class="text-slate-600 dark:text-slate-400 group-hover:text-blue-600 dark:group-hover:text-white"></svg>
@@ -36,7 +36,7 @@
               [href]="channel.link"
               target="_blank"
               rel="noopener noreferrer"
-              [class]="'group p-8 rounded-[2rem] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col items-center gap-4 transition-all duration-500 shadow-sm dark:shadow-none ' + channel.color"
+              [class]="'group p-8 rounded-[2rem] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col items-center gap-4 transition-colors duration-500 shadow-sm dark:shadow-none ' + channel.color"
             >
               <ng-container *ngComponentOutlet="channel.icon; inputs: { size: 28 }"></ng-container>
               <span class="text-xs font-black uppercase tracking-[0.2em] text-slate-600 dark:text-slate-400 group-hover:text-inherit transition-colors">

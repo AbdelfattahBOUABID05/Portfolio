@@ -6,35 +6,62 @@
   width: 72px;
   height: 72px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  background: linear-gradient(135deg, #2563eb 0%, #10b981 100%);
   border: 3px solid rgba(255, 255, 255, 0.3);
   color: white;
   cursor: pointer;
-  box-shadow: 0 8px 32px rgba(245, 87, 108, 0.4), 0 0 60px rgba(240, 147, 251, 0.2);
+  box-shadow: 0 8px 32px rgba(37, 99, 235, 0.4), 0 0 60px rgba(16, 185, 129, 0.2);
   z-index: 1001;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  animation: pulse-glow 2s infinite;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    box-shadow 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-@keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 8px 32px rgba(245, 87, 108, 0.4), 0 0 60px rgba(240, 147, 251, 0.2);
+/* Halo composité : n'anime que transform + opacity (blue-600 → emerald-500) */
+.chat-toggle-button::after {
+  content: '';
+  position: absolute;
+  inset: -10px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    transparent 76%,
+    rgba(37, 99, 235, 0.5) 82%,
+    rgba(16, 185, 129, 0.25) 92%,
+    transparent 100%
+  );
+  pointer-events: none;
+  animation: chat-halo 2.4s ease-out infinite;
+}
+
+@keyframes chat-halo {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
   }
-  50% {
-    box-shadow: 0 12px 40px rgba(245, 87, 108, 0.5), 0 0 80px rgba(240, 147, 251, 0.4);
+  70%, 100% {
+    transform: scale(1.5);
+    opacity: 0;
   }
 }
 
 .chat-toggle-button:hover {
   transform: translateY(-6px) scale(1.1);
-  box-shadow: 0 16px 50px rgba(245, 87, 108, 0.6), 0 0 100px rgba(240, 147, 251, 0.5);
+  box-shadow: 0 16px 50px rgba(37, 99, 235, 0.6), 0 0 100px rgba(16, 185, 129, 0.5);
 }
 
 .chat-toggle-button:active {
   transform: scale(0.95);
+}
+
+/* Mouvement réduit : halo figé, aucune animation */
+@media (prefers-reduced-motion: reduce) {
+  .chat-toggle-button::after {
+    animation: none;
+    opacity: 0;
+  }
 }
 
 .chat-container {
@@ -590,12 +617,12 @@
 /* Dark mode support */
 @media (prefers-color-scheme: dark) {
   .chat-toggle-button {
-    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-    box-shadow: 0 4px 20px rgba(79, 70, 229, 0.4);
+    background: linear-gradient(135deg, #2563eb 0%, #10b981 100%);
+    box-shadow: 0 8px 32px rgba(37, 99, 235, 0.45), 0 0 60px rgba(16, 185, 129, 0.25);
   }
 
   .chat-toggle-button:hover {
-    box-shadow: 0 8px 30px rgba(79, 70, 229, 0.5);
+    box-shadow: 0 16px 50px rgba(37, 99, 235, 0.6), 0 0 100px rgba(16, 185, 129, 0.5);
   }
 
   .chat-container {

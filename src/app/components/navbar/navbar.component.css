@@ -17,7 +17,7 @@ a.active::after {
 .navbar-logo {
   height: 70px;
   width: auto;
-  transition: all 0.3s;
+  transition: filter 0.3s;
 }
 
 .navbar-logo:hover {
