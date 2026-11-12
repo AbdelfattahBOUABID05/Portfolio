@@ -7,7 +7,11 @@
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
       
       <!-- Left Column: Text Content -->
-      <div class="space-y-8 text-center lg:text-left">
+      <!-- Espacement vertical via marges explicites (et non `space-y-*`) : les marges
+           simples restent dans le CSS critique inliné, alors que `space-y-*` en est
+           élagué par `inlineCritical`, ce qui effondrait le rythme vertical du Hero
+           jusqu'à l'arrivée asynchrone de styles.css (CLS ~0,10). -->
+      <div class="text-center lg:text-left">
         
         <!-- Greeting Badge -->
         <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 text-blue-600 dark:text-blue-400 text-xs font-black uppercase tracking-[0.2em] backdrop-blur-sm">
@@ -16,23 +20,23 @@
         </div>
 
         <!-- Main Heading -->
-        <div class="space-y-4">
+        <div class="mt-8">
           <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-slate-900 dark:text-white tracking-tighter leading-[0.9]">
             Abdelfattah BOUABID<br>
             <span class="text-slate-600 dark:text-slate-400 italic transition-colors">{{ 'hero.title' | translate }}.</span>
           </h1>
-          <p class="text-lg md:text-xl font-bold text-blue-600 dark:text-blue-500 tracking-tight uppercase">
+          <p class="mt-4 text-lg md:text-xl font-bold text-blue-600 dark:text-blue-500 tracking-tight uppercase">
             {{ 'hero.tagline' | translate }}
           </p>
         </div>
 
         <!-- Description -->
-        <p class="text-slate-600 dark:text-slate-400 text-lg md:text-xl max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+        <p class="mt-8 text-slate-600 dark:text-slate-400 text-lg md:text-xl max-w-2xl mx-auto lg:mx-0 leading-relaxed">
           {{ 'hero.description' | translate }}
         </p>
 
         <!-- Actions -->
-        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6 pt-8">
+        <div class="mt-8 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6 pt-8">
           <app-button variant="primary" size="lg" href="#projects" [fullWidth]="true">
             {{ 'hero.viewProjects' | translate }}
             <span class="flex items-center justify-center group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform">
