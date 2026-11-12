@@ -36,7 +36,9 @@ export class AppCardComponent {
       'border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none',
       AppCardComponent.RADIUS[this.radius()],
       AppCardComponent.PADDING[this.padding()],
-      this.variant() === 'interactive' ? 'transition-colors duration-500 hover:border-emerald-500/30' : ''
+      this.variant() === 'interactive'
+        ? 'transition-transform duration-200 hover:-translate-y-1 hover:border-emerald-500/30 focus-within:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:translate-y-0 motion-reduce:focus-within:translate-y-0'
+        : ''
     ]
       .filter(Boolean)
       .join(' ')

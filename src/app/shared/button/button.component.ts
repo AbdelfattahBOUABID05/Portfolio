@@ -63,7 +63,7 @@ export class AppButtonComponent {
 
   protected readonly hostClasses = computed(() =>
     [
-      'group inline-flex items-center justify-center gap-3 font-black uppercase tracking-widest transition-colors',
+      'group inline-flex items-center justify-center gap-3 font-black uppercase tracking-widest transition-transform duration-200 hover:-translate-y-0.5 active:translate-y-0 motion-reduce:transition-none motion-reduce:hover:translate-y-0',
       'rounded-[var(--radius-button)]',
       'disabled:opacity-50 disabled:pointer-events-none',
       this.fullWidth() ? 'w-full sm:w-auto text-center' : '',

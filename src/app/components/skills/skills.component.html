@@ -22,7 +22,7 @@
               @if (('skillsList.' + category.categoryKey + '.' + i) | translate; as skillName) {
                 <button 
                   (click)="filterProjectsBySkill(skillName)"
-                  [class]="getBadgeClasses(category.color) + ' cursor-pointer hover:scale-105 transition-transform'"
+                  [class]="getBadgeClasses(category.color) + ' cursor-pointer hover:scale-105 transition-transform duration-200 motion-reduce:transition-none motion-reduce:hover:scale-100'"
                 >
                   {{ skillName }}
                 </button>
