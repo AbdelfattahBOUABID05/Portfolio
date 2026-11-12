@@ -4,6 +4,7 @@ import { LucideAward, LucideBriefcase, LucideCpu } from '@lucide/angular';
 import { ThemeService } from '../../services/theme';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal';
 import { TranslatePipe } from '@ngx-translate/core';
+import { AppCardComponent } from '../../shared/card/card.component';
 
 interface PhysicsLogo {
   img: any; // Use any for SSR safety, initialized as HTMLImageElement only in browser
@@ -25,7 +26,7 @@ interface Certification {
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [CommonModule, LucideCpu, ScrollRevealDirective, TranslatePipe],
+  imports: [CommonModule, LucideCpu, ScrollRevealDirective, TranslatePipe, AppCardComponent],
   templateUrl: './about.component.html'
 })
 export class AboutComponent implements AfterViewInit, OnDestroy {
