@@ -4,6 +4,7 @@ import { LucideLayout, LucideDatabase, LucideInfinity, LucideShield, LucideFileT
 import { ScrollRevealDirective } from '../../directives/scroll-reveal';
 import { TranslatePipe } from '@ngx-translate/core';
 import { ProjectFilterService } from '../../services/project-filter.service';
+import { AppCardComponent } from '../../shared/card/card.component';
 
 interface Skill {
   nameKey: string;
@@ -20,7 +21,7 @@ interface SkillCategory {
 @Component({
   selector: 'app-skills',
   standalone: true,
-  imports: [CommonModule, ScrollRevealDirective, TranslatePipe],
+  imports: [CommonModule, ScrollRevealDirective, TranslatePipe, AppCardComponent],
   templateUrl: './skills.component.html'
 })
 export class SkillsComponent {
@@ -64,11 +65,6 @@ export class SkillsComponent {
       categoryKey: 'digitalDesignDocs'
     }
   ]);
-
-  getCategoryClasses(color: string): string {
-    const base = 'relative p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none ';
-    return base;
-  }
 
   getBadgeClasses(color: string): string {
     const base = 'px-4 py-1.5 text-xs font-bold rounded-lg border ';
