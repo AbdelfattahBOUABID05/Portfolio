@@ -18,14 +18,10 @@ interface ExperienceItem {
 @Component({
   selector: 'app-experience',
   standalone: true,
-  imports: [CommonModule, LucideShieldCheck, LucideNetwork, LucideMonitor, ScrollRevealDirective, TranslatePipe],
+  imports: [CommonModule, ScrollRevealDirective, TranslatePipe],
   templateUrl: './experience.component.html'
 })
 export class ExperienceComponent {
-  readonly ShieldCheck = LucideShieldCheck;
-  readonly Network = LucideNetwork;
-  readonly Monitor = LucideMonitor;
-
   public languageService = inject(LanguageService);
 
   public experiences = signal<ExperienceItem[]>([

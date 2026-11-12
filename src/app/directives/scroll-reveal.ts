@@ -21,6 +21,12 @@ export class ScrollRevealDirective implements AfterViewInit, OnDestroy {
   }
 
   private setupObserver() {
+    // Si l'utilisateur préfère réduire les animations : affichage immédiat, sans observer
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      this.renderer.addClass(this.el.nativeElement, 'reveal-visible');
+      return;
+    }
+
     // Initial state: hidden
     this.renderer.addClass(this.el.nativeElement, 'reveal-hidden');
 

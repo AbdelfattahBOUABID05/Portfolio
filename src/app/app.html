@@ -1,17 +1,60 @@
 <div class="bg-white dark:bg-slate-950 min-h-screen text-slate-900 dark:text-slate-100 selection:bg-blue-500/30 selection:text-blue-200 transition-colors duration-500">
   <a href="#main" class="skip-link">{{ 'a11y.skipToContent' | translate }}</a>
   <app-navbar></app-navbar>
-  
+
   <main id="main" tabindex="-1" class="focus:outline-none">
+    <!-- Hero : chargement immédiat (au-dessus de la ligne de flottaison) -->
     <app-hero></app-hero>
-    <app-about></app-about>
-    <app-services></app-services>
-    <app-skills></app-skills>
-    <app-experience></app-experience>
-    <app-projects></app-projects>
-    <app-contact></app-contact>
+
+    <!-- Sections textuelles : hydratation incrémentale.
+         "hydrate on viewport" => le contenu est bien rendu dans le prérendu (SEO),
+         l'hydratation et le JS de chaque section ne sont déclenchés qu'au viewport.
+         Le placeholder garde l'ancre (#about, #projects...) et une hauteur fixe anti-CLS. -->
+    @defer (hydrate on viewport) {
+      <app-about></app-about>
+    } @placeholder {
+      <div id="about" class="min-h-[680px]"></div>
+    }
+
+    @defer (hydrate on viewport) {
+      <app-services></app-services>
+    } @placeholder {
+      <div id="services" class="min-h-[620px]"></div>
+    }
+
+    @defer (hydrate on viewport) {
+      <app-skills></app-skills>
+    } @placeholder {
+      <div id="skills" class="min-h-[560px]"></div>
+    }
+
+    @defer (hydrate on viewport) {
+      <app-experience></app-experience>
+    } @placeholder {
+      <div id="experience" class="min-h-[900px]"></div>
+    }
+
+    @defer (hydrate on viewport) {
+      <app-projects></app-projects>
+    } @placeholder {
+      <div id="projects" class="min-h-[820px]"></div>
+    }
+
+    @defer (hydrate on viewport) {
+      <app-contact></app-contact>
+    } @placeholder {
+      <div id="contact" class="min-h-[660px]"></div>
+    }
   </main>
 
-  <app-footer></app-footer>
-  <app-chat></app-chat>
+  @defer (hydrate on viewport) {
+    <app-footer></app-footer>
+  } @placeholder {
+    <div class="min-h-[300px]"></div>
+  }
+
+  <!-- Chat : chargement différé au repos (idle), hors chemin critique -->
+  @defer (on idle) {
+    <app-chat></app-chat>
+  }
 </div>

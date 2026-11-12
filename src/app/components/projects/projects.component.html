@@ -18,7 +18,7 @@
         <button
           type="button"
           (click)="clearFilter()"
-          class="px-4 py-2 rounded-xl text-[11px] font-black uppercase tracking-widest bg-slate-900 dark:bg-white text-white dark:text-slate-950 hover:bg-emerald-600 dark:hover:bg-emerald-500 transition-all"
+          class="px-4 py-2 rounded-xl text-xs font-black uppercase tracking-widest bg-slate-900 dark:bg-white text-white dark:text-slate-950 hover:bg-emerald-600 dark:hover:bg-emerald-500 transition-all"
         >
           {{ 'projects.filter.clear' | translate }}
         </button>
@@ -34,7 +34,7 @@
         <button
           type="button"
           (click)="clearFilter()"
-          class="px-6 py-3 rounded-xl text-[11px] font-black uppercase tracking-widest bg-slate-900 dark:bg-white text-white dark:text-slate-950 hover:bg-emerald-600 dark:hover:bg-emerald-500 transition-all"
+          class="px-6 py-3 rounded-xl text-xs font-black uppercase tracking-widest bg-slate-900 dark:bg-white text-white dark:text-slate-950 hover:bg-emerald-600 dark:hover:bg-emerald-500 transition-all"
         >
           {{ 'projects.filter.clear' | translate }}
         </button>
@@ -52,7 +52,7 @@
                   <ng-container *ngComponentOutlet="project.icon; inputs: { size: 24 }"></ng-container>
                 </span>
               </div>
-              <span class="px-3 py-1 rounded-full bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50 text-[10px] font-black uppercase tracking-widest text-slate-500">
+              <span class="px-3 py-1 rounded-full bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50 text-xs font-black uppercase tracking-widest text-slate-500">
                 {{ project.categoryKey | translate }}
               </span>
             </div>
@@ -82,7 +82,7 @@
             <!-- Technologies -->
             <div class="flex flex-wrap gap-2 mt-6">
               @for (tech of project.technologies; track tech) {
-                <span class="px-3 py-1 rounded-lg bg-blue-500/5 border border-blue-500/20 text-[10px] font-bold text-blue-600 dark:text-blue-400 transition-colors">
+                <span class="px-3 py-1 rounded-lg bg-blue-500/5 border border-blue-500/20 text-xs font-bold text-blue-600 dark:text-blue-400 transition-colors">
                   {{ tech }}
                 </span>
               }
@@ -99,7 +99,7 @@
                 </a>
               }
               @if (project.liveUrl) {
-                <a [href]="project.liveUrl" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-4 py-2 bg-slate-900 dark:bg-white text-white dark:text-slate-950 font-black text-[10px] uppercase tracking-widest rounded-lg hover:bg-emerald-600 dark:hover:bg-emerald-500 hover:text-white transition-all shadow-lg dark:shadow-none">
+                <a [href]="project.liveUrl" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-4 py-2 bg-slate-900 dark:bg-white text-white dark:text-slate-950 font-black text-xs uppercase tracking-widest rounded-lg hover:bg-emerald-600 dark:hover:bg-emerald-500 hover:text-white transition-all shadow-lg dark:shadow-none">
                   {{ 'projects.liveDemo' | translate }}
                   <span class="flex items-center justify-center">
                     <svg lucideExternalLink [size]="12"></svg>

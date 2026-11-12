@@ -131,7 +131,7 @@
         aria-controls="mobile-menu"
         [attr.aria-expanded]="isMenuOpen()"
         [attr.aria-label]="(isMenuOpen() ? 'navbar.closeMenu' : 'navbar.openMenu') | translate"
-        class="p-2 text-slate-400 hover:text-blue-600 dark:hover:text-white transition-colors flex items-center justify-center">
+        class="p-2 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-white transition-colors flex items-center justify-center">
         @if (isMenuOpen()) {
           <svg lucideX [size]="28"></svg>
         } @else {

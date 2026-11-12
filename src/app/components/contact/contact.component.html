@@ -24,7 +24,7 @@
             class="group flex items-center gap-3 px-4 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-blue-500/50 transition-all shadow-sm dark:shadow-none"
           >
             <svg *ngIf="copied()" lucideCheck [size]="18" class="text-emerald-500"></svg>
-            <svg *ngIf="!copied()" lucideCopy [size]="18" class="text-slate-400 group-hover:text-blue-600 dark:group-hover:text-white"></svg>
+            <svg *ngIf="!copied()" lucideCopy [size]="18" class="text-slate-600 dark:text-slate-400 group-hover:text-blue-600 dark:group-hover:text-white"></svg>
             <span class="text-sm font-black text-slate-900 dark:text-white uppercase tracking-widest">{{ 'contact.copy' | translate }}</span>
           </button>
         </div>
@@ -39,14 +39,14 @@
               [class]="'group p-8 rounded-[2rem] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col items-center gap-4 transition-all duration-500 shadow-sm dark:shadow-none ' + channel.color"
             >
               <ng-container *ngComponentOutlet="channel.icon; inputs: { size: 28 }"></ng-container>
-              <span class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 group-hover:text-inherit transition-colors">
+              <span class="text-xs font-black uppercase tracking-[0.2em] text-slate-600 dark:text-slate-400 group-hover:text-inherit transition-colors">
                 {{ channel.nameKey | translate }}
               </span>
             </a>
           }
         </div>
 
-        <p class="text-slate-400 dark:text-slate-600 text-xs font-bold uppercase tracking-widest pt-12">{{ 'contact.responseGuarantee' | translate }}</p>
+        <p class="text-slate-600 dark:text-slate-400 text-xs font-bold uppercase tracking-widest pt-12">{{ 'contact.responseGuarantee' | translate }}</p>
       </div>
     </div>
   </div>

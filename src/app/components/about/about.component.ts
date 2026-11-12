@@ -97,6 +97,7 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
   private width = 0;
   private height = 0;
   private resizeListener?: () => void;
+  private visibilityObserver?: IntersectionObserver;
 
   constructor(
     private ngZone: NgZone,
@@ -119,30 +120,76 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-    if (isPlatformBrowser(this.platformId)) {
-      this.initPhysicsLogos().then(() => {
-        this.initCanvas();
-        
-        this.ngZone.runOutsideAngular(() => {
-          this.animate();
-        });
-
-        this.resizeListener = () => this.initCanvas();
-        window.addEventListener('resize', this.resizeListener);
-      }).catch(err => {
-        console.error('Erreur lors du chargement des logos:', err);
-      });
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
     }
+
+    // Sur mobile (< 768px) : animation désactivée pour économiser la batterie.
+    if (window.innerWidth < 768) {
+      return;
+    }
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    this.initPhysicsLogos().then(() => {
+      this.initCanvas();
+
+      // Mouvement réduit : une seule frame figée, aucune boucle d'animation.
+      if (prefersReducedMotion) {
+        this.draw();
+        return;
+      }
+
+      this.setupVisibilityObserver();
+
+      this.resizeListener = () => this.initCanvas();
+      window.addEventListener('resize', this.resizeListener);
+    }).catch(err => {
+      console.error('Erreur lors du chargement des logos:', err);
+    });
   }
 
   ngOnDestroy() {
-    if (isPlatformBrowser(this.platformId)) {
-      if (this.animationId) {
-        cancelAnimationFrame(this.animationId);
-      }
-      if (this.resizeListener) {
-        window.removeEventListener('resize', this.resizeListener);
-      }
+    this.stopAnimation();
+
+    if (this.visibilityObserver) {
+      this.visibilityObserver.disconnect();
+      this.visibilityObserver = undefined;
+    }
+
+    if (isPlatformBrowser(this.platformId) && this.resizeListener) {
+      window.removeEventListener('resize', this.resizeListener);
+    }
+  }
+
+  // Met l'animation en pause quand le canvas n'est pas visible à l'écran.
+  private setupVisibilityObserver(): void {
+    this.visibilityObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          this.startAnimation();
+        } else {
+          this.stopAnimation();
+        }
+      });
+    }, { threshold: 0 });
+
+    this.visibilityObserver.observe(this.containerRef.nativeElement);
+  }
+
+  private startAnimation(): void {
+    if (this.animationId) {
+      return;
+    }
+    this.ngZone.runOutsideAngular(() => {
+      this.animate();
+    });
+  }
+
+  private stopAnimation(): void {
+    if (this.animationId) {
+      cancelAnimationFrame(this.animationId);
+      this.animationId = undefined;
     }
   }
 

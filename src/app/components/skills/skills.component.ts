@@ -20,7 +20,7 @@ interface SkillCategory {
 @Component({
   selector: 'app-skills',
   standalone: true,
-  imports: [CommonModule, LucideLayout, LucideDatabase, LucideInfinity, LucideShield, LucideFileText, ScrollRevealDirective, TranslatePipe],
+  imports: [CommonModule, ScrollRevealDirective, TranslatePipe],
   templateUrl: './skills.component.html'
 })
 export class SkillsComponent {
