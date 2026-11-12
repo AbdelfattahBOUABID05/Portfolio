@@ -4,6 +4,9 @@ import { LucideCodeXml, LucideExternalLink, LucideZap, LucideCpu, LucideNetwork,
 import { ScrollRevealDirective } from '../../directives/scroll-reveal';
 import { TranslatePipe } from '@ngx-translate/core';
 import { ProjectFilterService } from '../../services/project-filter.service';
+import { AppCardComponent } from '../../shared/card/card.component';
+import { AppBadgeComponent } from '../../shared/badge/badge.component';
+import { AppButtonComponent } from '../../shared/button/button.component';
 
 interface Project {
   titleKey: string;
@@ -20,7 +23,7 @@ interface Project {
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CommonModule, LucideCodeXml, LucideExternalLink, ScrollRevealDirective, TranslatePipe],
+  imports: [CommonModule, LucideCodeXml, LucideExternalLink, ScrollRevealDirective, TranslatePipe, AppCardComponent, AppBadgeComponent, AppButtonComponent],
   templateUrl: './projects.component.html'
 })
 export class ProjectsComponent {

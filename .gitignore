@@ -36,3 +36,5 @@ coverage/
 
 # Angular
 .angular/
+.trae/
+.trae/rules/
