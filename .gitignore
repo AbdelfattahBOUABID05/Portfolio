@@ -33,3 +33,4 @@ coverage/
 *.pid
 *.seed
 *.pid.lock
+\.trae

@@ -54,11 +54,25 @@
       <!-- Right Column: Photo - Ultra Minimalist -->
       <div class="flex justify-center lg:justify-end">
         <div class="w-full max-w-md">
+          <picture>
+            <source
+              type="image/avif"
+              srcset="assets/me-320.avif 320w, assets/me-480.avif 480w, assets/me-624.avif 624w"
+              sizes="(min-width: 1024px) 448px, 100vw">
+            <source
+              type="image/webp"
+              srcset="assets/me-320.webp 320w, assets/me-480.webp 480w, assets/me-624.webp 624w"
+              sizes="(min-width: 1024px) 448px, 100vw">
           <img 
             src="assets/me.png" 
             alt="Abdelfattah BOUABID" 
             class="w-full h-auto object-contain"
+            width="624"
+            height="832"
+            fetchpriority="high"
+            decoding="async"
           >
+          </picture>
         </div>
       </div>
 

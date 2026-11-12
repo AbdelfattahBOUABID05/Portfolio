@@ -51,8 +51,7 @@
               ],
               "outputHashing": "all",
               "outputMode": "static",
-              "ssr": false,
-              "prerender": false
+              "ssr": false
             },
             "development": {
               "optimization": false,

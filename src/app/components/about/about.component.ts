@@ -148,11 +148,11 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
 
   private async initPhysicsLogos(): Promise<void> {
     const logoFiles = [
-      'angular-icon-seeklogo.png', 'cisco-seeklogo.png', 'css3-seeklogo.png',
-      'docker-seeklogo.png', 'flask-seeklogo.png', 'html5-seeklogo.png',
-      'java-script-js-seeklogo.png', 'jenkins-seeklogo.png', 'laravel-seeklogo.png','oracle-seeklogo.png',
-      'linux-tux-seeklogo.png', 'python-seeklogo.png', 'spring-boot-seeklogo.png', 'mysql-seeklogo.png',
-      'tailwind-css-seeklogo.png', 'typescript-seeklogo.png', 'windows-seeklogo.png', 'php-seeklogo.png'
+      'angular-icon-seeklogo.webp', 'cisco-seeklogo.webp', 'css3-seeklogo.webp',
+      'docker-seeklogo.webp', 'flask-seeklogo.webp', 'html5-seeklogo.webp',
+      'java-script-js-seeklogo.webp', 'jenkins-seeklogo.webp', 'laravel-seeklogo.webp','oracle-seeklogo.webp',
+      'linux-tux-seeklogo.webp', 'python-seeklogo.webp', 'spring-boot-seeklogo.webp', 'mysql-seeklogo.webp',
+      'tailwind-css-seeklogo.webp', 'typescript-seeklogo.webp', 'windows-seeklogo.webp', 'php-seeklogo.webp'
     ];
 
     const loadPromises = logoFiles.map(file => {

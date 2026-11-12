@@ -12,8 +12,8 @@ interface Project {
   featuresKey: string;
   technologies: string[];
   icon: Type<unknown>;
-  github: string;
-  live: string;
+  githubUrl?: string;
+  liveUrl?: string;
   index: number;
 }
 
@@ -39,8 +39,6 @@ export class ProjectsComponent {
       featuresKey: 'projectsList.0.features',
       technologies: ['Angular', 'Flask', 'GitLab CI/CD', 'Docker', 'Nginx', 'LLM'],
       icon: LucideCpu,
-      github: '#',
-      live: '#',
       index: 0
     },
     {
@@ -50,8 +48,6 @@ export class ProjectsComponent {
       featuresKey: 'projectsList.1.features',
       technologies: ['Jenkins','Docker', 'DevOps', 'CI/CD', 'Automation', 'Git'],
       icon: LucideZap,
-      github: '#',
-      live: '#',
       index: 1
     },
     {
@@ -61,8 +57,6 @@ export class ProjectsComponent {
       featuresKey: 'projectsList.2.features',
       technologies: ['Flutter', 'Dart', 'Laravel', 'OOP', 'State Management'],
       icon: LucideSmartphone,
-      github: '#',
-      live: '#',
       index: 2
     },
     {
@@ -72,8 +66,6 @@ export class ProjectsComponent {
       featuresKey: 'projectsList.3.features',
       technologies: ['Cisco IOS', 'Packet Tracer', 'Routing', 'Switching', 'NAT', 'VLANs', 'ACLs'],
       icon: LucideNetwork,
-      github: '#',
-      live: '#',
       index: 3
     },
     {
@@ -83,8 +75,6 @@ export class ProjectsComponent {
       featuresKey: 'projectsList.4.features',
       technologies: ['VMware ESXi', 'Windows Server', 'Active Directory', 'DNS', 'Datastores'],
       icon: LucideServer,
-      github: '#',
-      live: '#',
       index: 4
     }
   ]);

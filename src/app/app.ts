@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslatePipe } from '@ngx-translate/core';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { AboutComponent } from './components/about/about.component';
@@ -16,6 +17,7 @@ import { ChatComponent } from './components/chat/chat.component';
   standalone: true,
   imports: [
     CommonModule,
+    TranslatePipe,
     NavbarComponent,
     HeroComponent,
     AboutComponent,

@@ -1,4 +1,8 @@
 {
+  "seo": {
+    "title": "Abdelfattah Bouabid — Ingénieur logiciel DevOps & SecOps",
+    "description": "Portfolio d'Abdelfattah Bouabid, ingénieur logiciel full-stack : DevOps, SecOps, Web et Mobile. Projets, compétences et certifications à découvrir."
+  },
   "navbar": {
     "home": "Accueil",
     "about": "À propos",
@@ -7,7 +11,13 @@
     "experience": "Expérience",
     "projects": "Projets",
     "contact": "Contact",
-    "downloadCV": "Télécharger CV"
+    "downloadCV": "Télécharger CV",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
+    "languageSwitcher": "Changer de langue"
+  },
+  "a11y": {
+    "skipToContent": "Aller au contenu principal"
   },
   "theme": {
     "light": "Passer au mode clair",

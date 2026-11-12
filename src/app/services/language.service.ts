@@ -1,6 +1,8 @@
 import { Injectable, PLATFORM_ID, inject } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { isPlatformBrowser } from '@angular/common';
+import { firstValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,10 +10,13 @@ import { isPlatformBrowser } from '@angular/common';
 export class LanguageService {
   private translateService = inject(TranslateService);
   private platformId = inject(PLATFORM_ID);
+  private titleService = inject(Title);
+  private metaService = inject(Meta);
 
   private readonly STORAGE_KEY = 'preferredLanguage';
   private readonly SUPPORTED_LANGUAGES = ['en', 'fr', 'ar'];
   private readonly DEFAULT_LANGUAGE = 'en';
+  private readonly OG_LOCALES: Record<string, string> = { en: 'en_US', fr: 'fr_FR', ar: 'ar_MA' };
   private currentLanguage = this.DEFAULT_LANGUAGE;
 
   constructor() {}
@@ -32,6 +37,27 @@ export class LanguageService {
     this.currentLanguage = validLang;
     this.storeLanguage(validLang);
     this.updateDirection();
+    void this.updateMeta(validLang);
+  }
+
+  private async updateMeta(lang: string): Promise<void> {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
+    const translations = await firstValueFrom(
+      this.translateService.get(['seo.title', 'seo.description'])
+    );
+    const title = translations['seo.title'] as string;
+    const description = translations['seo.description'] as string;
+
+    this.titleService.setTitle(title);
+    this.metaService.updateTag({ name: 'description', content: description });
+    this.metaService.updateTag({ property: 'og:title', content: title });
+    this.metaService.updateTag({ property: 'og:description', content: description });
+    this.metaService.updateTag({ name: 'twitter:title', content: title });
+    this.metaService.updateTag({ name: 'twitter:description', content: description });
+    this.metaService.updateTag({ property: 'og:locale', content: this.OG_LOCALES[lang] ?? 'fr_FR' });
   }
 
   getCurrentLanguage(): string {
@@ -93,7 +119,8 @@ export class LanguageService {
 
     const lang = this.currentLanguage;
     const fileName = `cv-${lang}.pdf`;
-    const filePath = `/Portfolio/assets/cv/${fileName}`; // CHEMIN CORRECT POUR GITHUB PAGES
+    // Chemin relatif : se résout automatiquement contre <base href> (local "/" et prod "/Portfolio/")
+    const filePath = `assets/cv/${fileName}`;
 
     const link = document.createElement('a');
     link.href = filePath;

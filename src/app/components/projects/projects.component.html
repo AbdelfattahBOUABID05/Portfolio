@@ -89,19 +89,25 @@
             </div>
 
             <!-- Footer Actions -->
+            @if (project.githubUrl || project.liveUrl) {
             <div class="flex items-center gap-4 mt-8 pt-6 border-t border-slate-200 dark:border-slate-800/50">
-              <a [href]="project.github" class="p-2 rounded-lg bg-white dark:bg-slate-800 text-slate-900 dark:text-white hover:bg-emerald-600 dark:hover:bg-emerald-500 hover:text-white transition-all border border-slate-200 dark:border-slate-700" [title]="'projects.codeSource' | translate">
-                <span class="flex items-center justify-center">
-                  <svg lucideCodeXml [size]="18"></svg>
-                </span>
-              </a>
-              <a [href]="project.live" class="flex items-center gap-2 px-4 py-2 bg-slate-900 dark:bg-white text-white dark:text-slate-950 font-black text-[10px] uppercase tracking-widest rounded-lg hover:bg-emerald-600 dark:hover:bg-emerald-500 hover:text-white transition-all shadow-lg dark:shadow-none">
-                {{ 'projects.liveDemo' | translate }}
-                <span class="flex items-center justify-center">
-                  <svg lucideExternalLink [size]="12"></svg>
-                </span>
-              </a>
+              @if (project.githubUrl) {
+                <a [href]="project.githubUrl" target="_blank" rel="noopener noreferrer" [attr.aria-label]="'projects.codeSource' | translate" [title]="'projects.codeSource' | translate" class="p-2 rounded-lg bg-white dark:bg-slate-800 text-slate-900 dark:text-white hover:bg-emerald-600 dark:hover:bg-emerald-500 hover:text-white transition-all border border-slate-200 dark:border-slate-700">
+                  <span class="flex items-center justify-center">
+                    <svg lucideCodeXml [size]="18"></svg>
+                  </span>
+                </a>
+              }
+              @if (project.liveUrl) {
+                <a [href]="project.liveUrl" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-4 py-2 bg-slate-900 dark:bg-white text-white dark:text-slate-950 font-black text-[10px] uppercase tracking-widest rounded-lg hover:bg-emerald-600 dark:hover:bg-emerald-500 hover:text-white transition-all shadow-lg dark:shadow-none">
+                  {{ 'projects.liveDemo' | translate }}
+                  <span class="flex items-center justify-center">
+                    <svg lucideExternalLink [size]="12"></svg>
+                  </span>
+                </a>
+              }
             </div>
+            }
 
             <!-- Background Decoration -->
             <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-blue-500/5 rounded-full blur-3xl pointer-events-none group-hover:bg-blue-500/10 transition-all duration-700"></div>

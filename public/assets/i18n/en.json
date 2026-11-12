@@ -1,4 +1,8 @@
 {
+  "seo": {
+    "title": "Abdelfattah Bouabid | Software Engineer DevOps & SecOps",
+    "description": "Portfolio of Abdelfattah Bouabid, full-stack software engineer: DevOps, SecOps, Web & Mobile. Explore his projects, skills and certifications."
+  },
   "navbar": {
     "home": "Home",
     "about": "About",
@@ -7,7 +11,13 @@
     "experience": "Experience",
     "projects": "Projects",
     "contact": "Contact",
-    "downloadCV": "Download CV"
+    "downloadCV": "Download CV",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "languageSwitcher": "Change language"
+  },
+  "a11y": {
+    "skipToContent": "Skip to main content"
   },
   "theme": {
     "light": "Switch to light mode",
