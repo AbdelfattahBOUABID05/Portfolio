@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LucideLayout, LucideServer, LucideShieldCheck, LucideSmartphone } from '@lucide/angular';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal';
 import { TranslatePipe } from '@ngx-translate/core';
+import { AppCardComponent } from '../../shared/card/card.component';
 
 interface Service {
   titleKey: string;
@@ -15,7 +16,7 @@ interface Service {
 @Component({
   selector: 'app-services',
   standalone: true,
-  imports: [CommonModule, ScrollRevealDirective, TranslatePipe],
+  imports: [CommonModule, ScrollRevealDirective, TranslatePipe, AppCardComponent],
   templateUrl: './services.component.html'
 })
 export class ServicesComponent {
@@ -49,11 +50,6 @@ export class ServicesComponent {
       index: 3
     }
   ]);
-
-  getCardClasses(color: string): string {
-    const base = 'relative p-10 rounded-[2.5rem] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none ';
-    return base;
-  }
 
   getIconClasses(color: string): string {
     const base = 'w-16 h-16 rounded-2xl flex items-center justify-center mb-8 shadow-inner ';

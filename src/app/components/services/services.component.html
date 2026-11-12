@@ -9,7 +9,7 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       @for (service of services(); track service.index) {
-        <div [class]="getCardClasses(service.color)">
+        <app-card padding="lg">
           <div [class]="getIconClasses(service.color)">
             <span class="flex items-center justify-center">
               <ng-container *ngComponentOutlet="service.icon; inputs: { size: 32 }"></ng-container>
@@ -26,7 +26,7 @@
             {{ 'services.learnMore' | translate }}
             <div class="h-px w-8 bg-slate-200 dark:bg-slate-800"></div>
           </div>
-        </div>
+        </app-card>
       }
     </div>
   </div>
