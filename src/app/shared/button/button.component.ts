@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'ghost';
-export type ButtonSize = 'sm' | 'md' | 'lg';
+export type ButtonSize = 'sm' | 'md' | 'lg' | 'icon';
 
 @Component({
   selector: 'app-button',
@@ -10,7 +10,13 @@ export type ButtonSize = 'sm' | 'md' | 'lg';
   host: { class: 'contents' },
   template: `
     @if (href()) {
-      <a [href]="href()" [attr.aria-label]="ariaLabel() || null" [class]="hostClasses()">
+      <a
+        [href]="href()"
+        [attr.target]="target() || null"
+        [attr.rel]="rel() || null"
+        [attr.aria-label]="ariaLabel() || null"
+        [class]="hostClasses()"
+      >
         <ng-content />
       </a>
     } @else {
@@ -29,6 +35,8 @@ export class AppButtonComponent {
   readonly variant = input<ButtonVariant>('primary');
   readonly size = input<ButtonSize>('md');
   readonly href = input<string | null>(null);
+  readonly target = input<string>('');
+  readonly rel = input<string>('');
   readonly ariaLabel = input<string>('');
   readonly type = input<'button' | 'submit'>('button');
   readonly disabled = input(false);
@@ -44,7 +52,8 @@ export class AppButtonComponent {
   private static readonly SIZES: Record<ButtonSize, string> = {
     sm: 'px-4 py-2 text-xs',
     md: 'px-6 py-3 text-sm',
-    lg: 'px-8 py-4 text-sm'
+    lg: 'px-8 py-4 text-sm',
+    icon: 'p-2'
   };
 
   protected readonly hostClasses = computed(() =>
