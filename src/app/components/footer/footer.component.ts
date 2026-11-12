@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LucideCodeXml, LucideBriefcase, LucideMail } from '@lucide/angular';
 import { TranslatePipe } from '@ngx-translate/core';
+import { AppButtonComponent } from '../../shared/button/button.component';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [CommonModule, LucideCodeXml, LucideBriefcase, LucideMail, TranslatePipe],
+  imports: [CommonModule, LucideCodeXml, LucideBriefcase, LucideMail, TranslatePipe, AppButtonComponent],
   templateUrl: './footer.component.html'
 })
 export class FooterComponent {
