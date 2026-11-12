@@ -209,6 +209,23 @@
       "linkedin": "linkedin",
       "github": "github",
       "email": "البريد الإلكتروني"
+    },
+    "form": {
+      "nameLabel": "الاسم",
+      "namePlaceholder": "اسمك",
+      "emailLabel": "البريد الإلكتروني",
+      "emailPlaceholder": "your@email.com",
+      "messageLabel": "الرسالة",
+      "messagePlaceholder": "صف مشروعك...",
+      "submit": "إرسال",
+      "sending": "جارٍ الإرسال...",
+      "success": "تم إرسال الرسالة. شكراً، سأرد خلال 24 ساعة.",
+      "error": "فشل الإرسال. يرجى المحاولة مرة أخرى.",
+      "errorFallback": "أو راسلني مباشرة عبر البريد الإلكتروني",
+      "errRequired": "هذا الحقل مطلوب.",
+      "errEmail": "عنوان البريد الإلكتروني غير صالح.",
+      "errMinLength": "قصير جداً (الحد الأدنى {{ min }} حرفاً).",
+      "errMaxLength": "طويل جداً (الحد الأقصى {{ max }} حرفاً)."
     }
   },
   "footer": {

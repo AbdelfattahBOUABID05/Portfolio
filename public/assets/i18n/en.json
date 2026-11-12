@@ -209,6 +209,23 @@
       "linkedin": "LinkedIn",
       "github": "GitHub",
       "email": "Email"
+    },
+    "form": {
+      "nameLabel": "Name",
+      "namePlaceholder": "Your name",
+      "emailLabel": "Email",
+      "emailPlaceholder": "your@email.com",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Describe your project...",
+      "submit": "Send",
+      "sending": "Sending...",
+      "success": "Message sent. Thanks, I'll reply within 24h.",
+      "error": "Sending failed. Please try again.",
+      "errorFallback": "or email me directly",
+      "errRequired": "This field is required.",
+      "errEmail": "Invalid email address.",
+      "errMinLength": "Too short (minimum {{ min }} characters).",
+      "errMaxLength": "Too long (maximum {{ max }} characters)."
     }
   },
   "footer": {
