@@ -2,7 +2,7 @@ import { Injectable, PLATFORM_ID, inject } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { isPlatformBrowser } from '@angular/common';
-import { firstValueFrom } from 'rxjs';
+import { catchError, firstValueFrom, of, timeout } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -17,27 +17,57 @@ export class LanguageService {
   private readonly SUPPORTED_LANGUAGES = ['en', 'fr', 'ar'];
   private readonly DEFAULT_LANGUAGE = 'en';
   private readonly OG_LOCALES: Record<string, string> = { en: 'en_US', fr: 'fr_FR', ar: 'ar_MA' };
+  /** Sécurité : au-delà, on n'attend plus le JSON et on retombe sur EN. */
+  private readonly LANGUAGE_LOAD_TIMEOUT_MS = 3000;
   private currentLanguage = this.DEFAULT_LANGUAGE;
 
   constructor() {}
 
-  init(): void {
+  init(): Promise<void> {
     let language = this.getStoredLanguage();
     
     if (!language) {
       language = this.getBrowserLanguage();
     }
     
-    this.setLanguage(language);
+    return this.setLanguage(language);
   }
 
-  setLanguage(lang: string): void {
+  setLanguage(lang: string): Promise<void> {
     const validLang = this.SUPPORTED_LANGUAGES.includes(lang) ? lang : this.DEFAULT_LANGUAGE;
-    this.translateService.use(validLang);
     this.currentLanguage = validLang;
     this.storeLanguage(validLang);
     this.updateDirection();
-    void this.updateMeta(validLang);
+
+    const languageChange$ = this.translateService.use(validLang);
+
+    // Langue par défaut (EN) : traductions inlinées dans le bundle, chargement
+    // synchrone — on ne rend pas la main de façon asynchrone.
+    if (validLang === this.DEFAULT_LANGUAGE) {
+      void this.updateMeta(validLang);
+      return Promise.resolve();
+    }
+
+    // Langue non par défaut (FR/AR) : le JSON arrive par HTTP APRÈS l'hydratation.
+    // On attend sa disponibilité avant de laisser le bootstrap se terminer, sinon
+    // le pipe `| translate` affiche la clé brute (ex. `hero.tagline`) et les blocs
+    // de texte s'effondrent puis se ré-expandent (CLS du Hero).
+    return firstValueFrom(
+      languageChange$.pipe(
+        timeout(this.LANGUAGE_LOAD_TIMEOUT_MS),
+        catchError(() => {
+          // Échec ou lenteur anormale : on ne bloque pas le bootstrap et on
+          // retombe sur la langue par défaut, déjà inlinée.
+          this.currentLanguage = this.DEFAULT_LANGUAGE;
+          this.translateService.use(this.DEFAULT_LANGUAGE);
+          this.updateDirection();
+          return of(null);
+        })
+      )
+    ).then(() => {
+      // Traductions disponibles : titre et meta sont mis à jour sans clé brute.
+      void this.updateMeta(this.currentLanguage);
+    });
   }
 
   private async updateMeta(lang: string): Promise<void> {
@@ -74,7 +104,7 @@ export class LanguageService {
     } else {
       newLang = 'en';
     }
-    this.setLanguage(newLang);
+    void this.setLanguage(newLang);
   }
 
   private updateDirection(): void {

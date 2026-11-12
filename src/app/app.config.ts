@@ -11,7 +11,10 @@ import { LanguageService } from './services/language.service';
 
 export function initializeApp(languageService: LanguageService) {
   return () => {
-    languageService.init();
+    // Renvoie une Promise : Angular attend la résolution avant l'hydratation.
+    // Pour EN (défaut), elle est déjà résolue (traductions inlinées) ; pour FR/AR
+    // elle attend le JSON HTTP afin qu'aucune clé brute ne soit affichée.
+    return languageService.init();
   };
 }
 

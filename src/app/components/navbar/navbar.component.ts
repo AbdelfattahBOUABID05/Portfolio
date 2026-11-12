@@ -203,7 +203,7 @@ export class NavbarComponent {
   }
 
   selectLanguage(lang: string, event?: Event): void {
-    this.languageService.setLanguage(lang);
+    void this.languageService.setLanguage(lang);
     this.closeLanguageDropdown();
 
     if (event && isPlatformBrowser(this.platformId)) {
