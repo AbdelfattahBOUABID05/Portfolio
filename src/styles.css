@@ -93,7 +93,6 @@
 
   body {
     @apply bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-300 antialiased transition-colors duration-500;
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 }
 
