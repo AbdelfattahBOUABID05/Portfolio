@@ -87,8 +87,8 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
 
   public stats = signal<{ labelKey: string; value: string; icon: Type<any> }[]>([
     { labelKey: 'aboutStats.certifications', value: '8+', icon: LucideAward },
-    { labelKey: 'aboutStats.projectsCompleted', value: '5+', icon: LucideBriefcase },
-    { labelKey: 'aboutStats.technologies', value: '15+', icon: LucideCpu }
+    { labelKey: 'aboutStats.projectsCompleted', value: '6+', icon: LucideBriefcase },
+    { labelKey: 'aboutStats.technologies', value: '20+', icon: LucideCpu }
   ]);
 
   private animationId?: number;
@@ -198,9 +198,11 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
     const logoFiles = [
       'angular-icon-seeklogo.webp', 'cisco-seeklogo.webp', 'css3-seeklogo.webp',
       'docker-seeklogo.webp', 'flask-seeklogo.webp', 'html5-seeklogo.webp',
-      'java-script-js-seeklogo.webp', 'jenkins-seeklogo.webp', 'laravel-seeklogo.webp','oracle-seeklogo.webp',
-      'linux-tux-seeklogo.webp', 'python-seeklogo.webp', 'spring-boot-seeklogo.webp', 'mysql-seeklogo.webp',
-      'tailwind-css-seeklogo.webp', 'React-seeklogo.webp', 'typescript-seeklogo.webp', 'windows-seeklogo.webp', 'php-seeklogo.webp'
+      'java-script-js-seeklogo.webp', 'jenkins-seeklogo.webp', 'laravel-seeklogo.webp',
+      'oracle-seeklogo.webp', 'linux-tux-seeklogo.webp', 'python-seeklogo.webp', 
+      'spring-boot-seeklogo.webp', 'mysql-seeklogo.webp', 'tailwind-css-seeklogo.webp', 
+      'React-seeklogo.webp','database-seeklogo.webp', 'typescript-seeklogo.webp', 
+      'windows-seeklogo.webp', 'php-seeklogo.webp'
     ];
 
     const loadPromises = logoFiles.map(file => {
