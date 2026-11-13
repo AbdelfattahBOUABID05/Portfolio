@@ -148,7 +148,8 @@ export class LanguageService {
     if (!isPlatformBrowser(this.platformId)) return;
 
     const lang = this.currentLanguage;
-    const fileName = `cv-${lang}.pdf`;
+    // Aucun CV FR n'est disponible pour l'instant : le français télécharge le CV anglais.
+    const fileName = lang === 'fr' ? 'cv-en.pdf' : `cv-${lang}.pdf`;
     // Chemin relatif : se résout automatiquement contre <base href> (local "/" et prod "/Portfolio/")
     const filePath = `assets/cv/${fileName}`;
 
