@@ -140,6 +140,18 @@
       ],
       "results": "Platform deployed and tested in a local environment via Docker Compose (PostgreSQL database, Flask API, Angular front-end)."
     },
+    "cicdPipeline": {
+      "context": "As part of a lab assignment (Linux module, S5), the goal was to industrialize a Django application's lifecycle: on every code change, rebuild, migrate and restart the app automatically, with no manual step.",
+      "role": "Full setup and configuration of the pipeline as part of a lab assignment (Linux, S5).",
+      "solution": "A Jenkins server (Ubuntu, OpenJDK 17) driving a Pipeline job wired to a Git repository. Python is isolated in a virtualenv, the Django app runs on MySQL with automatic migrations. The instance was then containerized with Docker Desktop (jenkins/jenkins:lts image, ports 8080/50000, persistent volumes) for portability.",
+      "challenges": [
+        "Pipeline failing with error code 127 on a script step, diagnosed from the build logs.",
+        "MySQL connection error “127.0.0.1”, fixed by installing and configuring MySQL.",
+        "Django “DisallowedHost” error for the server IP, fixed via ALLOWED_HOSTS.",
+        "Choosing to containerize Jenkins with Docker Desktop to isolate the instance and make it portable."
+      ],
+      "results": "The Jenkins pipeline completed successfully after the MySQL configuration was fixed."
+    },
     "motatawi3": {
       "context": "The Sefrou volunteering club, founded in September 2026, had no digital tooling: sign-ups, activity tracking and communication were all handled manually. It needed a single, bilingual, mobile-friendly platform.",
       "role": "Full design and development, solo: architecture, front-end and back-end, database and security, emails and deployment.",
@@ -215,8 +227,8 @@
   },
   "skillsList": {
     "frontendMobile": ["Angular", "Flutter", "Dart", "HTML5", "CSS3", "Tailwind CSS", "Next.js", "React", "TypeScript", "React Hook Form"],
-    "backendApis": ["Java", "Spring Boot", "PHP", "Laravel", "Flask", "REST APIs", "Supabase", "Sanity", "Zod", "Resend", "PostgreSQL", "Google Gemini"],
-    "devopsCloud": ["Docker", "GitLab CI/CD", "Jenkins", "VMware ESXi", "Nginx", "Linux", "Bash/Shell", "Vercel"],
+    "backendApis": ["Java", "Spring Boot", "PHP", "Laravel", "Flask", "REST APIs", "Supabase", "Sanity", "Zod", "Resend", "PostgreSQL", "Google Gemini", "MySQL"],
+    "devopsCloud": ["Docker", "GitLab CI/CD", "Jenkins", "VMware ESXi", "Nginx", "Linux", "Bash/Shell", "Vercel", "Git"],
     "networkSecurity": ["Cisco IOS", "CCNA Routing & Switching", "Cisco CyberOps", "Routing & Switching", "VLANs & ACLs", "NAT/DHCP"],
     "digitalDesignDocs": ["Logo Design", "Canva", "Technical Documentation", "Professional Reports (LaTeX)"]
   },

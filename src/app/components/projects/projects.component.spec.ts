@@ -71,31 +71,36 @@ describe('ProjectsComponent', () => {
     expect(component.filteredProjects().length).toBe(6);
   });
 
-  it('should declare case studies for LogSOC and Motatawi3, the latter being the only live one', () => {
+  it('should declare three case studies, Motatawi3 being the only live one', () => {
     const withCaseStudy = component.projects().filter((project) => project.hasCaseStudy);
 
-    expect(withCaseStudy.map((project) => project.slug).sort()).toEqual(['logsoc', 'motatawi3']);
+    expect(withCaseStudy.map((project) => project.slug).sort()).toEqual([
+      'cicd-pipeline',
+      'logsoc',
+      'motatawi3',
+    ]);
     expect(withCaseStudy.find((p) => p.slug === 'logsoc')?.caseStudyKey).toBe('caseStudies.logsoc');
-    expect(withCaseStudy.find((p) => p.slug === 'motatawi3')?.caseStudyKey).toBe(
-      'caseStudies.motatawi3',
+    expect(withCaseStudy.find((p) => p.slug === 'cicd-pipeline')?.caseStudyKey).toBe(
+      'caseStudies.cicdPipeline',
     );
     expect(withCaseStudy.map((p) => p.liveUrl).filter(Boolean)).toEqual([
       'https://motatawi3-sefrou.vercel.app/',
     ]);
   });
 
-  it('should expose no external link for LogSOC (local only, no public repository)', () => {
-    const logsoc = component.projects().find((project) => project.slug === 'logsoc');
-
-    expect(logsoc?.liveUrl).toBeUndefined();
-    expect(logsoc?.githubUrl).toBeUndefined();
+  it('should expose no external link for LogSOC and CI/CD (local only, no public repository)', () => {
+    for (const slug of ['logsoc', 'cicd-pipeline']) {
+      const project = component.projects().find((p) => p.slug === slug);
+      expect(project?.liveUrl).toBeUndefined();
+      expect(project?.githubUrl).toBeUndefined();
+    }
   });
 
   it('should render one collapsed case study panel per case study, each wired to its toggle', () => {
     const panels = fixture.nativeElement.querySelectorAll('[id^="case-study-"]') as NodeListOf<HTMLElement>;
-    expect(panels.length).toBe(2);
+    expect(panels.length).toBe(3);
 
-    for (const slug of ['logsoc', 'motatawi3']) {
+    for (const slug of ['logsoc', 'cicd-pipeline', 'motatawi3']) {
       const toggle = fixture.nativeElement.querySelector(
         `button[aria-controls="case-study-${slug}"]`,
       ) as HTMLButtonElement | null;

@@ -80,9 +80,9 @@
     {
       "title": "خط أنابيب بنية CI/CD الآلية",
       "category": "DevOps",
-      "description": "بنية DevOps كاملة لصناعة دورة حياة التطبيقات، من الكود المصدر إلى الإنتاج.",
+      "description": "بنية DevOps كاملة لأتمتة دورة حياة التطبيقات، من الكود المصدر إلى الإنتاج.",
       "features": [
-        "صناعة كاملة للنشر لتسريع دورات التسليم.",
+        "أتمتة كاملة للنشر لتسريع دورات التسليم.",
         "تقليل الأخطاء البشرية من خلال أتمتة خطوات البناء والاختبار والتحقق.",
         "ضمان جودة الكود من خلال بوابات تحقق مدمجة في الخطوط."
       ]
@@ -140,6 +140,18 @@
       ],
       "results": "منصة نُشرت واختُبرت في بيئة محلية عبر Docker Compose (قاعدة PostgreSQL، واجهة Flask، واجهة Angular)."
     },
+    "cicdPipeline": {
+      "context": "في إطار عمل تطبيقي (وحدة Linux، S5)، هدف هذا المشروع إلى أتمتة دورة حياة تطبيق Django: عند كل تغيير في الكود، إعادة البناء والترحيل وإعادة تشغيل التطبيق تلقائيًا دون أي تدخل يدوي.",
+      "role": "إنشاء وإعداد كامل لخط الأنابيب (Pipeline) في إطار عمل تطبيقي (Linux، S5).",
+      "solution": "خادم Jenkins (Ubuntu، OpenJDK 17) يشغّل مهمة من نوع Pipeline مرتبطة بمستودع Git. عُزل Python في بيئة افتراضية، ويعمل تطبيق Django على MySQL مع ترحيلات تلقائية. ثم نُقلت النسخة إلى حاوية عبر Docker Desktop (صورة jenkins/jenkins:lts، المنافذ 8080/50000، أحجام دائمة) لتحقيق قابلية النقل.",
+      "challenges": [
+        "فشل خط الأنابيب برمز الخطأ 127 في إحدى خطوات البرمجة، وتم تشخيصه عبر سجلات البناء.",
+        "خطأ اتصال MySQL « 127.0.0.1 »، عولج بتثبيت MySQL وإعدادها.",
+        "خطأ Django « DisallowedHost » الخاص بعنوان IP للخادم، عولج عبر ALLOWED_HOSTS.",
+        "اختيار تعبئة Jenkins في حاوية عبر Docker Desktop لعزل النسخة وجعلها قابلة للنقل."
+      ],
+      "results": "اكتمل تنفيذ خط الأنابيب في Jenkins بنجاح بعد معالجة إعداد MySQL."
+    },
     "motatawi3": {
       "context": "لم يكن لدى نادي التطوع في صفرو، الذي أُسّس في سبتمبر 2026، أي أدوات رقمية: كانت التسجيلات وتتبّع الأنشطة والتواصل تُدار يدويًا. كان مطلوبًا منصة واحدة، ثنائية اللغة وقابلة للاستخدام على الهاتف.",
       "role": "التصميم والتطوير الكاملان، بمفردي: البنية المعمارية، الواجهة الأمامية والخلفية، قاعدة البيانات والأمان، البريد الإلكتروني والنشر.",
@@ -164,7 +176,7 @@
       "period": "أبريل 2026 - يونيو 2026",
       "activities": [
         "تحسين البنية الأنظمة وتأمين بيئات خوادم البنك، مع ضمان توفر عالي للخدمات.",
-        "صناعة دورة حياة التطبيقات الويب: محاكمة حاويات عبر Docker للقابلية للتوسع، ونشر مستمر مع GitLab CI/CD لتسريع التحديثات.",
+        "أتمتة دورة حياة التطبيقات الويب: تعبئة في حاويات عبر Docker للقابلية للتوسع، ونشر مستمر مع GitLab CI/CD لتسريع التحديثات.",
         "تصميم نظام <span class=\"text-emerald-400 font-bold text-shadow-sm\">LogSOC</span>: منصة مراقبة ذكية ومراقبة الأنظمة الويب، تحسين توفر الخدمة وأدائها من خلال تحليل التنبؤي للسجلات."
       ]
     },
@@ -215,8 +227,8 @@
   },
   "skillsList": {
     "frontendMobile": ["Angular", "Flutter", "Dart", "HTML5", "CSS3", "Tailwind CSS", "Next.js", "React", "TypeScript", "React Hook Form"],
-    "backendApis": ["Java", "Spring Boot", "PHP", "Laravel", "Flask", "REST APIs", "Supabase", "Sanity", "Zod", "Resend", "PostgreSQL", "Google Gemini"],
-    "devopsCloud": ["Docker", "GitLab CI/CD", "Jenkins", "VMware ESXi", "Nginx", "Linux", "Bash/Shell", "Vercel"],
+    "backendApis": ["Java", "Spring Boot", "PHP", "Laravel", "Flask", "REST APIs", "Supabase", "Sanity", "Zod", "Resend", "PostgreSQL", "Google Gemini", "MySQL"],
+    "devopsCloud": ["Docker", "GitLab CI/CD", "Jenkins", "VMware ESXi", "Nginx", "Linux", "Bash/Shell", "Vercel", "Git"],
     "networkSecurity": ["Cisco IOS", "CCNA Routing & Switching", "Cisco CyberOps", "Routing & Switching", "VLANs & ACLs", "NAT/DHCP"],
     "digitalDesignDocs": ["تصميم الشعارات", "Canva", "التوثيق الفني", "التقارير المهنية (LaTeX)"]
   },
