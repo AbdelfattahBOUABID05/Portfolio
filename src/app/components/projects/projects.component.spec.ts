@@ -1,4 +1,4 @@
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideTranslateService } from '@ngx-translate/core';
 
 import { ProjectsComponent } from './projects.component';
@@ -6,6 +6,7 @@ import { ProjectFilterService } from '../../services/project-filter.service';
 
 describe('ProjectsComponent', () => {
   let component: ProjectsComponent;
+  let fixture: ComponentFixture<ProjectsComponent>;
   let filter: ProjectFilterService;
 
   beforeEach(async () => {
@@ -27,8 +28,9 @@ describe('ProjectsComponent', () => {
       providers: [provideTranslateService()],
     }).compileComponents();
 
-    const fixture = TestBed.createComponent(ProjectsComponent);
-    component = fixture.componentInstance;
+    const created = TestBed.createComponent(ProjectsComponent);
+    fixture = created;
+    component = created.componentInstance;
     filter = TestBed.inject(ProjectFilterService);
     fixture.detectChanges();
   });
@@ -39,7 +41,7 @@ describe('ProjectsComponent', () => {
 
   it('should show all projects when no filter is active', () => {
     expect(component.hasActiveFilter()).toBe(false);
-    expect(component.filteredProjects().length).toBe(5);
+    expect(component.filteredProjects().length).toBe(6);
   });
 
   it('should filter projects by the selected technology', () => {
@@ -66,6 +68,44 @@ describe('ProjectsComponent', () => {
     component.clearFilter();
 
     expect(component.hasActiveFilter()).toBe(false);
-    expect(component.filteredProjects().length).toBe(5);
+    expect(component.filteredProjects().length).toBe(6);
+  });
+
+  it('should declare a case study only on the Motatawi3 project', () => {
+    const withCaseStudy = component.projects().filter((project) => project.hasCaseStudy);
+
+    expect(withCaseStudy.length).toBe(1);
+    expect(withCaseStudy[0].slug).toBe('motatawi3');
+    expect(withCaseStudy[0].caseStudyKey).toBe('caseStudies.motatawi3');
+    expect(withCaseStudy[0].liveUrl).toBe('https://motatawi3-sefrou.vercel.app/');
+  });
+
+  it('should render a single collapsed case study panel wired to its toggle button', () => {
+    const panels = fixture.nativeElement.querySelectorAll('[id^="case-study-"]') as NodeListOf<HTMLElement>;
+    expect(panels.length).toBe(1);
+
+    const toggle = fixture.nativeElement.querySelector(
+      'button[aria-controls="case-study-motatawi3"]',
+    ) as HTMLButtonElement | null;
+    expect(toggle).not.toBeNull();
+    expect(toggle?.getAttribute('aria-expanded')).toBe('false');
+    expect(panels[0].hidden).toBe(true);
+  });
+
+  it('should expand then collapse the case study panel on toggle', () => {
+    const toggle = fixture.nativeElement.querySelector(
+      'button[aria-controls="case-study-motatawi3"]',
+    ) as HTMLButtonElement;
+    const panel = fixture.nativeElement.querySelector('#case-study-motatawi3') as HTMLElement;
+
+    toggle.click();
+    fixture.detectChanges();
+    expect(toggle.getAttribute('aria-expanded')).toBe('true');
+    expect(panel.hidden).toBe(false);
+
+    toggle.click();
+    fixture.detectChanges();
+    expect(toggle.getAttribute('aria-expanded')).toBe('false');
+    expect(panel.hidden).toBe(true);
   });
 });
