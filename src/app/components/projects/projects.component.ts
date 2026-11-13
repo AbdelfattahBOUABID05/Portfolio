@@ -55,7 +55,7 @@ export class ProjectsComponent {
       categoryKey: 'projectsList.1.category',
       descriptionKey: 'projectsList.1.description',
       featuresKey: 'projectsList.1.features',
-      technologies: ['GitLab CI/CD', 'Docker', 'Git', 'Flask', 'MySQL'],
+      technologies: ['Jenkins','Docker', 'DevOps', 'CI/CD', 'Automation', 'Git'],
       icon: LucideZap,
       slug: 'cicd-pipeline',
       hasCaseStudy: true,

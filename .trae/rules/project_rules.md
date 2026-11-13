@@ -58,14 +58,7 @@
 - Si tu n'es pas sûr d'une information (version, API, comportement), dis-le au lieu d'inventer.
 - Ne crée pas de fichiers de documentation (.md) sans que je le demande.
 
-## Git (obligatoire à la fin de chaque tâche)
-- Tu peux faire `git add` et `git commit` (un commit par tâche), mais tu ne fais JAMAIS `git push`, `git merge`, `git checkout main`, `git pull` ni `git rebase`.
-- À la fin de chaque tâche, termine TOUJOURS ton résumé par un bloc "Commandes git à lancer manuellement" avec :
-  1. Vérification : `git branch --show-current` et `git status`
-  2. Le push de la branche courante : `git push -u origin <nom-de-la-branche>` (le nom exact de la branche courante)
-  3. Si la tâche est prête à être déployée : la séquence de merge vers main (`git checkout main`, `git pull`, `git merge <branche>`, `git push`, puis `git checkout <branche>` et `git merge main`)
-  4. Une ligne expliquant ce que chaque commande fait, et ce que je dois voir si tout se passe bien
-- Précise si la tâche est "déployable" (le test visuel est-il suffisant ?) ou "à continuer sur la branche avant déploiement".
-- Si un fichier non suivi existe (ex: `.trae/*.md`), signale-le et dis-moi s'il faut l'ignorer via `.gitignore`.
-
-- Pour tout composant partagé qui projette du contenu (<ng-content>), ajoute un test de rendu couvrant CHAQUE branche (@if/@else), et vérifie le HTML prérendu (dist) après build pour les liens/boutons à icône.
+## Git
+- Travail directement sur la branche `main`. Tu peux faire `git add` et `git commit` (un commit par tâche), mais JAMAIS `git push`, `git merge`, `git pull`, `git rebase` ni commande destructive.
+- À la fin de chaque tâche, donne-moi : `git status`, puis `git push`, avec ce que je dois voir si tout va bien.
+- Dis-moi si la tâche est déployable (chaque push sur main déploie GitHub Pages).
