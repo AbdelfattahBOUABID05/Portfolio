@@ -33,21 +33,21 @@ export class SkillsComponent {
       titleKey: 'skillCategories.frontendMobile',
       icon: LucideLayout,
       color: 'blue',
-      skillCount: 6,
+      skillCount: 10,
       categoryKey: 'frontendMobile'
     },
     {
       titleKey: 'skillCategories.backendApis',
       icon: LucideDatabase,
       color: 'indigo',
-      skillCount: 6,
+      skillCount: 10,
       categoryKey: 'backendApis'
     },
     {
       titleKey: 'skillCategories.devopsCloud',
       icon: LucideInfinity,
       color: 'emerald',
-      skillCount: 7,
+      skillCount: 8,
       categoryKey: 'devopsCloud'
     },
     {

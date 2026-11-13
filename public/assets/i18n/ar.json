@@ -202,9 +202,9 @@
     "digitalDesignDocs": "التصميم الرقمي والمستندات"
   },
   "skillsList": {
-    "frontendMobile": ["Angular", "Flutter", "Dart", "HTML5", "CSS3", "Tailwind CSS"],
-    "backendApis": ["Java", "Spring Boot", "PHP", "Laravel", "Flask", "REST APIs"],
-    "devopsCloud": ["Docker", "GitLab CI/CD", "Jenkins", "VMware ESXi", "Nginx", "Linux", "Bash/Shell"],
+    "frontendMobile": ["Angular", "Flutter", "Dart", "HTML5", "CSS3", "Tailwind CSS", "Next.js", "React", "TypeScript", "React Hook Form"],
+    "backendApis": ["Java", "Spring Boot", "PHP", "Laravel", "Flask", "REST APIs", "Supabase", "Sanity", "Zod", "Resend"],
+    "devopsCloud": ["Docker", "GitLab CI/CD", "Jenkins", "VMware ESXi", "Nginx", "Linux", "Bash/Shell", "Vercel"],
     "networkSecurity": ["Cisco IOS", "CCNA Routing & Switching", "Cisco CyberOps", "Routing & Switching", "VLANs & ACLs", "NAT/DHCP"],
     "digitalDesignDocs": ["تصميم الشعارات", "Canva", "التوثيق الفني", "التقارير المهنية (LaTeX)"]
   },
