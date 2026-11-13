@@ -200,7 +200,7 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
       'docker-seeklogo.webp', 'flask-seeklogo.webp', 'html5-seeklogo.webp',
       'java-script-js-seeklogo.webp', 'jenkins-seeklogo.webp', 'laravel-seeklogo.webp','oracle-seeklogo.webp',
       'linux-tux-seeklogo.webp', 'python-seeklogo.webp', 'spring-boot-seeklogo.webp', 'mysql-seeklogo.webp',
-      'tailwind-css-seeklogo.webp', 'typescript-seeklogo.webp', 'windows-seeklogo.webp', 'php-seeklogo.webp'
+      'tailwind-css-seeklogo.webp', 'React-seeklogo.webp', 'typescript-seeklogo.webp', 'windows-seeklogo.webp', 'php-seeklogo.webp'
     ];
 
     const loadPromises = logoFiles.map(file => {
