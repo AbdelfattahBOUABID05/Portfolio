@@ -71,25 +71,40 @@ describe('ProjectsComponent', () => {
     expect(component.filteredProjects().length).toBe(6);
   });
 
-  it('should declare a case study only on the Motatawi3 project', () => {
+  it('should declare case studies for LogSOC and Motatawi3, the latter being the only live one', () => {
     const withCaseStudy = component.projects().filter((project) => project.hasCaseStudy);
 
-    expect(withCaseStudy.length).toBe(1);
-    expect(withCaseStudy[0].slug).toBe('motatawi3');
-    expect(withCaseStudy[0].caseStudyKey).toBe('caseStudies.motatawi3');
-    expect(withCaseStudy[0].liveUrl).toBe('https://motatawi3-sefrou.vercel.app/');
+    expect(withCaseStudy.map((project) => project.slug).sort()).toEqual(['logsoc', 'motatawi3']);
+    expect(withCaseStudy.find((p) => p.slug === 'logsoc')?.caseStudyKey).toBe('caseStudies.logsoc');
+    expect(withCaseStudy.find((p) => p.slug === 'motatawi3')?.caseStudyKey).toBe(
+      'caseStudies.motatawi3',
+    );
+    expect(withCaseStudy.map((p) => p.liveUrl).filter(Boolean)).toEqual([
+      'https://motatawi3-sefrou.vercel.app/',
+    ]);
   });
 
-  it('should render a single collapsed case study panel wired to its toggle button', () => {
-    const panels = fixture.nativeElement.querySelectorAll('[id^="case-study-"]') as NodeListOf<HTMLElement>;
-    expect(panels.length).toBe(1);
+  it('should expose no external link for LogSOC (local only, no public repository)', () => {
+    const logsoc = component.projects().find((project) => project.slug === 'logsoc');
 
-    const toggle = fixture.nativeElement.querySelector(
-      'button[aria-controls="case-study-motatawi3"]',
-    ) as HTMLButtonElement | null;
-    expect(toggle).not.toBeNull();
-    expect(toggle?.getAttribute('aria-expanded')).toBe('false');
-    expect(panels[0].hidden).toBe(true);
+    expect(logsoc?.liveUrl).toBeUndefined();
+    expect(logsoc?.githubUrl).toBeUndefined();
+  });
+
+  it('should render one collapsed case study panel per case study, each wired to its toggle', () => {
+    const panels = fixture.nativeElement.querySelectorAll('[id^="case-study-"]') as NodeListOf<HTMLElement>;
+    expect(panels.length).toBe(2);
+
+    for (const slug of ['logsoc', 'motatawi3']) {
+      const toggle = fixture.nativeElement.querySelector(
+        `button[aria-controls="case-study-${slug}"]`,
+      ) as HTMLButtonElement | null;
+      expect(toggle).not.toBeNull();
+      expect(toggle?.getAttribute('aria-expanded')).toBe('false');
+
+      const panel = fixture.nativeElement.querySelector(`#case-study-${slug}`) as HTMLElement;
+      expect(panel.hidden).toBe(true);
+    }
   });
 
   it('should expand then collapse the case study panel on toggle', () => {

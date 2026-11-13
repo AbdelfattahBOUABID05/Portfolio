@@ -128,6 +128,18 @@
     }
   ],
   "caseStudies": {
+    "logsoc": {
+      "context": "Superviser des systèmes d'information suppose de centraliser et d'analyser en continu de gros volumes de logs. LogSOC est né de ce besoin : une plateforme unique pour collecter, analyser et détecter les anomalies des logs systèmes, avec l'appui de l'IA pour accélérer le diagnostic.",
+      "role": "Conception et développement de LogSOC, plateforme de monitoring intelligent et de supervision des systèmes web, durant mon stage chez Attijariwafa Bank.",
+      "solution": "Architecture full-stack conteneurisée : une API REST Flask (SQLAlchemy, traitement asynchrone, scheduler de jobs) et une SPA Angular 17 avec Tailwind CSS. Les analyses proviennent de trois sources — serveurs distants via SSH, fichiers locaux et jobs planifiés. Google Gemini évalue les menaces et produit un score de sécurité ; les résultats sont exportés en PDF et notifiés par e-mail. L'ensemble est orchestré par Docker Compose (PostgreSQL, backend, frontend) derrière Nginx.",
+      "challenges": [
+        "Analyser des logs depuis plusieurs sources sans changer d'outil : SSH distant, fichiers locaux et jobs récurrents.",
+        "Sécuriser les accès : chiffrement des identifiants de connexion, mots de passe hachés (bcrypt) et tokens signés.",
+        "Intégrer une évaluation IA des menaces (Google Gemini) avec un score et un résumé des risques.",
+        "Reproduire l'environnement complet en conteneurs (base de données, API, frontend) pour un déploiement maîtrisé."
+      ],
+      "results": "Plateforme déployée et testée en environnement local via Docker Compose (base PostgreSQL, API Flask, frontend Angular)."
+    },
     "motatawi3": {
       "context": "Le club de bénévolat de Sefrou, créé en septembre 2026, n'avait aucun outil numérique : inscriptions, suivi des activités et communication se faisaient manuellement. Il fallait une plateforme unique, bilingue et utilisable sur mobile.",
       "role": "Conception et développement complets, en solo : architecture, front-end et back-end, base de données et sécurité, e-mails et déploiement.",
@@ -203,7 +215,7 @@
   },
   "skillsList": {
     "frontendMobile": ["Angular", "Flutter", "Dart", "HTML5", "CSS3", "Tailwind CSS", "Next.js", "React", "TypeScript", "React Hook Form"],
-    "backendApis": ["Java", "Spring Boot", "PHP", "Laravel", "Flask", "REST APIs", "Supabase", "Sanity", "Zod", "Resend"],
+    "backendApis": ["Java", "Spring Boot", "PHP", "Laravel", "Flask", "REST APIs", "Supabase", "Sanity", "Zod", "Resend", "PostgreSQL", "Google Gemini"],
     "devopsCloud": ["Docker", "GitLab CI/CD", "Jenkins", "VMware ESXi", "Nginx", "Linux", "Bash/Shell", "Vercel"],
     "networkSecurity": ["Cisco IOS", "CCNA Routing & Switching", "Cisco CyberOps", "Routing & Switching", "VLANs & ACLs", "NAT/DHCP"],
     "digitalDesignDocs": ["Logo Design", "Canva", "Documentation Technique", "Rapports Professionnels (LaTeX)"]

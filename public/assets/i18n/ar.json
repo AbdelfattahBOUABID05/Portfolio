@@ -128,6 +128,18 @@
     }
   ],
   "caseStudies": {
+    "logsoc": {
+      "context": "تتطلب مراقبة أنظمة المعلومات تجميع كميات كبيرة من السجلات وتحليلها باستمرار. وُلد LogSOC لهذه الحاجة: منصة واحدة لجمع وتحليل واكتشاف الشذوذ في سجلات الأنظمة، بدعم الذكاء الاصطناعي لتسريع التشخيص.",
+      "role": "تصميم وتطوير LogSOC، منصة مراقبة ذكية والإشراف على أنظمة الويب، خلال تدريبي في بنك التجاري.",
+      "solution": "بنية full-stack معبّأة في حاويات: واجهة REST مبنية بـ Flask (SQLAlchemy، معالجة غير متزامنة، وجدولة المهام) وتطبيق SPA بـ Angular 17 مع Tailwind CSS. تأتي عمليات التحليل من ثلاثة مصادر — خوادم بعيدة عبر SSH، وملفات محلية، ومهام مُجدوَلة. يقيّم Google Gemini التهديدات ويُنتج درجة أمان، وتُصدَّر النتائج إلى PDF وتُرسَل بالبريد الإلكتروني. يُنسَّق كل ذلك عبر Docker Compose (PostgreSQL، الواجهة الخلفية، الواجهة الأمامية) خلف Nginx.",
+      "challenges": [
+        "تحليل السجلات من مصادر متعددة دون تغيير الأداة (SSH، محلي، مهام مُجدوَلة).",
+        "تأمين الوصول: تشفير بيانات الاتصال، وتجزئة كلمات المرور (bcrypt)، ورموز موقّعة.",
+        "تقييم التهديدات بالذكاء الاصطناعي (Google Gemini) مع درجة أمان وملخص للمخاطر.",
+        "إعادة إنتاج البيئة الكاملة في حاويات (قاعدة البيانات، الواجهة الخلفية، الواجهة الأمامية) لنشر محكم."
+      ],
+      "results": "منصة نُشرت واختُبرت في بيئة محلية عبر Docker Compose (قاعدة PostgreSQL، واجهة Flask، واجهة Angular)."
+    },
     "motatawi3": {
       "context": "لم يكن لدى نادي التطوع في صفرو، الذي أُسّس في سبتمبر 2026، أي أدوات رقمية: كانت التسجيلات وتتبّع الأنشطة والتواصل تُدار يدويًا. كان مطلوبًا منصة واحدة، ثنائية اللغة وقابلة للاستخدام على الهاتف.",
       "role": "التصميم والتطوير الكاملان، بمفردي: البنية المعمارية، الواجهة الأمامية والخلفية، قاعدة البيانات والأمان، البريد الإلكتروني والنشر.",
@@ -203,7 +215,7 @@
   },
   "skillsList": {
     "frontendMobile": ["Angular", "Flutter", "Dart", "HTML5", "CSS3", "Tailwind CSS", "Next.js", "React", "TypeScript", "React Hook Form"],
-    "backendApis": ["Java", "Spring Boot", "PHP", "Laravel", "Flask", "REST APIs", "Supabase", "Sanity", "Zod", "Resend"],
+    "backendApis": ["Java", "Spring Boot", "PHP", "Laravel", "Flask", "REST APIs", "Supabase", "Sanity", "Zod", "Resend", "PostgreSQL", "Google Gemini"],
     "devopsCloud": ["Docker", "GitLab CI/CD", "Jenkins", "VMware ESXi", "Nginx", "Linux", "Bash/Shell", "Vercel"],
     "networkSecurity": ["Cisco IOS", "CCNA Routing & Switching", "Cisco CyberOps", "Routing & Switching", "VLANs & ACLs", "NAT/DHCP"],
     "digitalDesignDocs": ["تصميم الشعارات", "Canva", "التوثيق الفني", "التقارير المهنية (LaTeX)"]

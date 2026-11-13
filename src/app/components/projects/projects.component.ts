@@ -43,9 +43,11 @@ export class ProjectsComponent {
       categoryKey: 'projectsList.0.category',
       descriptionKey: 'projectsList.0.description',
       featuresKey: 'projectsList.0.features',
-      technologies: ['Angular', 'Flask', 'GitLab CI/CD', 'Docker', 'Nginx', 'LLM'],
+      technologies: ['Angular', 'Flask', 'GitLab CI/CD', 'Docker', 'Nginx', 'Google Gemini'],
       icon: LucideCpu,
       slug: 'logsoc',
+      hasCaseStudy: true,
+      caseStudyKey: 'caseStudies.logsoc',
       index: 0
     },
     {
