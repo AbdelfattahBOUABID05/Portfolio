@@ -3,7 +3,7 @@ node_modules/
 
 # Build outputs
 dist/
-.angular/cache/
+.angular/
 
 # IDE and editor
 .idea/
@@ -19,7 +19,6 @@ Thumbs.db
 # Environment
 .env
 .env.*
-!.env.example
 
 # Temporary files
 *.tmp
@@ -34,7 +33,6 @@ coverage/
 *.seed
 *.pid.lock
 
-# Angular
-.angular/
-.trae/
-.trae/rules/
+# Trae (seules les règles sont versionnées)
+.trae/*
+!.trae/rules/
