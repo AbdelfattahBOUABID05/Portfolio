@@ -54,6 +54,16 @@
       "clear": "Reset",
       "empty": "No project matches “{{tech}}”.",
       "emptyHint": "Reset the filter to show all projects."
+    },
+    "caseStudy": {
+      "open": "View case study",
+      "close": "Close case study",
+      "context": "Context",
+      "role": "My role",
+      "solution": "Solution & architecture",
+      "challenges": "Challenges & decisions",
+      "results": "Results",
+      "stack": "Tech stack"
     }
   },
   "projectsList": [
@@ -105,8 +115,31 @@
         "Strengthened service continuity through virtualization and snapshot management.",
         "Centralized administration to simplify management of systems and directory services."
       ]
+    },
+    {
+      "title": "Club Motatawi3 Sefrou — Volunteer Platform",
+      "category": "Full-Stack / Next.js",
+      "description": "Web platform for the Sefrou volunteering club: a bilingual showcase (Arabic RTL / French) and a member area for volunteers. It unifies sign-up, profile completion, activity and event management, and full club administration.",
+      "features": [
+        "Bilingual public site (Arabic RTL / French) with light and dark themes, built with Next.js (App Router).",
+        "Secure volunteer accounts: Google sign-in or email with a 6-digit code, then profile completion and a personal area.",
+        "Complete admin area: users and roles, activities and events, volunteers (CSV export), messaging and audit log."
+      ]
     }
   ],
+  "caseStudies": {
+    "motatawi3": {
+      "context": "The Sefrou volunteering club, founded in September 2026, had no digital tooling: sign-ups, activity tracking and communication were all handled manually. It needed a single, bilingual, mobile-friendly platform.",
+      "role": "Full design and development, solo: architecture, front-end and back-end, database and security, emails and deployment.",
+      "solution": "Bilingual Next.js (App Router) application (Arabic RTL / French) with light/dark themes. Writes go through secured Server Actions. Supabase handles accounts and the PostgreSQL database, Sanity stores activities and events, Resend sends notifications. An /admin area centralizes club management.",
+      "challenges": [
+        "Unified sign-up: Google account or email code (6 digits), then mandatory profile completion (parental consent for minors).",
+        "Shared client and server validation with React Hook Form and Zod, from a single schema checked on both sides.",
+        "Secure by default: RLS enabled on every table, explicit grants, service_role key kept server-side only.",
+        "Role hierarchy enforced in the database and on the server: a super admin only acts on accounts they promoted themselves, never on a founder."
+      ]
+    }
+  },
   "experience": {
     "subtitle": "Professional Journey",
     "title": "Technical Experience."

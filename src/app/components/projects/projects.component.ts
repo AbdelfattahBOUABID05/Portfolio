@@ -1,6 +1,6 @@
 import { Component, computed, inject, signal, Type } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LucideCodeXml, LucideExternalLink, LucideZap, LucideCpu, LucideNetwork, LucideServer, LucideSmartphone } from '@lucide/angular';
+import { LucideCodeXml, LucideExternalLink, LucideZap, LucideCpu, LucideNetwork, LucideServer, LucideSmartphone, LucideHeartHandshake } from '@lucide/angular';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal';
 import { TranslatePipe } from '@ngx-translate/core';
 import { ProjectFilterService } from '../../services/project-filter.service';
@@ -15,8 +15,11 @@ interface Project {
   featuresKey: string;
   technologies: string[];
   icon: Type<unknown>;
+  slug: string;
   githubUrl?: string;
   liveUrl?: string;
+  hasCaseStudy?: boolean;
+  caseStudyKey?: string;
   index: number;
 }
 
@@ -42,6 +45,7 @@ export class ProjectsComponent {
       featuresKey: 'projectsList.0.features',
       technologies: ['Angular', 'Flask', 'GitLab CI/CD', 'Docker', 'Nginx', 'LLM'],
       icon: LucideCpu,
+      slug: 'logsoc',
       index: 0
     },
     {
@@ -51,6 +55,7 @@ export class ProjectsComponent {
       featuresKey: 'projectsList.1.features',
       technologies: ['Jenkins','Docker', 'DevOps', 'CI/CD', 'Automation', 'Git'],
       icon: LucideZap,
+      slug: 'cicd-pipeline',
       index: 1
     },
     {
@@ -60,6 +65,7 @@ export class ProjectsComponent {
       featuresKey: 'projectsList.2.features',
       technologies: ['Flutter', 'Dart', 'Laravel', 'OOP', 'State Management'],
       icon: LucideSmartphone,
+      slug: 'tactix',
       index: 2
     },
     {
@@ -69,6 +75,7 @@ export class ProjectsComponent {
       featuresKey: 'projectsList.3.features',
       technologies: ['Cisco IOS', 'Packet Tracer', 'Routing', 'Switching', 'NAT', 'VLANs', 'ACLs'],
       icon: LucideNetwork,
+      slug: 'cisco-network',
       index: 3
     },
     {
@@ -78,9 +85,29 @@ export class ProjectsComponent {
       featuresKey: 'projectsList.4.features',
       technologies: ['VMware ESXi', 'Windows Server', 'Active Directory', 'DNS', 'Datastores'],
       icon: LucideServer,
+      slug: 'virtualization',
       index: 4
+    },
+    {
+      titleKey: 'projectsList.5.title',
+      categoryKey: 'projectsList.5.category',
+      descriptionKey: 'projectsList.5.description',
+      featuresKey: 'projectsList.5.features',
+      technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Supabase', 'Sanity', 'next-intl', 'next-themes', 'Resend', 'Zod', 'React Hook Form', 'Vercel'],
+      icon: LucideHeartHandshake,
+      slug: 'motatawi3',
+      liveUrl: 'https://motatawi3-sefrou.vercel.app/',
+      hasCaseStudy: true,
+      caseStudyKey: 'caseStudies.motatawi3',
+      index: 5
     }
   ]);
+
+  readonly openCaseStudy = signal<string | null>(null);
+
+  toggleCaseStudy(slug: string): void {
+    this.openCaseStudy.update((current) => (current === slug ? null : slug));
+  }
 
   readonly filteredProjects = computed<Project[]>(() => {
     const tech = this.selectedTech();

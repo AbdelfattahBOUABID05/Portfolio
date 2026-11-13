@@ -54,6 +54,16 @@
       "clear": "Réinitialiser",
       "empty": "Aucun projet ne correspond à « {{tech}} ».",
       "emptyHint": "Réinitialisez le filtre pour afficher tous les projets."
+    },
+    "caseStudy": {
+      "open": "Voir l’étude de cas",
+      "close": "Fermer l’étude de cas",
+      "context": "Contexte",
+      "role": "Mon rôle",
+      "solution": "Solution & architecture",
+      "challenges": "Défis & décisions",
+      "results": "Résultats",
+      "stack": "Stack technique"
     }
   },
   "projectsList": [
@@ -105,8 +115,31 @@
         "Continuité de service renforcée grâce à la virtualisation et à la gestion des snapshots.",
         "Administration centralisée pour simplifier la gestion des systèmes et des services d'annuaire."
       ]
+    },
+    {
+      "title": "Club Motatawi3 Sefrou — Plateforme des bénévoles",
+      "category": "Full-Stack / Next.js",
+      "description": "Plateforme web du club de bénévolat de Sefrou : vitrine bilingue (arabe RTL / français) et espace compte pour les bénévoles. Elle unifie l'inscription, la complétion du profil, la gestion des activités et des événements, ainsi qu'une administration complète du club.",
+      "features": [
+        "Site public bilingue (arabe RTL / français) avec thème clair et sombre, développé avec Next.js (App Router).",
+        "Comptes bénévoles sécurisés : connexion Google ou e-mail avec code à 6 chiffres, puis complétion du profil et espace personnel.",
+        "Espace d'administration complet : utilisateurs et rôles, activités et événements, bénévoles (export CSV), messagerie et journal d'audit."
+      ]
     }
   ],
+  "caseStudies": {
+    "motatawi3": {
+      "context": "Le club de bénévolat de Sefrou, créé en septembre 2026, n'avait aucun outil numérique : inscriptions, suivi des activités et communication se faisaient manuellement. Il fallait une plateforme unique, bilingue et utilisable sur mobile.",
+      "role": "Conception et développement complets, en solo : architecture, front-end et back-end, base de données et sécurité, e-mails et déploiement.",
+      "solution": "Application Next.js (App Router) bilingue (arabe RTL / français) avec thème clair/sombre. Les écritures passent par des Server Actions sécurisées. Supabase gère les comptes et la base PostgreSQL, Sanity stocke les activités et événements, Resend envoie les notifications. Un espace /admin centralise la gestion du club.",
+      "challenges": [
+        "Inscription unifiée : compte Google ou code e-mail à 6 chiffres, puis complétion obligatoire du profil (accord parental pour les mineurs).",
+        "Validation partagée client et serveur avec React Hook Form et Zod, à partir d'un schéma unique vérifié des deux côtés.",
+        "Sécurité par défaut : RLS activée sur toutes les tables, droits accordés explicitement, clé service_role réservée au serveur.",
+        "Hiérarchie des rôles appliquée dans la base et côté serveur : un super admin n'agit que sur les comptes qu'il a lui-même promus, jamais sur un fondateur."
+      ]
+    }
+  },
   "experience": {
     "subtitle": "Parcours Professionnel",
     "title": "Expériences Techniques."
