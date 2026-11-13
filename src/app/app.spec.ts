@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { provideClientHydration, withIncrementalHydration } from '@angular/platform-browser';
 import { provideTranslateService } from '@ngx-translate/core';
 
 import { App } from './app';
@@ -20,7 +21,7 @@ describe('App', () => {
 
     await TestBed.configureTestingModule({
       imports: [App],
-      providers: [provideTranslateService()],
+      providers: [provideTranslateService(), provideClientHydration(withIncrementalHydration())],
     }).compileComponents();
   });
 
