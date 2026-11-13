@@ -81,8 +81,8 @@
             </div>
 
             <!-- Footer Actions -->
-            @if (project.githubUrl || project.liveUrl) {
-            <div class="flex items-center gap-4 mt-8 pt-6 border-t border-slate-200 dark:border-slate-800/50">
+            @if (project.githubUrl || project.liveUrl || project.hasCaseStudy) {
+            <div class="flex flex-wrap items-center gap-4 mt-8 pt-6 border-t border-slate-200 dark:border-slate-800/50">
               @if (project.githubUrl) {
                 <a [href]="project.githubUrl" target="_blank" rel="noopener noreferrer" [attr.aria-label]="'projects.codeSource' | translate" [title]="'projects.codeSource' | translate" class="p-2 rounded-lg bg-white dark:bg-slate-800 text-slate-900 dark:text-white hover:bg-emerald-600 dark:hover:bg-emerald-500 hover:text-white transition-colors border border-slate-200 dark:border-slate-700">
                   <span class="flex items-center justify-center">
@@ -97,6 +97,52 @@
                     <svg lucideExternalLink [size]="12"></svg>
                   </span>
                 </app-button>
+              }
+              @if (project.hasCaseStudy) {
+                <button
+                  type="button"
+                  (click)="toggleCaseStudy(project.slug)"
+                  [attr.aria-expanded]="openCaseStudy() === project.slug"
+                  [attr.aria-controls]="'case-study-' + project.slug"
+                  class="group inline-flex items-center justify-center gap-3 px-4 py-2 text-xs font-black uppercase tracking-widest rounded-[var(--radius-button)] bg-white dark:bg-slate-900 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-800 hover:border-emerald-500/50 shadow-sm dark:shadow-none transition-transform duration-200 hover:-translate-y-0.5 active:translate-y-0 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+                >
+                  {{ (openCaseStudy() === project.slug ? 'projects.caseStudy.close' : 'projects.caseStudy.open') | translate }}
+                </button>
+              }
+            </div>
+            }
+
+            <!-- Case Study -->
+            @if (project.hasCaseStudy && project.caseStudyKey) {
+            <div
+              [id]="'case-study-' + project.slug"
+              [hidden]="openCaseStudy() !== project.slug"
+              class="mt-6 pt-6 border-t border-slate-200 dark:border-slate-800/50"
+            >
+              <h5 class="text-xs font-black uppercase tracking-widest text-emerald-700 dark:text-emerald-500 mb-2">{{ 'projects.caseStudy.context' | translate }}</h5>
+              <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-6">{{ project.caseStudyKey + '.context' | translate }}</p>
+
+              <h5 class="text-xs font-black uppercase tracking-widest text-emerald-700 dark:text-emerald-500 mb-2">{{ 'projects.caseStudy.role' | translate }}</h5>
+              <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-6">{{ project.caseStudyKey + '.role' | translate }}</p>
+
+              <h5 class="text-xs font-black uppercase tracking-widest text-emerald-700 dark:text-emerald-500 mb-2">{{ 'projects.caseStudy.solution' | translate }}</h5>
+              <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-6">{{ project.caseStudyKey + '.solution' | translate }}</p>
+
+              <h5 class="text-xs font-black uppercase tracking-widest text-emerald-700 dark:text-emerald-500 mb-2">{{ 'projects.caseStudy.challenges' | translate }}</h5>
+              <ul class="mb-6">
+                @for (i of [0, 1, 2, 3]; track i) {
+                  @if ((project.caseStudyKey + '.challenges.' + i | translate) !== project.caseStudyKey + '.challenges.' + i) {
+                    <li class="flex items-start gap-3 text-sm text-slate-600 dark:text-slate-400 mb-2">
+                      <span class="mt-1.5 w-1 h-1 rounded-full bg-emerald-500/50 flex-shrink-0"></span>
+                      <span>{{ project.caseStudyKey + '.challenges.' + i | translate }}</span>
+                    </li>
+                  }
+                }
+              </ul>
+
+              @if ((project.caseStudyKey + '.results' | translate) !== project.caseStudyKey + '.results') {
+                <h5 class="text-xs font-black uppercase tracking-widest text-emerald-700 dark:text-emerald-500 mb-2">{{ 'projects.caseStudy.results' | translate }}</h5>
+                <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{{ project.caseStudyKey + '.results' | translate }}</p>
               }
             </div>
             }
