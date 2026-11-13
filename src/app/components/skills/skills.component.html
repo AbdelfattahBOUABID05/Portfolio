@@ -7,16 +7,18 @@
       </h3>
     </div>
 
-    <!-- Bento : grille 6 colonnes à partir de lg.
-         S1 (frontendMobile, 1er item) occupe une demi-largeur sur 2 rangées ;
-         les 4 autres cartes occupent une demi-largeur sur 1 rangée.
+    <!-- Bento : grille 6 colonnes à partir de lg, 2 rangées de hauteur égale.
+         Rangée 1 : S1 (frontendMobile) et S2 (backendApis) en demi-largeur (col-span-3).
+         Rangée 2 : S3/S4/S5 en tiers de largeur (col-span-2).
+         `lg:auto-rows-fr` égalise les 2 rangées ; chaque carte est `h-full flex flex-col`
+         et ses puces tiennent dans un `flex flex-wrap` aligné en haut.
          Espacement via `gap-*`/`mb-*` (jamais `space-y-*`, élagué du CSS critique). -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 lg:auto-rows-fr gap-6">
       @for (category of categories(); track category.categoryKey) {
         <app-card
           padding="md"
           class="h-full flex flex-col"
-          [ngClass]="$index === 0 ? 'lg:col-span-3 lg:row-span-2' : 'lg:col-span-3'"
+          [ngClass]="$index < 2 ? 'lg:col-span-3' : 'lg:col-span-2'"
         >
           <div class="flex items-center gap-4 mb-8">
             <div [class]="getIconClasses(category.color)">
