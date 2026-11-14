@@ -1,21 +1,10 @@
-import { Component, inject, signal, Type } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CommonModule, ViewportScroller } from '@angular/common';
-import { LucideLayout, LucideDatabase, LucideInfinity, LucideShield, LucideFileText } from '@lucide/angular';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal';
 import { TranslatePipe } from '@ngx-translate/core';
 import { ProjectFilterService } from '../../services/project-filter.service';
 import { AppCardComponent } from '../../shared/card/card.component';
-
-interface Skill {
-  nameKey: string;
-}
-
-interface SkillCategory {
-  titleKey: string;
-  icon: Type<any>;
-  color: 'blue' | 'indigo' | 'emerald' | 'rose' | 'slate';
-  categoryKey: 'frontendMobile' | 'backendApis' | 'devopsCloud' | 'networkSecurity' | 'digitalDesignDocs';
-}
+import { SKILL_CATEGORIES, SkillCategory } from '../../data/portfolio.data';
 
 @Component({
   selector: 'app-skills',
@@ -27,38 +16,7 @@ export class SkillsComponent {
   private readonly projectFilter = inject(ProjectFilterService);
   private readonly viewportScroller = inject(ViewportScroller);
 
-  public categories = signal<SkillCategory[]>([
-    {
-      titleKey: 'skillCategories.frontendMobile',
-      icon: LucideLayout,
-      color: 'blue',
-      categoryKey: 'frontendMobile'
-    },
-    {
-      titleKey: 'skillCategories.backendApis',
-      icon: LucideDatabase,
-      color: 'indigo',
-      categoryKey: 'backendApis'
-    },
-    {
-      titleKey: 'skillCategories.devopsCloud',
-      icon: LucideInfinity,
-      color: 'emerald',
-      categoryKey: 'devopsCloud'
-    },
-    {
-      titleKey: 'skillCategories.networkSecurity',
-      icon: LucideShield,
-      color: 'rose',
-      categoryKey: 'networkSecurity'
-    },
-    {
-      titleKey: 'skillCategories.digitalDesignDocs',
-      icon: LucideFileText,
-      color: 'slate',
-      categoryKey: 'digitalDesignDocs'
-    }
-  ]);
+  public categories = signal<SkillCategory[]>([...SKILL_CATEGORIES]);
 
   getBadgeClasses(color: string): string {
     const base = 'px-4 py-1.5 text-xs font-bold rounded-lg border ';

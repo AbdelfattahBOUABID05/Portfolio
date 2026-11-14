@@ -5,6 +5,7 @@ import { ThemeService } from '../../services/theme';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal';
 import { TranslatePipe } from '@ngx-translate/core';
 import { AppCardComponent } from '../../shared/card/card.component';
+import { CERTIFICATIONS, Certification } from '../../data/portfolio.data';
 
 interface PhysicsLogo {
   img: any; // Use any for SSR safety, initialized as HTMLImageElement only in browser
@@ -15,12 +16,6 @@ interface PhysicsLogo {
   vy: number;
   size: number;
   opacity: number;
-}
-
-interface Certification {
-  name: string;
-  pdf: string;
-  badge: string;
 }
 
 @Component({
@@ -42,48 +37,7 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
 
   public isCertListOpen = signal<boolean>(false);
 
-  public certifications: Certification[] = [
-    {
-      name: 'Enterprise Networking, Security, and Automation',
-      pdf: 'assets/certificat/_Enterprise Networking, Security, and Automation.pdf',
-      badge: 'assets/certificat/_Enterprise Networking, Security, and AutomationBadge.pdf'
-    },
-    {
-      name: 'Cisco CyberOps Associate',
-      pdf: 'assets/certificat/CyberOpsAssociate.pdf',
-      badge: 'assets/certificat/CyberOpsAssociateBadge.pdf'
-    },
-    {
-      name: 'Ethical Hacker',
-      pdf: 'assets/certificat/Ethical HackerBadge.pdf',
-      badge: 'assets/certificat/Ethical HackerBadge.pdf'
-    },
-    {
-      name: 'Cisco IT Essentials 7',
-      pdf: 'assets/certificat/IT Essentials 7.pdf',
-      badge: 'assets/certificat/ITEssentials7Badge.pdf'
-    },
-    {
-      name: 'Network Technician Career Path',
-      pdf: 'assets/certificat/Network Technician Career Path.pdf',
-      badge: 'assets/certificat/Network Technician Career PathBadge.pdf'
-    },
-    {
-      name: 'Notions de base sur les réseaux',
-      pdf: 'assets/certificat/Notions de base sur les réseaux.pdf',
-      badge: 'assets/certificat/Notions de base sur les réseauxBadge.pdf'
-    },
-    {
-      name: 'Python Essentials 1',
-      pdf: 'assets/certificat/PythonEssentials1.pdf',
-      badge: 'assets/certificat/Python Essentials 1Badge.pdf'
-    },
-    {
-      name: 'Switching, Routing, and Wireless Essentials',
-      pdf: 'assets/certificat/SwitchingRoutingWireless.pdf',
-      badge: 'assets/certificat/SwitchingRoutingWirelessBadge.pdf'
-    }
-  ];
+  public certifications: Certification[] = [...CERTIFICATIONS];
 
   public stats = signal<{ labelKey: string; value: string; icon: Type<any> }[]>([
     { labelKey: 'aboutStats.certifications', value: '8+', icon: LucideAward },
