@@ -44,6 +44,15 @@
     "projectsCompleted": "المشاريع المكتملة",
     "technologies": "التقنيات"
   },
+  "impact": {
+    "subtitle": "الأثر",
+    "title": "أثري بالأرقام",
+    "projects": "المشاريع",
+    "technologies": "التقنيات",
+    "certifications": "الشهادات",
+    "experiences": "الخبرات",
+    "languages": "اللغات"
+  },
   "projects": {
     "subtitle": "الملف الشخصي",
     "title": "المشاريع والانجازات.",

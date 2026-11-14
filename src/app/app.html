@@ -17,6 +17,12 @@
     }
 
     @defer (hydrate on viewport) {
+      <app-impact></app-impact>
+    } @placeholder {
+      <div id="impact" class="min-h-[1100px] md:min-h-[660px]"></div>
+    }
+
+    @defer (hydrate on viewport) {
       <app-services></app-services>
     } @placeholder {
       <div id="services" class="min-h-[620px]"></div>

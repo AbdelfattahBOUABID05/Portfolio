@@ -44,6 +44,15 @@
     "projectsCompleted": "Projects Completed",
     "technologies": "Technologies"
   },
+  "impact": {
+    "subtitle": "Impact",
+    "title": "My impact in numbers",
+    "projects": "Projects",
+    "technologies": "Technologies",
+    "certifications": "Certifications",
+    "experiences": "Experiences",
+    "languages": "Languages"
+  },
   "projects": {
     "subtitle": "Portfolio",
     "title": "Projects & Achievements.",

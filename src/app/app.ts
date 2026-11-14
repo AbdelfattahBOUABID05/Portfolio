@@ -4,6 +4,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { AboutComponent } from './components/about/about.component';
+import { ImpactComponent } from './components/impact/impact.component';
 import { ServicesComponent } from './components/services/services.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { ExperienceComponent } from './components/experience/experience.component';
@@ -21,6 +22,7 @@ import { ChatComponent } from './components/chat/chat.component';
     NavbarComponent,
     HeroComponent,
     AboutComponent,
+    ImpactComponent,
     ServicesComponent,
     SkillsComponent,
     ExperienceComponent,
