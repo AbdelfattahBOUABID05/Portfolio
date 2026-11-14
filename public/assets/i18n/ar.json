@@ -39,11 +39,6 @@
     "badge": "شارة",
     "certificate": "شهادة"
   },
-  "aboutStats": {
-    "certifications": "الشهادات",
-    "projectsCompleted": "المشاريع المكتملة",
-    "technologies": "التقنيات"
-  },
   "impact": {
     "subtitle": "الأثر",
     "title": "أثري بالأرقام",

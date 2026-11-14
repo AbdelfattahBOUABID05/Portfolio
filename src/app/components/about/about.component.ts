@@ -1,10 +1,9 @@
-import { Component, signal, Type, ElementRef, ViewChild, AfterViewInit, OnDestroy, NgZone, Inject, PLATFORM_ID, inject } from '@angular/core';
+import { Component, signal, ElementRef, ViewChild, AfterViewInit, OnDestroy, NgZone, Inject, PLATFORM_ID, inject } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { LucideAward, LucideBriefcase, LucideCpu } from '@lucide/angular';
+import { LucideCpu } from '@lucide/angular';
 import { ThemeService } from '../../services/theme';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal';
 import { TranslatePipe } from '@ngx-translate/core';
-import { AppCardComponent } from '../../shared/card/card.component';
 import { CERTIFICATIONS, Certification } from '../../data/portfolio.data';
 
 interface PhysicsLogo {
@@ -21,14 +20,10 @@ interface PhysicsLogo {
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [CommonModule, LucideCpu, ScrollRevealDirective, TranslatePipe, AppCardComponent],
+  imports: [CommonModule, LucideCpu, ScrollRevealDirective, TranslatePipe],
   templateUrl: './about.component.html'
 })
 export class AboutComponent implements AfterViewInit, OnDestroy {
-  readonly Award = LucideAward;
-  readonly Briefcase = LucideBriefcase;
-  readonly Cpu = LucideCpu;
-
   private themeService = inject(ThemeService);
   public isDarkMode = this.themeService.isDarkMode;
 
@@ -38,12 +33,6 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
   public isCertListOpen = signal<boolean>(false);
 
   public certifications: Certification[] = [...CERTIFICATIONS];
-
-  public stats = signal<{ labelKey: string; value: string; icon: Type<any> }[]>([
-    { labelKey: 'aboutStats.certifications', value: '8+', icon: LucideAward },
-    { labelKey: 'aboutStats.projectsCompleted', value: '6+', icon: LucideBriefcase },
-    { labelKey: 'aboutStats.technologies', value: '20+', icon: LucideCpu }
-  ]);
 
   private animationId?: number;
   private mousePos = { x: -1000, y: -1000 };

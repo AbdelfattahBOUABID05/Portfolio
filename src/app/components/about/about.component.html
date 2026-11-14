@@ -3,28 +3,6 @@
   <div class="absolute -top-32 -left-32 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[80px] pointer-events-none will-change-transform transform-gpu" aria-hidden="true"></div>
 
   <div class="container mx-auto px-6 relative z-10">
-    <!-- Contenu réutilisé par les tuiles de stats (app-card et bouton Certifications) -->
-    <ng-template #statContent let-stat="stat">
-      <div class="flex items-center gap-4 mb-3">
-        <div class="p-3 rounded-2xl bg-slate-100 dark:bg-slate-800">
-          <div class="text-blue-600 dark:text-blue-500 flex items-center justify-center">
-            <ng-container *ngComponentOutlet="stat.icon; inputs: { size: 20 }"></ng-container>
-          </div>
-        </div>
-        <span class="text-2xl font-black text-slate-900 dark:text-white">{{ stat.value }}</span>
-      </div>
-      <div class="flex items-center justify-between">
-        <p class="text-xs font-black uppercase tracking-widest text-slate-600 dark:text-slate-400">
-          {{ stat.labelKey | translate }}
-        </p>
-        @if (stat.labelKey === 'aboutStats.certifications') {
-          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="text-slate-600 dark:text-slate-400" aria-hidden="true" [class.rotate-180]="isCertListOpen()">
-            <path d="m6 9 6 6 6-6"/>
-          </svg>
-        }
-      </div>
-    </ng-template>
-
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
 
       <!-- A — Visuel : canvas physique (même contenu, même aspect-square) -->
@@ -54,8 +32,9 @@
         </div>
       </div>
 
-      <!-- B — Intro -->
-      <div class="lg:col-span-7">
+      <!-- B — Intro : occupe les 2 lignes de la grille (comme le canvas), afin
+           qu'aucune cellule ne reste vide depuis la suppression du bloc de stats. -->
+      <div class="lg:col-span-7 lg:row-span-2 lg:self-center">
         <div class="space-y-4">
           <h2 class="text-3xl md:text-4xl font-black text-slate-900 dark:text-white leading-tight">
             {{ 'about.title' | translate }}
@@ -67,27 +46,6 @@
             {{ 'about.description2' | translate }}
           </p>
         </div>
-      </div>
-
-      <!-- C — Stats -->
-      <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-4">
-        @for (stat of stats(); track stat.labelKey) {
-          @if (stat.labelKey === 'aboutStats.certifications') {
-            <button
-              type="button"
-              class="block w-full text-start p-6 rounded-[var(--radius-card)] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none cursor-pointer"
-              [attr.aria-expanded]="isCertListOpen()"
-              (click)="toggleCertList($event)"
-              (keydown.escape)="closeCertList()"
-            >
-              <ng-container [ngTemplateOutlet]="statContent" [ngTemplateOutletContext]="{ stat }" />
-            </button>
-          } @else {
-            <app-card padding="sm">
-              <ng-container [ngTemplateOutlet]="statContent" [ngTemplateOutletContext]="{ stat }" />
-            </app-card>
-          }
-        }
       </div>
 
       <!-- D — Certifications (cellule pleine largeur, ouverte/fermée) -->

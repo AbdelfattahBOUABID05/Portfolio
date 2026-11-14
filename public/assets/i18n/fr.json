@@ -39,11 +39,6 @@
     "badge": "Badge",
     "certificate": "Certificat"
   },
-  "aboutStats": {
-    "certifications": "Certifications",
-    "projectsCompleted": "Projets Réalisés",
-    "technologies": "Technologies"
-  },
   "impact": {
     "subtitle": "Impact",
     "title": "Mon impact en chiffres",
