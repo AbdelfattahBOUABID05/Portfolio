@@ -94,7 +94,7 @@ src/
 public/
 ├── assets/
 │   ├── certificat/          # Certifications (PDF)
-│   ├── cv/                  # CV en PDF (EN / AR)
+│   ├── cv/                  # CV en PDF (EN / FR) ; la version FR est aussi utilisée pour l'arabe
 │   ├── fonts/               # Polices auto-hébergées (woff2)
 │   ├── i18n/                # Traductions fr.json / en.json / ar.json
 │   └── logo/                # Logos des technologies
