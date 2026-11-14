@@ -3,7 +3,7 @@
 Portfolio personnel d'**Abdelfattah Bouabid**, ingénieur logiciel full-stack (DevOps, SecOps, Web & Mobile).
 Site statique prérendu, trilingue (FR / EN / AR avec RTL), en clair / sombre, construit avec **Angular 21** et **Tailwind CSS v4**.
 
-🔗 En ligne : https://abdelfattahbouabid05.github.io/Portfolio/
+🔗 En ligne : https://portfolio-abdelfattah-bouabid.vercel.app/
 
 ## Aperçu
 
@@ -34,7 +34,7 @@ rapide et un bon référencement, puis hydraté de façon incrémentale côté n
 - **i18n** : `@ngx-translate/core` (FR / EN / AR)
 - **Rendu** : prérendu statique (`@angular/ssr`, `RenderMode.Prerender`)
 - **Tests** : Vitest + jsdom (builder `@angular/build:unit-test`)
-- **CI/CD & hébergement** : GitHub Actions → GitHub Pages
+- **CI/CD & hébergement** : Vercel (déploiement continu)
 
 ## Scores Lighthouse
 
@@ -133,10 +133,10 @@ Le site est servi sur `http://localhost:4200/`.
 ### Build de production
 
 ```bash
-npm run build -- --base-href "/Portfolio/"
+npm run build
 ```
 
-Le site prérendu est généré dans `dist/portfolio/browser/` (`index.html` contient le HTML rendu au build).
+Pas de `--base-href` : le site est servi à la racine (`/`). Le site prérendu est généré dans `dist/portfolio/browser/` (`index.html` contient le HTML rendu au build).
 
 ## Internationalisation (i18n)
 
@@ -151,13 +151,13 @@ Le site est disponible en **français**, **anglais** et **arabe** (avec directio
 
 ## Déploiement
 
-Le déploiement sur **GitHub Pages** est automatisé par le workflow [.github/workflows/deploy.yml](.github/workflows/deploy.yml) :
+Le site est déployé sur **Vercel** : chaque push sur `main` déclenche un déploiement continu via l'intégration Git du projet Vercel.
 
-- Déclenché à chaque **push sur `main`** (ou manuellement via `workflow_dispatch`)
-- Installe les dépendances (`npm ci`), build avec `--base-href "/${{ github.event.repository.name }}/"`, puis publie `dist/portfolio/browser`
-- Publication via les actions officielles GitHub Pages (`actions/upload-pages-artifact` + `actions/deploy-pages`)
+- **Build** : `npm run build` (aucun `--base-href`, le site est servi à la racine `/`)
+- **Répertoire de sortie** : `dist/portfolio/browser`
+- **Configuration** : [vercel.json](vercel.json) — cache `public, max-age=604800` sur `/assets/` (sans `immutable`) et en-têtes de sécurité (`X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`)
 
-> Le `base-href` est déduit du nom du dépôt par le workflow (`/Portfolio/`). En local, pensez à passer `--base-href "/Portfolio/"` pour reproduire le comportement de production.
+L'URL canonique de production est `https://portfolio-abdelfattah-bouabid.vercel.app/` (reprise dans `index.html`, `robots.txt`, `sitemap.xml` et `llms.txt`).
 
 ## Licence
 
