@@ -150,7 +150,7 @@ export class LanguageService {
     const lang = this.currentLanguage;
     // Pas de CV arabe : le CV français sert pour le FR et l'AR ; l'anglais a son propre fichier.
     const fileName = lang === 'en' ? 'cv-en.pdf' : 'cv-fr.pdf';
-    // Chemin relatif : se résout automatiquement contre <base href> (local "/" et prod "/Portfolio/")
+    // Chemin relatif : se résout contre <base href> ("/" en local comme en production Vercel)
     const filePath = `assets/cv/${fileName}`;
 
     const link = document.createElement('a');
