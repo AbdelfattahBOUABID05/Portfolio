@@ -13,7 +13,6 @@ interface Skill {
 interface SkillCategory {
   titleKey: string;
   icon: Type<any>;
-  skillCount: number;
   color: 'blue' | 'indigo' | 'emerald' | 'rose' | 'slate';
   categoryKey: 'frontendMobile' | 'backendApis' | 'devopsCloud' | 'networkSecurity' | 'digitalDesignDocs';
 }
@@ -33,35 +32,30 @@ export class SkillsComponent {
       titleKey: 'skillCategories.frontendMobile',
       icon: LucideLayout,
       color: 'blue',
-      skillCount: 10,
       categoryKey: 'frontendMobile'
     },
     {
       titleKey: 'skillCategories.backendApis',
       icon: LucideDatabase,
       color: 'indigo',
-      skillCount: 10,
       categoryKey: 'backendApis'
     },
     {
       titleKey: 'skillCategories.devopsCloud',
       icon: LucideInfinity,
       color: 'emerald',
-      skillCount: 8,
       categoryKey: 'devopsCloud'
     },
     {
       titleKey: 'skillCategories.networkSecurity',
       icon: LucideShield,
       color: 'rose',
-      skillCount: 6,
       categoryKey: 'networkSecurity'
     },
     {
       titleKey: 'skillCategories.digitalDesignDocs',
       icon: LucideFileText,
       color: 'slate',
-      skillCount: 4,
       categoryKey: 'digitalDesignDocs'
     }
   ]);
@@ -88,10 +82,6 @@ export class SkillsComponent {
       slate: 'bg-slate-500/10 text-slate-500 dark:text-slate-400'
     };
     return base + (colors[color] || '');
-  }
-
-  getIndices(count: number): number[] {
-    return Array.from({ length: count }, (_, i) => i);
   }
 
   filterProjectsBySkill(skill: string): void {
