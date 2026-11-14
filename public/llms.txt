@@ -1,0 +1,15 @@
+# Abdelfattah Bouabid — Software Engineer
+
+> Portfolio of Abdelfattah Bouabid, full-stack software engineer: DevOps, SecOps, Web & Mobile. Explore his projects, skills and certifications.
+
+## Portfolio
+
+- [Portfolio](https://portfolio-abdelfattah-bouabid.vercel.app/): main site, canonical URL — projects, skills, experience and certifications.
+- [Projects](https://portfolio-abdelfattah-bouabid.vercel.app/#projects): selected full-stack, DevOps and mobile projects.
+- [Contact](https://portfolio-abdelfattah-bouabid.vercel.app/#contact): contact section.
+- [CV (PDF, English)](https://portfolio-abdelfattah-bouabid.vercel.app/assets/cv/cv-en.pdf): downloadable English résumé.
+
+## Elsewhere
+
+- [GitHub](https://github.com/AbdelfattahBOUABID05): source code and open-source work.
+- [LinkedIn](https://www.linkedin.com/in/abdelfattah-bouabid-150a56335): professional profile.
