@@ -4,7 +4,7 @@
 - Angular 21 (standalone components, Signals), TypeScript strict
 - Tailwind CSS v4 (config CSS-first dans styles.css)
 - ngx-translate pour l'i18n (FR / EN / AR avec RTL)
-- Déploiement : GitHub Pages via GitHub Actions, base-href "/Portfolio/"
+- Déploiement : Vercel (npm run build, output dist/portfolio/browser, pas de base-href)
 
 ## Workflow
 - Travaille UNE tâche à la fois, uniquement celle demandée.
@@ -61,4 +61,4 @@
 ## Git
 - Travail directement sur la branche `main`. Tu peux faire `git add` et `git commit` (un commit par tâche), mais JAMAIS `git push`, `git merge`, `git pull`, `git rebase` ni commande destructive.
 - À la fin de chaque tâche, donne-moi : `git status`, puis `git push`, avec ce que je dois voir si tout va bien.
-- Dis-moi si la tâche est déployable (chaque push sur main déploie GitHub Pages).
+- Dis-moi si la tâche est déployable (chaque push sur main déploie sur Vercel).
