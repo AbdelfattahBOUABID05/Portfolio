@@ -1,10 +1,13 @@
-import { Component, signal, ElementRef, ViewChild, AfterViewInit, OnDestroy, NgZone, Inject, PLATFORM_ID, inject } from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewInit, OnDestroy, NgZone, Inject, PLATFORM_ID, inject } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { LucideCpu } from '@lucide/angular';
 import { ThemeService } from '../../services/theme';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal';
 import { TranslatePipe } from '@ngx-translate/core';
 import { CERTIFICATIONS, Certification } from '../../data/portfolio.data';
+import { AppCardComponent } from '../../shared/card/card.component';
+import { AppBadgeComponent } from '../../shared/badge/badge.component';
+import { AppButtonComponent } from '../../shared/button/button.component';
 
 interface PhysicsLogo {
   img: any; // Use any for SSR safety, initialized as HTMLImageElement only in browser
@@ -20,7 +23,15 @@ interface PhysicsLogo {
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [CommonModule, LucideCpu, ScrollRevealDirective, TranslatePipe],
+  imports: [
+    CommonModule,
+    LucideCpu,
+    ScrollRevealDirective,
+    TranslatePipe,
+    AppCardComponent,
+    AppBadgeComponent,
+    AppButtonComponent
+  ],
   templateUrl: './about.component.html'
 })
 export class AboutComponent implements AfterViewInit, OnDestroy {
@@ -29,8 +40,6 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
 
   @ViewChild('physicsCanvas') canvasRef!: ElementRef<HTMLCanvasElement>;
   @ViewChild('physicsContainer') containerRef!: ElementRef<HTMLElement>;
-
-  public isCertListOpen = signal<boolean>(false);
 
   public certifications: Certification[] = [...CERTIFICATIONS];
 
@@ -47,21 +56,6 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
     private ngZone: NgZone,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {}
-
-  public toggleCertList(event: Event) {
-    event.stopPropagation();
-    this.isCertListOpen.update(prev => !prev);
-  }
-
-  public openFile(url: string) {
-    if (isPlatformBrowser(this.platformId)) {
-      window.open(url, '_blank');
-    }
-  }
-
-  public closeCertList() {
-    this.isCertListOpen.set(false);
-  }
 
   ngAfterViewInit() {
     if (!isPlatformBrowser(this.platformId)) {

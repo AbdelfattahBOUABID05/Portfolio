@@ -37,7 +37,9 @@
     "description1": "Independent consultant specialized in orchestrating complete technological solutions, from architectural design to production deployment. I accompany companies in transforming their information systems, combining innovation, performance and resilience.",
     "description2": "My expertise covers the entire value chain: modern software architectures, CI/CD pipeline automation, cloud and secure network infrastructures. I design scalable and adaptable solutions, capable of evolving with the company's needs.",
     "badge": "Badge",
-    "certificate": "Certificate"
+    "certificate": "Certificate",
+    "openBadge": "Open badge: {{name}}",
+    "openCertificate": "Open certificate: {{name}}"
   },
   "impact": {
     "subtitle": "Impact",

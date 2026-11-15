@@ -37,7 +37,9 @@
     "description1": "Consultant indépendant spécialisé dans l'orchestration de solutions technologiques complètes, de la conception architecturale jusqu'au déploiement en production. J'accompagne les entreprises dans la transformation de leurs systèmes d'information, en alliant innovation, performance et résilience.",
     "description2": "Mon expertise couvre la chaîne complète de valeur : architectures logicielles modernes, automatisation des pipelines CI/CD, infrastructures cloud et réseaux sécurisés. Je conçois des solutions scalables et adaptables, capables d'évoluer avec les besoins de l'entreprise.",
     "badge": "Badge",
-    "certificate": "Certificat"
+    "certificate": "Certificat",
+    "openBadge": "Ouvrir le badge : {{name}}",
+    "openCertificate": "Ouvrir le certificat : {{name}}"
   },
   "impact": {
     "subtitle": "Impact",

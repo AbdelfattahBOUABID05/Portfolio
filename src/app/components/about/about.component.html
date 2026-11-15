@@ -48,39 +48,59 @@
         </div>
       </div>
 
-      <!-- D — Certifications (cellule pleine largeur, ouverte/fermée) -->
-      @if (isCertListOpen()) {
-        <div
-          class="lg:col-span-12 p-4 rounded-3xl bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border border-slate-200 dark:border-slate-800 shadow-2xl max-h-[450px] overflow-y-auto custom-scrollbar"
-          (keydown.escape)="closeCertList()"
-        >
-          <div class="space-y-3">
-            @for (cert of certifications; track cert.name) {
-              <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50">
-                <p class="text-xs font-bold text-slate-700 dark:text-slate-300 mb-3">
-                  {{ cert.name }}
-                </p>
-                <div class="flex gap-2">
-                  <button 
-                    (click)="openFile(cert.badge)"
-                    class="flex-1 flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-blue-500/10 text-blue-700 dark:text-blue-400 hover:bg-blue-600 dark:hover:bg-blue-500 hover:text-white text-xs font-black uppercase tracking-wider transition-colors border border-blue-500/20"
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9 12 15 18 9"/></svg>
-                    {{ 'about.badge' | translate }}
-                  </button>
-                  <button 
-                    (click)="openFile(cert.pdf)"
-                    class="flex-1 flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 hover:bg-emerald-600 dark:hover:bg-emerald-500 hover:text-white text-xs font-black uppercase tracking-wider transition-colors border border-emerald-500/20"
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
-                    {{ 'about.certificate' | translate }}
-                  </button>
-                </div>
-              </div>
-            }
-          </div>
+      <!-- C — Certifications : les 8 cartes sont toujours visibles (plus de dropdown) -->
+      <div class="lg:col-span-12">
+        <div class="flex items-center gap-3 mb-6">
+          <h3 class="text-2xl font-black text-slate-900 dark:text-white">
+            {{ 'impact.certifications' | translate }}
+          </h3>
+          <app-badge variant="primary">{{ certifications.length }}</app-badge>
         </div>
-      }
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          @for (cert of certifications; track cert.name) {
+            <app-card padding="sm">
+              <p class="text-sm font-bold text-slate-900 dark:text-white leading-snug mb-4">
+                {{ cert.name }}
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <app-button
+                  variant="secondary"
+                  size="sm"
+                  [href]="cert.badge"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  [ariaLabel]="'about.openBadge' | translate: { name: cert.name }"
+                >
+                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="8" r="6"/>
+                    <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+                  </svg>
+                  {{ 'about.badge' | translate }}
+                </app-button>
+
+                @if (cert.pdf !== cert.badge) {
+                  <app-button
+                    variant="secondary"
+                    size="sm"
+                    [href]="cert.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    [ariaLabel]="'about.openCertificate' | translate: { name: cert.name }"
+                  >
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M15 3h6v6"/>
+                      <path d="M10 14 21 3"/>
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                    </svg>
+                    {{ 'about.certificate' | translate }}
+                  </app-button>
+                }
+              </div>
+            </app-card>
+          }
+        </div>
+      </div>
     </div>
   </div>
 </section>
