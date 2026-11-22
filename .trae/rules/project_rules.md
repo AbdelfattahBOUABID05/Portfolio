@@ -62,3 +62,5 @@
 - Travail directement sur la branche `main`. Tu peux faire `git add` et `git commit` (un commit par tâche), mais JAMAIS `git push`, `git merge`, `git pull`, `git rebase` ni commande destructive.
 - À la fin de chaque tâche, donne-moi : `git status`, puis `git push`, avec ce que je dois voir si tout va bien.
 - Dis-moi si la tâche est déployable (chaque push sur main déploie sur Vercel).
+
+- Avant de supprimer un élément interactif (bouton, lien, menu), vérifie qu'aucune fonctionnalité n'en dépend (grep des handlers) et signale-moi explicitement toute fonctionnalité qui devient inaccessible.
